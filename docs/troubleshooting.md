@@ -28,6 +28,20 @@ Problems met while building this setup, each with the symptom, the cause and the
 
 **Fix.** Add it by hand, with **Start in** set to the game folder (the field is empty by default). See [setup.md](setup.md#5-f4se).
 
+## Red triangle on manual downloads
+
+**Symptom.** Every archive in MO2's Downloads tab shows a red warning triangle: "Information missing, please select 'Query Info' from the context menu to re-retrieve."
+
+**Cause.** MO2 stores the Nexus mod ID and version in a `.meta` file it writes for downloads it made itself. Archives copied in by hand have none.
+
+**Fix.** None needed: the archives install normally. "Query Info" only works once MO2 is logged in to the Nexus API.
+
+## Archive with a `Data` folder at its root
+
+**Symptom.** Some archives, such as MCM, put everything under `Data/`. Installed as is, the files would land in `Data/Data/` and the game would not see them.
+
+**Fix.** MO2 usually detects this and unwraps the folder. If it opens the manual install window instead, right-click `Data` → **Set data directory** → OK. Check the result in `~/Games/MO2/mods/<mod>/`: it must hold `F4SE`, `Interface`, `Scripts` and so on, not `Data`.
+
 ## Harmless log lines
 
 | Line | Where | Meaning |

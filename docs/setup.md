@@ -109,3 +109,15 @@ Not Proton passes launch options through a shell, as Steam does on Linux, so `NA
    | `[Controls]` | `bBackgroundMouse=1` | Mouse input under Wine |
 
 4. Back it up before installing any mod: `fo4-backup.sh profile "<profile name>"`.
+
+## 7. Install mods
+
+Nexus "Mod Manager" download links need MO2 registered as the `nxm://` handler, which this setup does not do. Use "Manual download" instead:
+
+1. Download the archive from the mod's Files tab.
+2. Copy it to `~/Games/MO2/downloads`. On the same volume, `cp -c` makes an instant APFS clone.
+3. In MO2, open the **Downloads** tab (right pane, after Plugins, Archives, Data and Saves) and press **Refresh** if the list is empty.
+4. Double-click the archive, give the mod a short name, then **OK**.
+5. Tick the mod in the left pane.
+
+Manual downloads carry no Nexus metadata, so each line in the Downloads tab shows a red warning triangle; see [troubleshooting.md](troubleshooting.md#red-triangle-on-manual-downloads).
