@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Problems met while building this setup, each with the symptom, the cause and the fix that worked. The setup guide already includes every fix; this page explains why the steps look the way they do. Dates and context are in [journal.md](journal.md).
+Problems met while building this setup, each with the symptom, the cause and the fix that worked. The setup guide already includes every fix; this page explains why the steps look the way they do.
 
 ## MO2 runs in its own prefix
 
@@ -36,3 +36,10 @@ Problems met while building this setup, each with the symptom, the cause and the
 | `os = 6.2 (9200)` | `f4se.log` | Wine reports Windows 8; no effect seen |
 | `plugins.txt empty` | MO2 log | Normal for a new profile |
 | `cxcompatdb:verify_file invalid signature` | `notproton-run.log` | Printed on every launch, including working ones |
+
+## Known risks, not yet seen
+
+| Risk | Why | What to do |
+| --- | --- | --- |
+| A Steam client update breaks Not Proton | Not Proton hooks specific Steam client builds and reports `updatesBlocked=false` | If Windows games stop launching after a Steam update, check `~/Library/Application Support/notproton/notproton.log` and wait for a Not Proton update |
+| A Fallout 4 patch gets through | The `uchg` lock on the update manifest has not been tested against a real patch | Keep the clean clone from `fo4-backup.sh game`, and never press Play on Fallout 4 in Steam |

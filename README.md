@@ -1,6 +1,6 @@
 # Fallout 4 on macOS, modded
 
-A tested setup for running a modded Fallout 4 on an Apple Silicon Mac: the macOS Steam client launches the Windows game through Not Proton and CrossOver, Mod Organizer 2 runs inside the game's Wine prefix, and F4SE loads on runtime 1.11.240. Every step was run on a real machine and logged, including the ones that failed.
+A tested setup for running a modded Fallout 4 on an Apple Silicon Mac: the macOS Steam client launches the Windows game through Not Proton and CrossOver, Mod Organizer 2 runs inside the game's Wine prefix, and F4SE loads on runtime 1.11.240. Every step was run on a real machine.
 
 **Status: work in progress.** The base works (game, MO2, F4SE up to the main menu). Mods are being added in batches; the mod list will be published with v1.0.0.
 
@@ -21,7 +21,6 @@ Reference machine: Apple M3, 16 GB, macOS 26.5.1.
 | --- | --- |
 | [docs/setup.md](docs/setup.md) | Step-by-step setup, paths and launch options |
 | [docs/troubleshooting.md](docs/troubleshooting.md) | Problems met, their causes and fixes |
-| [docs/journal.md](docs/journal.md) | Dated build log: what worked, what failed, what is unverified |
 | [scripts/fo4-backup.sh](scripts/fo4-backup.sh) | APFS-clone backups of the game, MO2 and profiles; Steam update lock |
 
 ## Requirements

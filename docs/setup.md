@@ -1,6 +1,6 @@
 # Setup guide
 
-Fallout 4 (Steam, 1.11.240) on an Apple Silicon Mac, modded with Mod Organizer 2 and F4SE. The macOS Steam client runs the Windows game through Not Proton and CrossOver; there is no CrossOver bottle and no Windows Steam. Mod Organizer 2 runs as a non-Steam shortcut forced into the game's Wine prefix. Every step below was run on the reference machine; see [journal.md](journal.md) for the dated record and [troubleshooting.md](troubleshooting.md) for what went wrong on the way.
+Fallout 4 (Steam, 1.11.240) on an Apple Silicon Mac, modded with Mod Organizer 2 and F4SE. The macOS Steam client runs the Windows game through Not Proton and CrossOver; there is no CrossOver bottle and no Windows Steam. Mod Organizer 2 runs as a non-Steam shortcut forced into the game's Wine prefix. Every step below was run on the reference machine. [troubleshooting.md](troubleshooting.md) explains the problems behind the less obvious steps.
 
 ## Requirements
 
