@@ -28,6 +28,14 @@ Problems met while building this setup, each with the symptom, the cause and the
 
 **Fix.** Add it by hand, with **Start in** set to the game folder (the field is empty by default). See [setup.md](setup.md#5-f4se).
 
+## MO2 asks to handle nxm links
+
+**Symptom.** At startup MO2 asks "Mod Organizer is not set up to handle nxm links. Associate it with nxm links?"
+
+**Cause.** Accepting writes the `nxm://` handler into the Wine prefix registry. macOS browsers never read it, so Nexus "Mod manager download" buttons would still not reach MO2.
+
+**Fix.** Click **No, don't ask again** and use manual downloads ([setup.md](setup.md#7-install-mods)).
+
 ## Red triangle on manual downloads
 
 **Symptom.** Every archive in MO2's Downloads tab shows a red warning triangle: "Information missing, please select 'Query Info' from the context menu to re-retrieve."
