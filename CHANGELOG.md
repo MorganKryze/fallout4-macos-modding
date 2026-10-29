@@ -17,6 +17,10 @@ All notable changes to this project are documented here. The format follows [Kee
 - Reference playthrough page with the trade-offs behind our list and playing habits.
 - Install plan: the reference list in eight tested batches, with the target load order and the FO4Edit checks.
 - `llms.txt` describing the data for AI assistants.
+- `scripts/fo4_bench.py` and `scripts/fo4_watch.sh` to record a play session and summarise frame times from the Metal HUD log.
+- `plugins/hide-menubar`: a Not Proton plugin that removes the macOS menu bar while the game is active, so a click on the top screen edge no longer takes the mouse from the game.
+- Setup: MSync, Microsoft's XAudio2, and the mouse fix (`bBackgroundMouse=0`, `MouseWarpOverride=force`, menu bar plugin).
+- Troubleshooting notes for crackling sound and the game cursor drifting from the macOS cursor.
 
 ### Changed
 
