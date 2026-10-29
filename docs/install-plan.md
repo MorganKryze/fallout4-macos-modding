@@ -41,7 +41,7 @@ SS2.esm, SS2_XPAC_Chapter2.esm, SS2_XPAC_Chapter3.esm
 YouAndWhatArmy2.esm
 AmericaRising2.esm
 SSTMinutemanWatchtowers.esl
-CommunityFixesMerged.esp*
+Community Fixes Merged.esp
 Lunar - UFO4.esp
 Lunar - Community Fixes Merged Patch.esp*
 SS2Extended.esp
