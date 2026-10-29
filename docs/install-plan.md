@@ -31,6 +31,7 @@ Sort with LOOT, then check these positions. ESM-flagged plugins always load befo
 Fallout4.esm, the 6 DLC, the 9 free Creation Club .esl files
 Unofficial Fallout 4 Patch.esp       (ESM-flagged)
 PPF.esm                              (PRP master, early)
+TMR_GlitchfinderAIO.esm
 HUDFramework.esm
 WorkshopFramework.esm
 XDI.esm
