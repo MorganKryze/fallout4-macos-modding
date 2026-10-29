@@ -1,0 +1,124 @@
+# Companions
+
+New companions, multi-follower frameworks, companion AI fixes and affinity tools. Heather Casdin (2,400+ voiced lines, her own AI) is still the community's clear first choice in October 2026 threads. Simple Everyone's Best Friend (2025) has replaced the original, and AFT Plus 4.39 (September 2026) is the multi-follower option. Follower AI Approach Reaction Fix ships a build for 1.11.137-1.11.240. The main risks are script load (AFT Plus, Follower Revive System, Companion Command and Tactics) and Lunar: companion rebalances such as Better Companions AIO collide with Lunar's companion edits.
+
+## Pick one
+
+| Choose between | Difference | Our pick |
+| --- | --- | --- |
+| Multi-follower: Simple Everyone's Best Friend or AFT Plus | Simple EBF adds Dogmeat plus one companion. AFT Plus allows up to 10, edits FollowersScript and is script-heavy | Simple Everyone's Best Friend |
+| Companion balance: Lunar's companion edits or Better Companions AIO | Better Companions AIO changes perks, ammo, accuracy and combat style against Lunar | Lunar |
+| Affinity display: Visible Companion Affinity or Companion Affinity Pip-Boy Tab | Notifications and a holotape, or a Pip-Boy tab; either works | Neither |
+| Deacon's disguises: Better Deacon Disguises or Dress-Up Deacon | Better-fitting disguises, or disguises as playable outfits | Neither |
+| Companion and settler lines: Settler and Companion Dialogue Overhaul or Icebreaker - Settler Dialogue | Both rewrite repeated lines | Neither yet |
+
+## Suggested stacks
+
+| Profile | Take | Skip |
+| --- | --- | --- |
+| Lunar on a light machine | Heather Casdin, Simple Everyone's Best Friend, Follower AI Approach Reaction Fix, Settler and Companion Dialogue Overhaul | AFT Plus, Better Companions AIO, Follower Revive System |
+| Big party | AFT Plus + AFT Plus Patch Hub (SS2 patch). Do not import Heather Casdin into it | Simple Everyone's Best Friend |
+| Character-focused | Ellen - the cartographer, It's Molly, Nora Spouse Companion + Nora Spouse Companion Bug Fixes + Nora Spouse Companion SS2 Patch, Companion Ivy + Companion Ivy - XDI patch (LoversLab, adult) | Lucy MacLean companion, Paladin Frost |
+| Faction loyalist | BoS: The Danse Dilemma, Brotherhood Lancer Companion. Railroad: Keep Deacon's Trust, Settler and Companion Dialogue Overhaul (Deacon's quest). Any faction: Keep both X6-88 and Porter Gage Plus Deacon | Paladin Frost (AI-voiced) |
+
+## Our choice
+
+The reference playthrough takes Heather Casdin, Simple Everyone's Best Friend and Follower AI Approach Reaction Fix. Heather runs her own follower system next to one vanilla companion and Dogmeat, so she is never imported into a framework. AFT Plus stays out: it is script-heavy and incompatible with Simple EBF. With Lunar, Dogmeat is a bit strong as a second companion; Lunar - Everyone's Best Friend targets the original EBF, and its fit with Simple EBF is unverified.
+
+<!-- BEGIN GENERATED: do not edit, run scripts/build_catalog.py -->
+40 mods: 5 recommended, 26 optional, 9 avoid. Plugin slots if you take everything not marked avoid: 0 full.
+
+### Recommended
+
+| | Mod | What it does | Fit | Cost | Links |
+| --- | --- | --- | --- | --- | --- |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/92024/92024-1741367009-21844459.jpeg" width="96" alt=""> | **[Follower AI Approach Reaction Fix](https://www.nexusmods.com/fallout4/mods/92024)**<br><sub>by LarannKiar · v3.1 · updated 2026-08-20 · 2,693 endorsements · 74 KB</sub> | Companions stop walking away when you approach them<br>*3.1 (2026-08-20), AE 1.11.137-1.11.240; Works with all companions, modded ones too* | `recommended`<br>1.11.240: yes<br>F4SE DLL | perf low |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/23273/23273-1650690399-875630213.png" width="96" alt=""> | **[Heather Casdin](https://www.nexusmods.com/fallout4/mods/23273)**<br><sub>by llamaRCA · v2.7 · updated 2024-02-17 · 33,095 endorsements · 193.9 MB</sub> | Voiced story companion with 2,400+ lines, quests, own AI and bunker<br>*2.7 (2024-02-17); Own follower system: runs alongside a vanilla companion plus Dogmeat; do not import into a framework; Assignable in SS2; No XDI patch needed; Bunker cell vs precombines unverified* | `recommended`<br>1.11.240: plugin only | perf med<br>scripts light<br>NPCs few |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/88920/88920-1730665387-741828119.jpeg" width="96" alt=""> | **[Keep Deacon's Trust](https://www.nexusmods.com/fallout4/mods/88920)**<br><sub>by JanuarySnow · v0.1 · updated 2024-11-03 · 61 endorsements · 4 KB</sub> | If you skip Deacon's note he takes it back after 3 days and his affinity quest continues<br>*Tiny fix for a design trap* | `recommended`<br>1.11.240: plugin only | perf  |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/41785/41785-1572228481-108159192.jpeg" width="96" alt=""> | **[Settler and Companion Dialogue Overhaul](https://www.nexusmods.com/fallout4/mods/41785)**<br><sub>by Project Valkyrie Discord Server · v1.01 · updated 2020-12-12 · 19,974 endorsements · 47.0 MB</sub> | Less repetitive companion and settler lines, small quests<br>*Edits companion dialogue quests and DialogueFarmGeneric only; Compatible with multi-follower mods per author; SS2 not listed (unverified); Needs Automatron, Nuka-World, Vault-Tec (GOTY OK); Pick SCDO or Icebreaker for settlers; The only real Deacon content (also 8 other companions); Overlaps other dialogue mods: cross-check with the companions report; LITE version without the radiants exists* | `recommended`<br>1.11.240: plugin only | perf low |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/92314/92314-1742248075-1530014120.png" width="96" alt=""> | **[Simple Everyone's Best Friend](https://www.nexusmods.com/fallout4/mods/92314)**<br><sub>by SoleVaultBoy · v1.1.1 · updated 2025-11-01 · 2,170 endorsements · 53 KB</sub> | Dogmeat plus one companion at the same time<br>*1.1.1 (2025-11-01); Mods that edit FollowersScript (AFT, AFT Plus) are incompatible; With Lunar, Dogmeat is a bit OP; the Bodega EBF patch targets the original EBF and its fit with Simple EBF is unverified* | `recommended`<br>1.11.240: plugin only | perf low | conflicts: AFT Plus |
+
+### Optional
+
+| | Mod | What it does | Fit | Cost | Links |
+| --- | --- | --- | --- | --- | --- |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/59699/59699-1768364358-1788748486.png" width="96" alt=""> | **[AFT Plus](https://www.nexusmods.com/fallout4/mods/59699)**<br><sub>by Sranger - Dheuster · v4.39 · updated 2026-09-12 · 2,278 endorsements · 2.6 MB</sub> | Up to 10 companions, SS2 interjections, optional spouse companion<br>*Alternative to Simple EBF, not alongside; 4.39 (2026-09-12) 'supports all FO4 versions as of 8.20.26'; needs GOE 23.2+; A no-F4SE build 3.15 exists; Script-heavy; Do not import Heather* | `optional`<br>1.11.240: yes<br>SS2: patch | perf high<br>scripts heavy | needs: Garden of Eden Papyrus Script Extender<br>patches: AFT Plus Patch Hub<br>conflicts: Simple Everyone's Best Friend |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/16967/16967-1518630155-653541923.jpeg" width="96" alt=""> | **[Ada2Human](https://www.nexusmods.com/fallout4/mods/16967)**<br><sub>by LazyGirl · v0.10.1 · updated 2023-02-26 · 4,807 endorsements · 4.1 MB</sub> | Turns Ada into a human companion<br>*MCM hotkey optional* | `optional`<br>1.11.240: plugin only | perf low |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/33396/33396-1532013301-545946492.jpeg" width="96" alt=""> | **[Better Deacon Disguises](https://www.nexusmods.com/fallout4/mods/33396)**<br><sub>by rjinthematrix · v1 · updated 2018-07-22 · 67 endorsements · 1 KB</sub> | Deacon's disguises fit their context better<br>*Edits the same outfits as Dress-Up Deacon (2018)* | `optional`<br>1.11.240: plugin only | perf  | conflicts: Dress-Up Deacon |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/77940/77940-1706732880-1989876592.png" width="96" alt=""> | **[Brotherhood Lancer Companion](https://www.nexusmods.com/fallout4/mods/77940)**<br><sub>by Martin Toms · v1.0 · updated 2024-02-02 · 30 endorsements · 4.2 MB</sub> | Generic BoS Lancer follower and settler<br>*2024-02; Niche (30 endorsements)* | `optional`<br>1.11.240: plugin only | perf low |  |
+|  | **Companion Ivy**<br><sub></sub> | Deep voiced companion (LoversLab)<br>*LoversLab only, no Nexus page; Adult content and heavy profanity (toggleable per Reddit); Version and AE status unknown* | `optional`<br>1.11.240: unknown | perf  | patches: Companion Ivy - XDI patch |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/25050/25050-1517986159-2127812269.jpeg" width="96" alt=""> | **[Deeper Thoughts - Curie](https://www.nexusmods.com/fallout4/mods/25050)**<br><sub>by DisplacerBeast8u · v1.1b · updated 2017-10-02 · 5,651 endorsements · 5 KB</sub> | More 'your thoughts' lines for Curie<br>*Edits Curie dialogue* | `optional`<br>1.11.240: plugin only | perf low |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/82397/82397-1715360195-1042274641.png" width="96" alt=""> | **[Dress-Up Deacon](https://www.nexusmods.com/fallout4/mods/82397)**<br><sub>by ptmc2112 · v1.0 · updated 2024-05-10 · 14 endorsements · 7 KB</sub> | Deacon's disguises become playable outfits, with a toggle holotape for disguise swaps<br>*ESL; Supersedes Deacon Outfit Change Change (2016); Pick one with Better Deacon Disguises* | `optional`<br>1.11.240: plugin only | perf <br>0 full / 1 light | conflicts: Better Deacon Disguises |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/15962-1-1479075213.jpg" width="96" alt=""> | **[Ellen - the cartographer](https://www.nexusmods.com/fallout4/mods/15962)**<br><sub>by guicool · vFinal · updated 2017-05-27 · 17,407 endorsements · 54.0 MB</sub> | 1,200-line voiced companion with a quest and romance<br>*2017 final version; compatibility unverified* | `optional`<br>1.11.240: plugin only | perf low |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/58890/58890-1647517028-1029452920.png" width="96" alt=""> | **[Full Deacon Romance](https://www.nexusmods.com/fallout4/mods/58890)**<br><sub>by FenbyRat · v1.2 · updated 2024-04-27 · 318 endorsements · 1.5 MB</sub> | Adds flirt and romance dialogue for Deacon<br>*Known dialogue loop bug (console fix); Not lore-neutral* | `optional`<br>1.11.240: plugin only | perf  |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/75137/75137-1696529748-1050986997.png" width="96" alt=""> | **[It's Molly](https://www.nexusmods.com/fallout4/mods/75137)**<br><sub>by Commonwealth Story Expansion Project · v1.7 · updated 2023-10-25 · 829 endorsements · 31.6 MB</sub> | Companion with 600+ human-voiced lines<br>*Compatibility unverified* | `optional`<br>1.11.240: plugin only | perf low |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/29192/29192-1516189165-941012437.jpeg" width="96" alt=""> | **[Keep both X6-88 and Porter Gage Plus Deacon](https://www.nexusmods.com/fallout4/mods/29192)**<br><sub>by Nechigawara · v0.1 · updated 2018-01-18 · 756 endorsements · 8 KB</sub> | Keep X6-88 after the Institute falls, Gage after turning on the raiders, and Deacon<br>*0.1 (2018-01-18); Script edits; incompatible with mods editing those NPCs (face mods) or their kick-out scripts; Removes companion loss; v0.1, untested and unsupported by the author; edits vanilla scripts (InstKickOutQuestScript) and conflicts with face mods; The Deacon part is undocumented* | `optional`<br>1.11.240: plugin only | perf low |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/24680-1-1496706329.png" width="96" alt=""> | **[Nora Spouse Companion](https://www.nexusmods.com/fallout4/mods/24680)**<br><sub>by HouseVariable · v1.2 · updated 2020-05-22 · 13,660 endorsements · 29.6 MB</sub> | Your spouse survived and becomes a voiced companion<br>*Lore-bending premise; Overwrites UFO4P fixes (hence Bug Fixes), edits main and side quests for interjections, disables Nora's corpse* | `optional`<br>1.11.240: plugin only | perf low<br>NPCs few | patches: Nora Spouse Companion Bug Fixes, Nora Spouse Companion SS2 Patch |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/62090/62090-1657480490-350205973.jpg" width="96" alt=""> | **[Run Deacon Run](https://www.nexusmods.com/fallout4/mods/62090)**<br><sub>by Homodemiks · v1.0 · updated 2022-07-10 · 54 endorsements · 1 KB</sub> | Deacon runs instead of walking during Tradecraft<br>*AI package edit (QoL)* | `optional`<br>1.11.240: plugin only | perf  |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/31766/31766-1526416583-1274456123.png" width="96" alt=""> | **[Shortcut to Curie](https://www.nexusmods.com/fallout4/mods/31766)**<br><sub>by 5133p39 · v1.0.0 · updated 2018-05-31 · 2,263 endorsements · 54 KB</sub> | Get Curie and her synth body without the Vault 81 and Kurzweil chain<br>*Skips content; ESL variant conflicts with Player Comments and Head Tracking* | `optional`<br>1.11.240: plugin only | perf low |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/76398/76398-1724960917-1034943617.png" width="96" alt=""> | **[Companion Affinity Pip-Boy Tab](https://www.nexusmods.com/fallout4/mods/76398)**<br><sub>by bp42s · v4.0.0 · updated 2024-08-29 · 1,479 endorsements · 0.4 MB</sub> | Affinity tab in the Pip-Boy<br>*1.11.240 via its dependencies (GOE 23.8, PipboyTabs); Needs a new game when updating from an old version; FallUI interaction unverified* | `optional`<br>1.11.240: yes | perf low | needs: Garden of Eden Papyrus Script Extender, PipboyTabs |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/11784-0-1460209669.png" width="96" alt=""> | **[Companion Command and Tactics](https://www.nexusmods.com/fallout4/mods/11784)**<br><sub>by registrator2000 · v1.3 · updated 2017-09-09 · 4,427 endorsements · 8 KB</sub> | Companion command hotkeys and restored cut tactics | `optional`<br>1.11.240: plugin only | perf med<br>scripts light | needs: Mod Configuration Menu |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/75770/75770-1698854173-1306138613.png" width="96" alt=""> | **[Companion Weapon Proficiency Infinite Ammo](https://www.nexusmods.com/fallout4/mods/75770)**<br><sub>by WhiskyTangoFox · v1.3 · updated 2026-01-11 · 169 endorsements · 1 KB</sub> | Infinite ammo for each companion's preferred weapon type<br>*Interaction with Lunar ammo not checked* | `optional`<br>1.11.240: plugin only | perf low |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/26282/26282-1645057456-1857102658.png" width="96" alt=""> | **[Follower Revive System](https://www.nexusmods.com/fallout4/mods/26282)**<br><sub>by BestPJ · v2.14 · updated 2022-02-15 · 2,738 endorsements · 22 KB</sub> | Companions can revive the player<br>*'Requires F4SE', probably Papyrus functions only (unverified); Overlap with Lunar's companion handling unverified* | `optional`<br>1.11.240: unknown | perf med<br>scripts light |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/3276-0-1448685598.jpg" width="96" alt=""> | **[No Negative Affinity / No Cooldown](https://www.nexusmods.com/fallout4/mods/3276)**<br><sub>by ricky horror · v1.6 · updated 2015-12-09 · 49,520 endorsements · 59 KB</sub> | Removes negative affinity and the affinity cooldown<br>*Taste* | `optional`<br>1.11.240: plugin only | perf  |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/10660-0-1466408050.jpg" width="96" alt=""> | **[Visible Companion Affinity](https://www.nexusmods.com/fallout4/mods/10660)**<br><sub>by CDante · v4.15 · updated 2024-02-14 · 32,840 endorsements · 10.2 MB</sub> | Affinity notifications plus a holotape<br>*No vanilla script overrides; Pick this or the Affinity Pip-Boy Tab* | `optional`<br>1.11.240: plugin only | perf low<br>scripts light |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/7903-0-1452194437.png" width="96" alt=""> | **[Where Are You Now](https://www.nexusmods.com/fallout4/mods/7903)**<br><sub>by drdanzel · v1.4 · updated 2016-04-26 · 13,853 endorsements · 0.2 MB</sub> | Map markers to track companions | `optional`<br>1.11.240: plugin only | perf low |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/98121/98121-1763008852-1420247301.jpg" width="96" alt=""> | **[AFT Plus Patch Hub](https://www.nexusmods.com/fallout4/mods/98121)**<br><sub>by Sranger - Dheuster · v1.09 · updated 2026-07-13 · 327 endorsements</sub> | Compatibility patches for AFT Plus, including SS2 | `optional`<br>1.11.240: plugin only | perf  | needs: AFT Plus |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/57868/57868-1661613395-1947766036.jpeg" width="96" alt=""> | **[Companion Ivy - XDI patch](https://www.nexusmods.com/fallout4/mods/57868)**<br><sub>by Evi1Panda · v1.1 · updated 2022-08-27 · 1,452 endorsements · 1.0 MB</sub> | Makes Companion Ivy work with XDI<br>*Built for Ivy 6.0; fit with the current Ivy version unverified* | `optional`<br>1.11.240: plugin only | perf  | needs: Companion Ivy, Extended Dialogue Interface |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/62679/62679-1659027309-1300263174.jpeg" width="96" alt=""> | **[Lunar - Everyone's Best Friend](https://www.nexusmods.com/fallout4/mods/62679)**<br><sub>by WhiskyTangoFox · v3.1 · updated 2026-03-13 · 256 endorsements · 10 KB</sub> | Lunar rebalance patch for Everyone's Best Friend<br>*From Lunar Gameplay Patch Bodega; Made for Everyone's Best Friend; we use Simple Everyone's Best Friend: check whether it applies; Made for the original EBF; whether it applies to Simple Everyone's Best Friend is unverified* | `optional`<br>1.11.240: plugin only | perf  | needs: Lunar Fallout Overhaul Deluxe |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/58136/58136-1644991375-338093703.png" width="96" alt=""> | **[Nora Spouse Companion Bug Fixes](https://www.nexusmods.com/fallout4/mods/58136)**<br><sub>by Sranger - HouseVariable · v1.2 · updated 2022-04-22 · 554 endorsements · 82 KB</sub> | Restores UFO4P fixes and fixes bugs in Nora Spouse Companion | `optional`<br>1.11.240: plugin only | perf  | needs: Nora Spouse Companion, Unofficial Fallout 4 Patch |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/57813/57813-1643880209-1535507515.jpeg" width="96" alt=""> | **[Nora Spouse Companion SS2 Patch](https://www.nexusmods.com/fallout4/mods/57813)**<br><sub>by Sranger · v0.4 · updated 2023-03-12 · 213 endorsements · 3 KB</sub> | Compatibility patch between Nora Spouse Companion and SS2<br>*WIP (2023)* | `optional`<br>1.11.240: plugin only | perf  | needs: Nora Spouse Companion, Sim Settlements 2 - All Chapters Pack |
+
+### Avoid
+
+| | Mod | What it does | Fit | Cost | Links |
+| --- | --- | --- | --- | --- | --- |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/107753/107753-1787357944-781408194.jpg" width="96" alt=""> | **[FallAway](https://www.nexusmods.com/fallout4/mods/107753)**<br><sub>by dmki · v1.2.1 · updated 2026-10-26 · 13 endorsements · 81.7 MB</sub> | NPCs driven by an online or offline LLM with microphone input<br>*Local model or network: unrealistic on Wine with 16 GB* | `avoid`<br>1.11.240: unknown<br>F4SE DLL | perf high |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/22289-0-1488090895.png" width="96" alt=""> | **[Dual Survivors - Nate](https://www.nexusmods.com/fallout4/mods/22289)**<br><sub>by kesabelus · v1.3.2 · updated 2017-06-08 · 2,761 endorsements · 18.6 MB</sub> | Nate as a companion<br>*Old (2017); Vault 111 edits; reported problems with Start Me Up* | `avoid`<br>1.11.240: plugin only | perf low |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/4116-4-1449067845.jpg" width="96" alt=""> | **[Glory Follower ESP](https://www.nexusmods.com/fallout4/mods/4116)**<br><sub>by BOTLANNER · v1 · updated 2015-12-02 · 127 endorsements · 3 KB</sub> | Makes Glory a follower<br>*2015, needs a bat file; Subversion is the only real route to Glory as a companion* | `avoid`<br>1.11.240: plugin only | perf  |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/18403-0-1474061243.jpg" width="96" alt=""> | **[Glory clone](https://www.nexusmods.com/fallout4/mods/18403)**<br><sub>by User_35328905 · v1 · updated 2016-09-16 · 232 endorsements · 3.6 MB</sub> | Glory clone follower<br>*2016 work in progress* | `avoid`<br>1.11.240: plugin only | perf  |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/100191/100191-1792969587-1963547697.png" width="96" alt=""> | **[Lucy MacLean companion](https://www.nexusmods.com/fallout4/mods/100191)**<br><sub>by MrsDanse · v2.0 · updated 2026-10-25 · 133 endorsements · 11.3 MB</sub> | Basic companion using TV-show voice clips<br>*Thin template-based companion with ripped show voice; known first-recruit bug needs a reload* | `avoid`<br>1.11.240: plugin only | perf low |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/80763/80763-1714004046-169240192.jpeg" width="96" alt=""> | **[Paladin Frost](https://www.nexusmods.com/fallout4/mods/80763)**<br><sub>by TheFalloutFanboy · v2.3.2 · updated 2025-07-23 · 41 endorsements · 5.4 MB</sub> | AI-voiced BoS companion<br>*2025-07; AI voice, little feedback (41 endorsements)* | `avoid`<br>1.11.240: plugin only | perf low |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/18547-0-1474215673.jpg" width="96" alt=""> | **[Better Companions AIO](https://www.nexusmods.com/fallout4/mods/18547)**<br><sub>by techprince · v1.38 · updated 2025-09-30 · 23,415 endorsements · 43 KB</sub> | Companion perks, infinite ammo, accuracy and combat style changes<br>*Lunar also edits companions, so one overwrites the other* | `avoid`<br>1.11.240: plugin only<br>Lunar: conflict | perf low |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/6233-1-1450370911.png" width="96" alt=""> | **[Companion Infinite Ammo](https://www.nexusmods.com/fallout4/mods/6233)**<br><sub>by TheTalkieToaster · v1.3 · updated 2016-02-10 · 67,569 endorsements · 5 KB</sub> | Infinite ammo for companions<br>*Tagged broken (previous research)* | `avoid`<br>1.11.240: unknown | perf  |  |
+| <img src="https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/55908/55908-1637483471-1270333700.jpeg" width="96" alt=""> | **[Companions also need to eat and sleep](https://www.nexusmods.com/fallout4/mods/55908)**<br><sub>by goubachof · v1.06 · updated 2022-01-08 · 345 endorsements · 2.9 MB</sub> | Survival-style needs for companions<br>*Survival-style; we play without Survival* | `avoid`<br>1.11.240: plugin only | perf med<br>scripts light |  |
+
+### Dependencies and patches
+
+```mermaid
+graph LR
+  aft_plus["AFT Plus"]
+  aft_plus_patch_hub["AFT Plus Patch Hub"]
+  companion_affinity_pipboy_tab["Companion Affinity Pip-Boy Tab"]
+  companion_command_and_tactics["Companion Command and Tactics"]
+  companion_ivy["Companion Ivy"]
+  companion_ivy_xdi_patch["Companion Ivy - XDI patch"]
+  garden_of_eden["Garden of Eden Papyrus Script Extender"]
+  lunar["Lunar Fallout Overhaul Deluxe"]
+  lunar_ebf_patch["Lunar - Everyone's Best Friend"]
+  mcm["Mod Configuration Menu"]
+  nora_spouse_bug_fixes["Nora Spouse Companion Bug Fixes"]
+  nora_spouse_companion["Nora Spouse Companion"]
+  nora_spouse_ss2_patch["Nora Spouse Companion SS2 Patch"]
+  pipboytabs["PipboyTabs"]
+  sim_settlements_2["Sim Settlements 2 - All Chapters Pack"]
+  ufo4p["Unofficial Fallout 4 Patch"]
+  xdi["Extended Dialogue Interface"]
+  aft_plus --> garden_of_eden
+  aft_plus_patch_hub -. patches .-> aft_plus
+  aft_plus_patch_hub --> aft_plus
+  companion_affinity_pipboy_tab --> garden_of_eden
+  companion_affinity_pipboy_tab --> pipboytabs
+  companion_command_and_tactics --> mcm
+  companion_ivy_xdi_patch -. patches .-> companion_ivy
+  companion_ivy_xdi_patch --> companion_ivy
+  companion_ivy_xdi_patch --> xdi
+  lunar_ebf_patch --> lunar
+  nora_spouse_bug_fixes -. patches .-> nora_spouse_companion
+  nora_spouse_ss2_patch -. patches .-> nora_spouse_companion
+  nora_spouse_bug_fixes --> nora_spouse_companion
+  nora_spouse_bug_fixes --> ufo4p
+  nora_spouse_ss2_patch --> nora_spouse_companion
+  nora_spouse_ss2_patch --> sim_settlements_2
+```
+<!-- END GENERATED -->
