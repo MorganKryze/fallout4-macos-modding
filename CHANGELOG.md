@@ -17,3 +17,11 @@ All notable changes to this project are documented here. The format follows [Kee
 - Reference playthrough page with the trade-offs behind our list and playing habits.
 - Install plan: the reference list in eight tested batches, with the target load order and the FO4Edit checks.
 - `llms.txt` describing the data for AI assistants.
+
+### Changed
+
+- Catalogue site redesigned as an inspection record: a clearer first screen, Lunar, Sim Settlements 2 and "in your list" filters, a section index, cards that say what adding a mod brings, a list form with a hatched gauge for uncounted plugins, undo for presets, a mobile list sheet, sortable table, and keyboard focus kept on every action.
+
+### Fixed
+
+- The Pages root now redirects to the catalogue instead of returning 404.

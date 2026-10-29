@@ -4,251 +4,724 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fallout 4 mod catalogue</title>
-<meta name="description" content="Browse a tested catalogue of Fallout 4 mods for runtime 1.11.240 and build a conflict-free list.">
+<meta name="description" content="Fallout 4 mods checked one by one against runtime 1.11.240, Lunar Fallout Overhaul and Sim Settlements 2. Start from our playthrough or build a list that adds its own requirements and patches.">
+<meta name="color-scheme" content="light dark">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --paper: #E9EDF1;
-  --sheet: #F6F8FA;
-  --ink: #14233A;
-  --muted: #56667A;
-  --line: #C9D2DC;
-  --blue: #1E4F9A;
-  --yellow: #F3C43A;
-  --red: #C23B2A;
-  --green: #2F7A4F;
-  --focus: #1E4F9A;
-  color-scheme: light;
+  color-scheme: light dark;
+  --stock: #E8EBE6;
+  --sheet: #F8F9F6;
+  --ink: #18201C;
+  --on-ink: #F8F9F6;
+  --pencil: #545E57;
+  --rule: #BEC6BF;
+  --rule-strong: #727C75;
+  --violet: #4A2FA0;
+  --violet-wash: #E9E5F6;
+  --canary: #F5E8A3;
+  --canary-band: #18201C;
+  --canary-ink: #18201C;
+  --red: #A8261B;
+  --red-wash: #F7E1DD;
+  --hatch: repeating-linear-gradient(135deg, var(--pencil) 0 1.5px, transparent 1.5px 5px);
+  --focus: var(--violet);
+  --stamp-blend: multiply;
+  --edge: rgba(0, 0, 0, .22);
+  --display: "Sofia Sans Extra Condensed", "Arial Narrow", sans-serif;
+  --text: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --gutter: 32px;
+  --rail: 248px;
+  --form: 360px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #0E1E36;
-    --sheet: #15294A;
-    --ink: #E8EEF6;
-    --muted: #9FB0C6;
-    --line: #2A4268;
-    --blue: #7FA8EC;
-    --yellow: #F3C43A;
-    --red: #F07A68;
-    --green: #6CC293;
-    --focus: #F3C43A;
-    color-scheme: dark;
+    --stock: #111513;
+    --sheet: #1A201D;
+    --ink: #E3E8E2;
+    --on-ink: #111513;
+    --pencil: #9DA8A1;
+    --rule: #323C37;
+    --rule-strong: #6F7A73;
+    --violet: #B3A2F5;
+    --violet-wash: #26213A;
+    --canary: #1E1C12;
+    --canary-band: #E6CF62;
+    --canary-ink: #EDE9D8;
+    --red: #F2887B;
+    --red-wash: #3A1E1B;
+    --stamp-blend: normal;
+    --edge: rgba(0, 0, 0, .75);
   }
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; }
+html { scroll-padding-top: 16px; }
 body {
-  background: var(--paper);
-  color: var(--ink);
-  font: 400 15px/1.5 "Archivo", system-ui, sans-serif;
+  background: var(--stock); color: var(--ink);
+  font: 400 15px/1.55 var(--text);
   font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
 }
-a { color: var(--blue); }
+body.sheet-open { overflow: hidden; }
+a { color: var(--violet); text-underline-offset: 4px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 button, input, select { font: inherit; color: inherit; }
 button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: -1px; }
+[hidden] { display: none !important; }
+.textbtn { border: 0; background: none; padding: 8px 2px; min-height: 40px; color: var(--violet); font-weight: 600; font-size: 14px; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.textbtn:hover { text-decoration-thickness: 2px; }
+
+/* Skip links */
+.skip { position: absolute; left: 16px; top: -100px; z-index: 100; background: var(--ink); color: var(--on-ink); padding: 10px 14px; font-weight: 600; text-decoration: none; }
+.skip:focus { top: 12px; }
 
 /* Header */
-.top {
-  display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: end;
-  padding: 28px 24px 18px; border-bottom: 3px solid var(--ink);
+header.top { position: relative; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 16px var(--gutter) 12px; border-bottom: 3px solid var(--ink); margin-bottom: 3px; }
+header.top::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; border-bottom: 1px solid var(--ink); }
+.wordmark { font: 800 26px/1 var(--display); color: var(--ink); text-decoration: none; letter-spacing: .1px; }
+.wordmark:hover { text-decoration: underline; text-decoration-thickness: 2px; }
+.navlinks { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 15px; }
+.navlinks a { color: var(--ink); display: inline-block; padding: 9px 0; margin: -9px 0; }
+.guides { display: none; position: relative; }
+.guides summary { list-style: none; cursor: pointer; font-weight: 600; padding: 10px 12px; min-height: 44px; border: 1.5px solid var(--ink); }
+.guides summary::-webkit-details-marker { display: none; }
+.guides summary::after { content: ""; display: inline-block; margin-left: 8px; border: 5px solid transparent; border-top-color: currentColor; transform: translateY(2px); }
+.guides[open] summary::after { transform: translateY(-3px) rotate(180deg); }
+.guides ul { position: absolute; right: 0; top: calc(100% + 4px); z-index: 20; list-style: none; margin: 0; padding: 6px 0; min-width: 240px; background: var(--sheet); border: 1.5px solid var(--ink); }
+.guides li a { display: block; padding: 10px 14px; color: var(--ink); }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 32px 56px; padding: 44px var(--gutter) 36px; border-bottom: 1px solid var(--ink); overflow-x: clip; }
+.hero .text { position: relative; min-width: 0; }
+.hero h1 { margin: 0; font: 800 clamp(48px, 7vw, 96px)/.92 var(--display); letter-spacing: -.01em; position: relative; }
+.hero h1 .nb { white-space: nowrap; }
+.hero .hwrap { display: block; }
+.hero h1 br { display: none; }
+.lede { margin: 22px 0 0; max-width: 64ch; font-size: 18px; line-height: 1.55; }
+.stamp { position: absolute; top: -14px; right: 2%; width: 210px; height: 210px; pointer-events: none; color: var(--violet); mix-blend-mode: var(--stamp-blend); transform: rotate(-9deg); animation: land .24s var(--ease) .15s both; overflow: visible; }
+@media (min-width: 1280px) {
+  .hero .hwrap { display: inline-block; position: relative; }
+  .hero h1 br { display: inline; }
+  .stamp { top: -14px; right: -192px; }
 }
-.top h1 {
-  margin: 0; font-size: clamp(30px, 5vw, 52px); line-height: .95;
-  font-stretch: 62%; font-weight: 900; letter-spacing: .5px;
-}
-.top p { margin: 6px 0 0; color: var(--muted); max-width: 70ch; }
-.top .views { display: flex; gap: 6px; }
-.seg { border: 2px solid var(--ink); background: transparent; padding: 6px 12px; font-weight: 600; }
-.seg[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+@keyframes land { from { transform: scale(1.12) rotate(-12deg); opacity: 0; } to { transform: scale(1) rotate(-9deg); opacity: 1; } }
+.starts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.start { position: relative; display: grid; text-align: left; gap: 2px; padding: 11px 18px 12px; border: 2px solid var(--ink); background: var(--sheet); min-height: 44px; color: var(--ink); }
+.start strong { font-weight: 700; font-size: 15px; }
+.start small { font-size: 13px; color: var(--pencil); }
+.start:hover { background: var(--stock); }
+.start:active { transform: translateY(1px); }
+.start.primary { background: var(--ink); color: var(--on-ink); }
+.start.primary small { color: var(--on-ink); opacity: .82; }
+.start.primary:hover { background: color-mix(in srgb, var(--ink) 88%, var(--violet)); }
+.start[aria-pressed="true"] { box-shadow: inset 4px 0 0 var(--violet); padding-left: 22px; }
+.start[aria-pressed="true"] strong::before { content: "\2713"; color: var(--violet); margin-right: 6px; }
+.start.primary[aria-pressed="true"] strong::before { color: var(--on-ink); }
+.record { align-self: end; min-width: 0; }
+.record table { width: 100%; border-collapse: collapse; border-top: 2px solid var(--ink); }
+.record caption { text-align: left; font-size: 13px; color: var(--pencil); padding-bottom: 6px; }
+.record th, .record td { padding: 7px 0 6px; border-bottom: 1px solid var(--rule); text-align: left; font-weight: 400; vertical-align: baseline; }
+.record td { text-align: right; font: 700 34px/1 var(--display); white-space: nowrap; padding-left: 12px; }
+.record .textbtn { padding: 9px 0; margin: -9px 0; min-height: 0; font-size: inherit; font-weight: 400; text-align: left; }
 
 /* Layout */
-.wrap { display: grid; grid-template-columns: 240px minmax(0, 1fr) 320px; gap: 24px; padding: 20px 24px 80px; align-items: start; }
-aside.filters, aside.req { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; }
+.wrap { display: grid; grid-template-columns: var(--rail) minmax(0, 1fr) var(--form); gap: 32px; padding: 28px var(--gutter) 56px; align-items: start; }
+aside.filters { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; padding: 0 4px 16px 4px; margin: 0 -4px; overscroll-behavior: contain; }
+.results { min-width: 0; }
 
 /* Filters */
-.filters h2, .req h2 { font-size: 20px; font-stretch: 75%; font-weight: 800; margin: 0 0 10px; }
-.fgroup { margin: 0 0 18px; }
-.fgroup > span { display: block; font-weight: 700; font-size: 13px; margin-bottom: 6px; color: var(--muted); }
-.chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.chip { border: 1px solid var(--line); background: var(--sheet); padding: 3px 9px; border-radius: 14px; font-size: 13px; }
-.chip[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: #fff; }
-.toggle { display: flex; gap: 8px; align-items: center; font-size: 14px; margin: 4px 0; }
-.search { width: 100%; padding: 8px 10px; border: 2px solid var(--ink); background: var(--sheet); }
-.presets { display: grid; gap: 6px; }
-.preset { text-align: left; border: 1px solid var(--line); background: var(--sheet); padding: 8px 10px; }
-.preset strong { display: block; font-stretch: 85%; }
-.preset small { color: var(--muted); }
+.fhead { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 4px; margin-bottom: 16px; }
+.fhead h2 { margin: 0; font: 800 24px/1 var(--display); }
+.fhead h2:focus { outline: none; }
+.fhead .fbtns { display: flex; gap: 12px; align-items: center; }
+.done { display: none; border: 2px solid var(--ink); background: var(--ink); color: var(--on-ink); font-weight: 600; font-size: 14px; padding: 8px 12px; min-height: 44px; }
+.block { margin: 0 0 20px; border: 0; padding: 0; min-width: 0; }
+.block legend { display: flex; gap: 9px; align-items: center; padding: 0; margin-bottom: 8px; font-weight: 600; font-size: 15px; }
+.block legend i { font: 800 15px/1 var(--display); font-style: normal; width: 20px; height: 20px; display: inline-grid; place-items: center; border: 1.5px solid var(--ink); flex: none; }
+.opts { display: flex; flex-wrap: wrap; border-left: 1px solid var(--rule-strong); border-top: 1px solid var(--rule-strong); }
+.opt { flex: 1 0 auto; border: 0; border-right: 1px solid var(--rule-strong); border-bottom: 1px solid var(--rule-strong); background: var(--sheet); padding: 6px 10px; font-size: 14px; min-height: 40px; }
+.opt:hover { background: var(--stock); }
+.opt[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); font-weight: 600; }
+.opt:focus-visible { position: relative; z-index: 1; }
+.box { display: flex; gap: 10px; align-items: center; font-size: 14px; padding: 4px 0; min-height: 40px; cursor: pointer; }
+.box input { appearance: none; -webkit-appearance: none; margin: 0; flex: none; width: 20px; height: 20px; border: 1.5px solid var(--rule-strong); background: var(--sheet); display: grid; place-items: center; cursor: pointer; }
+.box input:checked { border-color: var(--violet); }
+.box input:checked::after { content: ""; width: 10px; height: 5px; border-left: 2.5px solid var(--violet); border-bottom: 2.5px solid var(--violet); transform: translateY(-2px) rotate(-48deg); }
+.box input:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.hint { margin: 2px 0 8px 30px; font-size: 13px; color: var(--pencil); line-height: 1.4; }
 
-/* Modules */
-details.module { border-top: 2px solid var(--ink); padding: 4px 0 18px; }
-details.module > summary {
-  list-style: none; display: flex; align-items: baseline; gap: 12px; padding: 10px 0; cursor: pointer;
-}
+/* Section index */
+.secindex { border-top: 2px solid var(--ink); padding-top: 6px; }
+.sihead { display: grid; grid-template-columns: 1fr 48px 48px; align-items: baseline; padding: 0 0 4px; border-bottom: 1px solid var(--rule); }
+.sihead h2 { margin: 0; font: 800 22px/1 var(--display); }
+.sihead span { font-size: 13px; color: var(--pencil); text-align: right; }
+.secindex ol { list-style: none; margin: 0; padding: 0; }
+.secindex a { display: grid; grid-template-columns: 24px 1fr 48px 48px; align-items: baseline; padding: 6px 0 6px 6px; border-left: 3px solid transparent; border-bottom: 1px solid var(--rule); color: var(--ink); text-decoration: none; font-size: 14px; min-height: 36px; }
+.secindex a:hover .t { text-decoration: underline; text-underline-offset: 3px; }
+.secindex a .no { color: var(--pencil); font-size: 13px; }
+.secindex a .c { text-align: right; }
+.secindex a .l.has { color: var(--violet); font-weight: 600; }
+.secindex a.zero { color: var(--pencil); }
+.secindex a.active { border-left-color: var(--violet); }
+
+/* Toolbar */
+.toolbar { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; align-items: end; gap: 10px 16px; padding: 8px 0 12px; background: var(--stock); border-bottom: 2px solid var(--ink); }
+.field { flex: 1 1 260px; display: grid; gap: 2px; min-width: 0; }
+.field label { font-size: 13px; color: var(--pencil); }
+.field label .kbd { color: var(--pencil); }
+.field input { border: 0; border-bottom: 2px solid var(--ink); border-radius: 0; background: transparent; padding: 6px 0 5px; font-size: 17px; min-width: 0; min-height: 40px; }
+.field input::placeholder { color: var(--pencil); opacity: 1; }
+.field input::-webkit-search-cancel-button { cursor: pointer; }
+#result-count { font-size: 14px; color: var(--pencil); white-space: nowrap; padding-bottom: 9px; }
+#result-count b { color: var(--ink); font-weight: 700; }
+.views { display: flex; border: 1.5px solid var(--ink); }
+.seg { border: 0; background: var(--sheet); padding: 6px 14px; font-size: 14px; font-weight: 600; min-height: 40px; }
+.seg + .seg { border-left: 1.5px solid var(--ink); }
+.seg[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); }
+.midonly { display: none; }
+.fbtn { border: 1.5px solid var(--ink); background: var(--sheet); padding: 6px 14px; font-weight: 600; font-size: 14px; min-height: 40px; align-items: center; }
+.jumpwrap select { border: 1.5px solid var(--rule-strong); background: var(--sheet); padding: 6px 8px; font-size: 14px; min-height: 40px; max-width: 100%; border-radius: 0; }
+.subbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 16px; padding: 6px 0; font-size: 14px; }
+.subbar .hn { color: var(--pencil); }
+.subbar .hn .textbtn { min-height: 32px; padding: 4px 2px; }
+.subbar .xc { display: flex; gap: 14px; margin-left: auto; }
+.subbar .xc .textbtn { min-height: 32px; padding: 4px 2px; }
+
+/* Notice */
+#notice { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; margin: 8px 0 4px; padding: 8px 12px; background: var(--violet-wash); border-left: 4px solid var(--violet); font-size: 14px; color: var(--ink); }
+#notice p { margin: 0; flex: 1 1 260px; }
+#notice .nbtns { display: flex; gap: 16px; }
+#notice .textbtn { min-height: 36px; padding: 4px 2px; }
+
+/* Sections */
+main#main:focus { outline: none; }
+details.module { border-bottom: 1px solid var(--rule); scroll-margin-top: 110px; }
+details.module > summary { list-style: none; display: grid; grid-template-columns: 18px 46px 1fr auto; align-items: baseline; gap: 6px; padding: 18px 0 14px; cursor: pointer; }
 details.module > summary::-webkit-details-marker { display: none; }
-details.module > summary h2 { margin: 0; font-size: 26px; font-stretch: 70%; font-weight: 850; }
-details.module > summary .count { color: var(--muted); font-size: 14px; }
-details.module > summary::before { content: "+"; font-weight: 800; width: 14px; }
-details.module[open] > summary::before { content: "\2212"; }
-.tierhead { font-size: 15px; font-weight: 700; margin: 14px 0 8px; color: var(--muted); }
+details.module > summary::before { content: ""; width: 0; height: 0; border: 6px solid transparent; border-left: 9px solid var(--ink); border-right: 0; transform: translateY(-3px); transition: transform .12s ease-out; }
+details.module[open] > summary::before { transform: translateY(-3px) rotate(90deg); }
+details.module > summary .no { font: 800 30px/1 var(--display); color: var(--pencil); }
+details.module > summary h2 { margin: 0; font: 800 36px/1 var(--display); }
+details.module > summary .count { color: var(--pencil); font-size: 14px; text-align: right; }
+details.module > summary .count b { color: var(--violet); font-weight: 600; }
+details.module > summary:hover h2 { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 5px; }
+details.module.empty > summary h2 { color: var(--pencil); }
+.mbody { padding-bottom: 24px; }
+.tierhead { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; margin: 14px 0 8px; }
+.tierhead::after { content: ""; flex: 1; border-top: 1px solid var(--rule); }
+.tierhead.t-avoid { color: var(--red); }
+.stub, .nomatch, .loaderr { margin: 16px 0; padding: 16px 18px; border: 1.5px solid var(--rule-strong); background: var(--sheet); }
+.nomatch p, .loaderr p { margin: 0 0 6px; }
+.nomatch strong { font: 800 26px/1.1 var(--display); display: block; margin-bottom: 4px; }
+.loaderr { border-color: var(--red); border-left-width: 4px; }
+.btn { border: 2px solid var(--ink); background: var(--ink); color: var(--on-ink); padding: 8px 14px; font-weight: 600; font-size: 14px; min-height: 40px; }
+.loading { color: var(--pencil); margin: 18px 0 10px; }
+.ph { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); border-left: 1px solid var(--rule); border-top: 1px solid var(--rule); }
+.ph i { height: 300px; background: var(--stock); border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); box-shadow: inset 0 3px 0 var(--rule); }
 
-/* Cards */
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
-.card {
-  display: grid; grid-template-rows: auto 1fr auto; background: var(--sheet);
-  border: 1px solid var(--line); border-left: 4px solid var(--line); min-height: 100%;
+/* Entries */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); border-left: 1px solid var(--rule); border-top: 1px solid var(--rule); }
+.entry { container-type: inline-size; position: relative; display: flex; flex-direction: column; min-width: 0; background: var(--sheet); border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); box-shadow: inset 0 3px 0 var(--ink); padding: 11px 14px 10px; content-visibility: auto; contain-intrinsic-size: auto 420px; }
+.entry:hover { background: color-mix(in srgb, var(--sheet) 70%, var(--stock)); }
+.entry.on { box-shadow: inset 0 3px 0 var(--violet); }
+.ref { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 8px; font-size: 13px; color: var(--pencil); margin-bottom: 8px; }
+.ref span { white-space: nowrap; }
+.hatchsw { display: inline-block; width: 10px; height: 10px; margin-right: 5px; background: var(--hatch); border: 1px solid var(--pencil); vertical-align: -1px; }
+.avoidwhy { margin: -2px 0 8px; font-size: 13px; color: var(--red); line-height: 1.4; }
+.thumb { aspect-ratio: 16 / 9; max-height: 124px; overflow: hidden; border: 1px solid var(--rule); background: var(--stock); margin-bottom: 10px; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.entry h4 { margin: 0; font: 700 22px/1.1 var(--display); overflow-wrap: anywhere; }
+.nm { all: unset; cursor: pointer; }
+.nm::after { content: ""; position: absolute; inset: 0; }
+.nm:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.entry:hover .nm, .nm:focus-visible { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.by { color: var(--pencil); font-size: 13px; margin: 3px 0 0; overflow-wrap: anywhere; }
+.sum { margin: 6px 0 10px; font-size: 15px; line-height: 1.45; }
+.spec { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: auto 0 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); }
+.spec > div { padding: 4px 4px 5px 6px; border-left: 1px solid var(--rule); min-width: 0; }
+.spec > div:first-child { border-left: 0; padding-left: 0; }
+.spec dt { font-size: 12.5px; color: var(--pencil); line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.spec dd { margin: 0; font: 700 17px/1.15 var(--display); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.spec dd.bad, .bad { color: var(--red); }
+.spec dd.na { color: var(--pencil); }
+@container (max-width: 290px) {
+  .spec { grid-template-columns: 1fr 1fr; }
+  .spec > div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .spec > div:nth-child(n+3) { border-top: 1px solid var(--rule); }
 }
-.card.t-core { border-left-color: var(--ink); }
-.card.t-recommended { border-left-color: var(--blue); }
-.card.t-avoid { border-left-color: var(--red); opacity: .85; }
-.card .thumb { aspect-ratio: 16 / 9; background: var(--paper); overflow: hidden; }
-.card .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.card .body { padding: 10px 12px 8px; }
-.card h3 { margin: 0; font-size: 17px; line-height: 1.2; font-stretch: 85%; font-weight: 750; }
-.card h3 button { all: unset; cursor: pointer; }
-.card h3 button:focus-visible { outline: 3px solid var(--focus); }
-.card .by { color: var(--muted); font-size: 12.5px; }
-.card .sum { margin: 6px 0 0; font-size: 14px; }
-.card .foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 12px 10px; }
-.badges { display: flex; flex-wrap: wrap; gap: 4px; }
-.b { font-size: 11.5px; font-weight: 600; padding: 1px 6px; border: 1px solid var(--line); border-radius: 3px; white-space: nowrap; }
-.b.pick { background: var(--yellow); border-color: var(--yellow); color: #14233A; }
-.b.warn { border-color: var(--red); color: var(--red); }
-.b.dll { border-color: var(--blue); color: var(--blue); }
-.add {
-  flex: none; width: 34px; height: 34px; border: 2px solid var(--ink); background: transparent;
-  font-size: 20px; font-weight: 700; line-height: 1;
-}
-.add[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.watch { margin: 0 0 10px; font-size: 13px; line-height: 1.4; }
+.effect { margin: -4px 0 10px; font-size: 13px; line-height: 1.4; color: var(--violet); }
+.effect:empty { display: none; }
+.effect .bad { font-weight: 600; }
+.foot { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 8px; pointer-events: none; }
+.foot > * { pointer-events: auto; }
+.add { display: inline-flex; align-items: center; gap: 9px; border: 0; background: none; padding: 0 6px 0 0; min-height: 40px; font-size: 14px; font-weight: 600; color: var(--ink); }
+.add .bx { flex: none; width: 22px; height: 22px; border: 1.5px solid var(--rule-strong); background: var(--sheet); display: grid; place-items: center; }
+.add svg { width: 16px; height: 16px; fill: none; stroke: var(--violet); stroke-width: 2.4; stroke-linecap: square; }
+.add path { stroke-dasharray: 16; stroke-dashoffset: 16; }
+.add[data-st="on"] .bx { background: var(--violet); border-color: var(--violet); }
+.add[data-st="on"] svg { stroke: var(--sheet); }
+.add[data-st="auto"] .bx { border: 2px solid var(--violet); }
+.add[data-st="on"] path, .add[data-st="auto"] path { stroke-dashoffset: 0; transition: stroke-dashoffset .12s ease-out; }
+.add[data-st="on"] .lbl, .add[data-st="auto"] .lbl { color: var(--violet); }
+.add:hover .lbl { text-decoration: underline; text-underline-offset: 3px; }
+.pickmark { display: inline-block; font: 700 15px/1 var(--display); color: var(--violet); border: 2px solid currentColor; box-shadow: inset 0 0 0 1.5px var(--sheet), inset 0 0 0 2.5px currentColor; padding: 5px 7px 4px; transform: rotate(-3deg); white-space: nowrap; background: var(--sheet); }
 
 /* Table */
-table { width: 100%; border-collapse: collapse; background: var(--sheet); font-size: 14px; }
-th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
-th { position: sticky; top: 0; background: var(--sheet); font-stretch: 85%; }
-th button { all: unset; cursor: pointer; font-weight: 700; }
-td.n { text-align: right; }
-
-/* Requisition */
-.req .form { background: var(--sheet); border: 2px solid var(--ink); padding: 14px; }
-.req .form header { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid var(--ink); margin-bottom: 10px; padding-bottom: 6px; }
-.req .form header h2 { margin: 0; }
-.slots { margin: 6px 0 2px; height: 16px; border: 1px solid var(--ink);
-  background: repeating-linear-gradient(90deg, transparent 0 calc(100% / 254 - 1px), var(--line) calc(100% / 254 - 1px) calc(100% / 254)); position: relative; }
-.slots i { position: absolute; inset: 0 auto 0 0; background: var(--blue); }
-.slots.over i { background: var(--red); }
-.stat { display: flex; justify-content: space-between; font-size: 14px; padding: 3px 0; border-bottom: 1px dotted var(--line); }
-.stat b { font-weight: 700; }
-.alerts { margin: 10px 0; display: grid; gap: 6px; }
-.alert { font-size: 13px; padding: 6px 8px; border-left: 4px solid var(--red); background: color-mix(in srgb, var(--red) 10%, transparent); }
-.alert.info { border-left-color: var(--blue); background: color-mix(in srgb, var(--blue) 10%, transparent); }
-.picked { list-style: none; margin: 8px 0; padding: 0; font-size: 13.5px; max-height: 34vh; overflow: auto; }
-.picked li { display: flex; justify-content: space-between; gap: 6px; padding: 3px 0; border-bottom: 1px solid var(--line); }
-.picked li small { color: var(--muted); }
-.picked li button { border: none; background: none; color: var(--muted); font-size: 16px; padding: 0 4px; }
-.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
-.actions button { border: 2px solid var(--ink); background: transparent; padding: 7px; font-weight: 600; }
-.actions button.primary { background: var(--yellow); border-color: var(--yellow); color: #14233A; }
-.empty { color: var(--muted); font-size: 14px; }
-
-/* Detail drawer */
-dialog.detail { border: none; padding: 0; width: min(640px, 100vw); max-width: 100vw; height: 100vh; max-height: 100vh; margin: 0 0 0 auto; background: var(--sheet); color: var(--ink); }
-dialog.detail::backdrop { background: rgba(10, 20, 35, .45); }
-dialog.detail[open] { animation: slide .18s ease-out; }
-@keyframes slide { from { transform: translateX(24px); opacity: .6; } }
-.detail .hero { aspect-ratio: 16 / 9; background: var(--paper); }
-.detail .hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.detail .in { padding: 18px 22px 40px; }
-.detail h2 { margin: 0; font-size: 30px; line-height: 1.05; font-stretch: 70%; font-weight: 850; }
-.detail dl { display: grid; grid-template-columns: 150px 1fr; gap: 4px 12px; font-size: 14px; }
-.detail dt { color: var(--muted); }
-.detail dd { margin: 0; }
-.detail .close { position: sticky; top: 0; float: right; margin: 10px; border: 2px solid var(--ink); background: var(--sheet); padding: 4px 10px; font-weight: 700; }
-.linkid { all: unset; color: var(--blue); text-decoration: underline; cursor: pointer; }
-
-.mobilebar { display: none; }
-@media (max-width: 1100px) {
-  .wrap { grid-template-columns: minmax(0, 1fr) 300px; }
-  aside.filters { position: static; max-height: none; grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0 20px; }
+.tablewrap { overflow-x: auto; margin-top: 12px; background: linear-gradient(to right, var(--sheet) 30%, transparent) left / 24px 100% no-repeat local, linear-gradient(to left, var(--sheet) 30%, transparent) right / 24px 100% no-repeat local, radial-gradient(farthest-side at 0 50%, var(--edge), transparent) left / 12px 100% no-repeat scroll, radial-gradient(farthest-side at 100% 50%, var(--edge), transparent) right / 10px 100% no-repeat scroll, var(--sheet); }
+.tablewrap:focus-visible { outline-offset: 4px; }
+table.ledger { width: 100%; border-collapse: collapse; font-size: 14px; }
+.ledger th, .ledger td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--rule); vertical-align: middle; }
+.ledger thead th { position: sticky; top: 0; background: var(--sheet); border-bottom: 2px solid var(--ink); font-weight: 600; white-space: nowrap; }
+.ledger th button { border: 0; background: none; padding: 6px 0; min-height: 36px; font-weight: 600; font-size: 14px; }
+.ledger th button:hover { text-decoration: underline; text-underline-offset: 3px; }
+.ledger tbody tr:hover { background: var(--stock); }
+.ledger tbody tr.on td:first-child { box-shadow: inset 3px 0 0 var(--violet); }
+.ledger .nw { white-space: nowrap; }
+.ledger .add { padding: 0; }
+.ledger .add .lbl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.ledger .pickmark { font-size: 13px; padding: 3px 5px 2px; margin-left: 6px; transform: rotate(-3deg) translateY(-1px); }
+.ledger .lw { white-space: nowrap; }
+.ledger td.mn { min-width: 170px; }
+/* Below 1600 the results column is too narrow for every column: tier moves under the name, section and date drop out. */
+@media (max-width: 1599px) {
+  .hide-m { display: none; }
+  .ledger th, .ledger td { padding-left: 6px; padding-right: 6px; }
+  .ledger td.mn { min-width: 150px; }
+  .ledger .mt { display: block; font-size: 12.5px; color: var(--pencil); }
+  .ledger .mt.bad { color: var(--red); }
 }
-@media (max-width: 760px) {
-  .top { grid-template-columns: 1fr; padding: 20px 16px 14px; }
-  .wrap { grid-template-columns: 1fr; padding: 16px 16px 90px; }
-  aside.req { position: fixed; inset: auto 0 0 0; max-height: 70vh; transform: translateY(calc(100% - 0px)); transition: transform .2s; z-index: 5; }
-  aside.req.open { transform: none; }
-  .mobilebar { display: flex; position: fixed; inset: auto 0 0 0; z-index: 6; background: var(--ink); color: var(--paper); padding: 10px 16px; justify-content: space-between; align-items: center; border: none; width: 100%; font-weight: 700; }
-  body.reqopen .mobilebar { bottom: 70vh; }
+.ledger .mt { display: none; }
+.linkid { all: unset; color: var(--violet); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; overflow-wrap: anywhere; }
+.linkid:hover { text-decoration-thickness: 2px; }
+.linkid:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+/* Your list: the canary form */
+aside.req { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; overscroll-behavior: contain; background: var(--canary); color: var(--canary-ink); border: 1.5px solid var(--ink); border-top: 8px solid var(--canary-band); }
+.req .fbody { padding: 14px 16px 0; }
+.req .rhead { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.req h2 { margin: 0; font: 800 32px/1 var(--display); }
+.req h2:focus { outline: none; }
+#req-count { font: 700 22px/1 var(--display); margin-left: auto; }
+#req-close { display: none; }
+.req .sub { font-size: 13px; margin: 4px 0 12px; color: var(--pencil); }
+.gauge { border-top: 1.5px solid var(--canary-ink); padding: 10px 0 12px; }
+.gauge .line { display: flex; justify-content: space-between; align-items: baseline; font-size: 14px; font-weight: 600; gap: 8px; }
+#s-full b { font: 700 34px/1 var(--display); }
+#s-full small { font: 700 17px/1 var(--display); }
+#s-full.over, .gauge .over-note { color: var(--red); }
+.slots { position: relative; height: 22px; margin-top: 8px; border-bottom: 1.5px solid var(--canary-ink);
+  background:
+    linear-gradient(var(--canary-ink), var(--canary-ink)) right bottom / 1.5px 22px no-repeat,
+    repeating-linear-gradient(90deg, var(--canary-ink) 0 1.5px, transparent 1.5px calc(100% / 254 * 50)) left bottom / 100% 22px no-repeat,
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--canary-ink) 50%, transparent) 0 1px, transparent 1px calc(100% / 254 * 10)) left bottom / 100% 10px no-repeat; }
+.slots i { position: absolute; bottom: 0; height: 10px; transition: width .2s ease-out, left .2s ease-out; }
+.slots .counted { left: 0; background: var(--violet); }
+.slots .estimate { background: var(--hatch); border: 1px solid var(--pencil); border-bottom: 0; }
+.slots.over .counted { background: var(--red); }
+.scale { position: relative; height: 16px; font-size: 12.5px; margin-top: 2px; }
+.scale span { position: absolute; top: 0; transform: translateX(-50%); }
+.scale span:first-child { transform: none; }
+.scale span:last-child { transform: translateX(-100%); }
+.note { font-size: 13px; margin: 6px 0 0; line-height: 1.45; }
+.mix { display: flex; height: 14px; margin-top: 8px; border: 1.5px solid var(--canary-ink); background: var(--sheet); }
+.mix span { display: block; height: 100%; transition: flex-basis .2s ease-out; }
+.mix .lo { background: color-mix(in srgb, var(--pencil) 45%, transparent); }
+.mix .md { background: var(--violet); }
+.mix .hi { background: var(--red); }
+.mix .nr { background: var(--hatch); }
+.mixkey { display: flex; flex-wrap: wrap; gap: 2px 14px; font-size: 13px; margin-top: 5px; }
+.mixkey i { display: inline-block; width: 10px; height: 10px; margin-right: 5px; border: 1px solid var(--canary-ink); vertical-align: -1px; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; margin: 0; border-top: 1.5px solid var(--canary-ink); }
+.stats > div { padding: 7px 0 8px; border-bottom: 1px solid color-mix(in srgb, var(--canary-ink) 30%, transparent); min-width: 0; }
+.stats > div:nth-child(odd) { padding-right: 10px; border-right: 1px solid color-mix(in srgb, var(--canary-ink) 30%, transparent); }
+.stats > div:nth-child(even) { padding-left: 10px; }
+.stats dt { font-size: 13px; color: var(--pencil); }
+.stats dd { margin: 0; font: 700 26px/1.05 var(--display); }
+.stats dd.bad { color: var(--red); }
+.req h3 { margin: 16px 0 6px; font: 800 22px/1 var(--display); }
+.alerts { display: grid; gap: 6px; }
+.alert { font-size: 13px; line-height: 1.45; padding: 7px 10px; border-left: 4px solid var(--red); background: var(--red-wash); color: var(--ink); }
+.alert.info { border-left-color: var(--violet); background: var(--violet-wash); }
+.alert .keeps { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 2px; }
+.alert .textbtn { min-height: 36px; padding: 4px 0; font-size: 13px; text-align: left; }
+.lohint { font-size: 13px; color: var(--pencil); margin: 0 0 6px; line-height: 1.45; }
+#picked { list-style: none; margin: 0; padding: 0; border-top: 1.5px solid var(--canary-ink); }
+#picked h4 { margin: 0; padding: 10px 0 3px; font-size: 13px; font-weight: 700; }
+#picked ol { list-style: none; margin: 0; padding: 0; }
+#picked li.m { display: grid; grid-template-columns: 30px 1fr 40px; align-items: center; gap: 2px; min-height: 40px; padding: 2px 0; border-bottom: 1px solid color-mix(in srgb, var(--canary-ink) 22%, transparent); font-size: 14px; }
+#picked li.m .no { font-size: 13px; color: var(--pencil); text-align: right; padding-right: 8px; }
+#picked li.m .linkid { color: var(--canary-ink); text-decoration-color: color-mix(in srgb, var(--canary-ink) 45%, transparent); }
+#picked li.m small { display: block; font-size: 13px; color: var(--violet); line-height: 1.35; }
+#picked li.m .rm { border: 0; background: none; width: 40px; height: 40px; font-size: 20px; line-height: 1; color: var(--canary-ink); }
+#picked li.m .rm:hover { color: var(--red); }
+#picked .empty { padding: 12px 0 4px; font-size: 14px; }
+#picked .empty p { margin: 0 0 4px; }
+#picked .empty div { display: flex; flex-wrap: wrap; gap: 0 16px; }
+.exports { position: sticky; bottom: 0; z-index: 2; background: var(--canary); border-top: 1.5px solid var(--canary-ink); padding: 12px 16px 12px; margin-top: 16px; }
+.exports .row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.exports button.x { border: 1.5px solid var(--canary-ink); background: var(--canary); padding: 8px 6px; font-weight: 600; font-size: 14px; min-height: 42px; color: var(--canary-ink); }
+.exports button.x:hover:not(:disabled) { background: color-mix(in srgb, var(--canary) 80%, var(--canary-ink)); }
+.exports button.primary { grid-column: 1 / -1; background: var(--ink); color: var(--on-ink); border-color: var(--ink); }
+.exports button.primary:hover:not(:disabled) { background: color-mix(in srgb, var(--ink) 85%, var(--violet)); }
+.exports button:disabled { opacity: .55; }
+.exports .clr { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 2px; }
+#x-clear { color: var(--red); }
+#x-clear:disabled { color: var(--pencil); text-decoration: none; }
+.nothing { font-size: 13px; color: var(--pencil); }
+
+/* Sheets */
+#sheet-backdrop { position: fixed; inset: 0; z-index: 35; background: color-mix(in srgb, var(--ink) 40%, transparent); }
+@media (prefers-color-scheme: dark) { #sheet-backdrop { background: rgba(0, 0, 0, .6); } }
+#mobilebar { display: none; }
+
+/* Detail record */
+dialog.detail { border: 0; border-left: 1.5px solid var(--ink); padding: 0; width: min(680px, 100vw); max-width: 100vw; height: 100vh; height: 100dvh; max-height: none; margin: 0 0 0 auto; background: var(--sheet); color: var(--ink); overflow: hidden; }
+dialog.detail[open] { display: flex; flex-direction: column; animation: slide .2s var(--ease); }
+dialog.detail::backdrop { background: rgba(14, 18, 16, .45); }
+@media (prefers-color-scheme: dark) { dialog.detail::backdrop { background: rgba(0, 0, 0, .6); } }
+@keyframes slide { from { transform: translateX(24px); opacity: 0; } }
+.d-head { flex: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 8px 24px; border-bottom: 2px solid var(--ink); font-size: 13px; color: var(--pencil); }
+.d-head .close { border: 1.5px solid var(--ink); background: var(--sheet); color: var(--ink); padding: 6px 14px; font-weight: 600; min-height: 40px; }
+.d-body { flex: 1; overflow: auto; overscroll-behavior: contain; }
+.d-hero { aspect-ratio: 21 / 9; max-height: 200px; width: 100%; overflow: hidden; background: var(--stock); border-bottom: 1px solid var(--rule); }
+.d-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.d-in { padding: 18px 24px 28px; }
+.where { font-size: 13px; color: var(--pencil); margin: 0; }
+.d-in h2 { margin: 2px 0 14px; font: 800 44px/1 var(--display); overflow-wrap: anywhere; }
+.ident { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); margin: 0 0 16px; border-top: 1.5px solid var(--ink); border-bottom: 1px solid var(--rule); }
+.ident > div { padding: 5px 10px 6px; border-left: 1px solid var(--rule); min-width: 0; }
+.ident > div:first-child { border-left: 0; padding-left: 0; }
+.ident dt { font-size: 13px; color: var(--pencil); }
+.ident dd { margin: 0; font-weight: 600; font-size: 14px; overflow-wrap: anywhere; }
+.verdict { display: flex; gap: 14px; align-items: center; margin: 4px 0 12px; }
+.verdict .tier { font: 700 20px/1 var(--display); padding: 6px 10px 5px; border: 2px solid var(--ink); }
+.verdict .tier.t-avoid { color: var(--red); border-color: var(--red); }
+.d-lead { font-size: 19px; font-weight: 600; line-height: 1.4; margin: 0 0 4px; }
+.d-sec { margin-top: 22px; }
+.d-sec h3 { margin: 0 0 4px; padding-bottom: 4px; font: 800 24px/1 var(--display); border-bottom: 1.5px solid var(--ink); }
+.d-sec dl { display: grid; grid-template-columns: 190px 1fr; margin: 0; font-size: 14px; }
+.d-sec dt, .d-sec dd { padding: 7px 0; border-bottom: 1px solid var(--rule); margin: 0; }
+.d-sec dt { color: var(--pencil); padding-right: 12px; }
+.d-sec dd.bad { color: var(--red); font-weight: 600; }
+.d-sec dd .st { font-size: 13px; color: var(--pencil); }
+.d-sec dd .st.in { color: var(--violet); }
+.d-sec dd .st.bad { color: var(--red); font-weight: 600; }
+.d-sec dd span.it { display: block; }
+.d-sec dd span.it + span.it { margin-top: 2px; }
+ul.risks { margin: 8px 0 0; padding: 0 0 0 20px; font-size: 15px; }
+ul.risks li { margin-bottom: 4px; }
+ul.risks li.bad::marker { color: var(--red); }
+.d-nx { color: var(--pencil); margin: 8px 0 0; font-size: 15px; }
+.d-src { margin: 8px 0 0; padding-left: 22px; font-size: 14px; }
+.d-src li { margin-bottom: 3px; }
+.d-checked { font-size: 13px; color: var(--pencil); margin: 8px 0 0; }
+.d-foot { flex: none; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; padding: 12px 24px; border-top: 2px solid var(--ink); background: var(--sheet); }
+.dtoggle { border: 2px solid var(--ink); background: var(--ink); color: var(--on-ink); padding: 9px 18px; font-weight: 700; min-height: 44px; }
+.dtoggle[data-st="on"] { background: var(--sheet); color: var(--ink); }
+.dtoggle[data-st="auto"] { background: var(--violet); border-color: var(--violet); color: var(--sheet); }
+.d-eff { flex: 1 1 200px; margin: 0; font-size: 13px; color: var(--violet); line-height: 1.4; }
+.d-eff .bad { font-weight: 600; }
+.d-foot a { font-weight: 600; white-space: nowrap; }
+
+/* Footer */
+footer.foot-page { border-top: 1px solid var(--ink); margin: 0 var(--gutter); padding: 18px 0 40px; font-size: 13px; color: var(--pencil); }
+footer.foot-page p { margin: 0 0 6px; max-width: 80ch; }
+footer.foot-page nav { display: flex; flex-wrap: wrap; gap: 0 18px; margin-top: 2px; }
+footer.foot-page a { color: var(--ink); }
+footer.foot-page nav a { display: inline-block; padding: 10px 0; }
+
+/* 760 to 1279: rail becomes a sheet */
+@media (max-width: 1279px) {
+  :root { --gutter: 24px; }
+  .hero { grid-template-columns: 1fr; gap: 28px; }
+  .hero .text { padding-right: 140px; }
+  .stamp { width: 150px; height: 150px; top: -16px; right: -6px; }
+  .record { max-width: 560px; }
+  .wrap { grid-template-columns: minmax(0, 1fr) 320px; gap: 24px; }
+  aside.filters { position: fixed; z-index: 40; top: 0; bottom: 0; left: 0; width: 360px; max-width: 100vw; max-height: none; margin: 0; padding: 0 20px 24px; background: var(--sheet); border-right: 1.5px solid var(--ink); transform: translateX(-100%); visibility: hidden; transition: transform .22s ease-out, visibility 0s linear .22s; }
+  aside.filters.open { transform: none; visibility: visible; transition: transform .22s ease-out; }
+  .fhead { position: sticky; top: 0; z-index: 2; background: var(--sheet); padding: 14px 0 10px; flex-wrap: wrap; row-gap: 6px; }
+  .fhead h2 { white-space: nowrap; font-size: 22px; }
+  .fhead .fbtns { gap: 10px; margin-left: auto; }
+  .done { display: inline-block; white-space: nowrap; padding: 8px 10px; }
+  .secindex { display: none; }
+  .midonly { display: inline-flex; }
+  .jumpwrap { display: block; flex: 0 1 250px; min-width: 0; }
+  .jumpwrap select { width: 100%; }
+  .grid, .ph { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
 }
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* Below 760: one column, list becomes a bottom sheet */
+@media (max-width: 759px) {
+  :root { --gutter: 16px; }
+  body { padding-bottom: 72px; }
+  .navlinks { display: none; }
+  .guides { display: block; }
+  header.top { align-items: center; padding-top: 12px; padding-bottom: 10px; }
+  .wordmark { font-size: 24px; }
+  .hero { padding: 28px var(--gutter) 28px; gap: 22px; }
+  .hero .text { padding-right: 0; }
+  .hero h1 { font-size: 48px; padding-right: 92px; }
+  .hero h1 .nb { white-space: normal; }
+  .stamp { width: 112px; height: 112px; top: -14px; right: -8px; }
+  .lede { font-size: 17px; margin-top: 18px; }
+  .starts { display: grid; grid-template-columns: 1fr 1fr; }
+  .starts .primary { grid-column: 1 / -1; }
+  .start { min-height: 48px; }
+  .record tbody { display: grid; grid-template-columns: 1fr 1fr; }
+  .record tr { display: flex; flex-direction: column-reverse; justify-content: flex-end; padding: 6px 0 7px; border-bottom: 1px solid var(--rule); }
+  .record tr:nth-child(even) { border-left: 1px solid var(--rule); padding-left: 12px; }
+  .record th, .record td { border: 0; padding: 0; font-size: 14px; }
+  .record td { text-align: left; font-size: 30px; padding: 0 0 2px; }
+  .wrap { grid-template-columns: minmax(0, 1fr); padding-top: 16px; gap: 16px; }
+  aside.filters { top: auto; left: 0; right: 0; bottom: 0; width: auto; height: 88vh; max-height: 88vh; border-right: 0; border-top: 1.5px solid var(--ink); transform: translateY(100%); }
+  .toolbar { position: static; padding-top: 0; }
+  .field { flex-basis: 100%; }
+  .toolbar .midonly, .views, .seg, .fbtn, .jumpwrap select, .textbtn, .opt { min-height: 44px; }
+  .jumpwrap { flex: 1 1 160px; min-width: 0; }
+  .jumpwrap select { width: 100%; }
+  #result-count { order: 5; flex: 1; padding-bottom: 0; align-self: center; }
+  .views { order: 6; }
+  details.module { scroll-margin-top: 12px; }
+  details.module > summary { grid-template-columns: 16px 34px 1fr; padding: 14px 0 10px; min-height: 44px; }
+  details.module > summary .no { font-size: 24px; }
+  details.module > summary h2 { font-size: 30px; }
+  details.module > summary .count { grid-column: 3; text-align: left; }
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .entry { display: grid; grid-template-columns: 72px minmax(0, 1fr); column-gap: 12px; padding: 10px 12px 6px; contain-intrinsic-size: auto 210px; }
+  .entry > * { grid-column: 1 / -1; }
+  .entry .ref { display: none; }
+  .entry .avoidwhy { grid-row: 1; }
+  .entry .thumb { grid-column: 1; grid-row: 2 / span 2; width: 72px; height: 72px; aspect-ratio: auto; margin: 2px 0 0; }
+  .entry h4 { grid-column: 2; grid-row: 2; font-size: 21px; }
+  .entry .by { grid-column: 2; grid-row: 3; align-self: start; }
+  .entry .sum { grid-row: 4; }
+  .entry .watch { grid-row: 5; }
+  .entry .effect { grid-row: 6; }
+  .entry .spec { grid-row: 7; }
+  .entry .foot { grid-row: 8; }
+  .entry.nothumb h4, .entry.nothumb .by { grid-column: 1 / -1; }
+  .entry .sum { margin: 6px 0 8px; font-size: 14.5px; }
+  .spec dd { font-size: 16px; }
+  .foot { margin-top: 2px; }
+  .add { min-height: 44px; }
+  .hide-s { display: none; }
+  .ledger { font-size: 13px; }
+  .ledger th, .ledger td { padding: 5px 5px; }
+  .ledger td.mn { min-width: 0; width: 100%; }
+  .ledger .mt { display: block; font-size: 12.5px; color: var(--pencil); }
+  .ledger .mt.bad { color: var(--red); }
+  .ledger .pickmark { display: none; }
+  aside.req { position: fixed; z-index: 40; top: auto; left: 0; right: 0; bottom: 0; max-height: 88vh; border-left: 0; border-right: 0; border-bottom: 0; transform: translateY(100%); visibility: hidden; transition: transform .22s ease-out, visibility 0s linear .22s; }
+  aside.req.open { transform: none; visibility: visible; transition: transform .22s ease-out; }
+  .req .rhead { position: sticky; top: 0; z-index: 2; background: var(--canary); margin: -14px -16px 0; padding: 12px 16px 6px; }
+  #req-count { margin-left: 0; margin-right: auto; }
+  #req-close { display: inline-block; border: 1.5px solid var(--canary-ink); background: var(--canary); color: var(--canary-ink); font-weight: 600; padding: 8px 14px; min-height: 44px; }
+  #mobilebar { display: flex; position: fixed; z-index: 30; left: 0; right: 0; bottom: 0; height: 56px; align-items: center; gap: 12px; width: 100%; padding: 0 16px; background: var(--canary); color: var(--canary-ink); border: 0; border-top: 3px solid var(--ink); text-align: left; }
+  #mobilebar .mbt { font: 800 22px/1 var(--display); flex: none; }
+  #mb-count { flex: 1; font-size: 14px; font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #mb-count .bad { color: var(--red); }
+  #mobilebar .show { font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+  #notice { position: fixed; z-index: 29; left: 0; right: 0; bottom: 56px; margin: 0; border-top: 1px solid var(--violet); }
+  body.has-notice { padding-bottom: 150px; }
+  dialog.detail { width: 100vw; border-left: 0; }
+  .d-head, .d-in, .d-foot { padding-left: 16px; padding-right: 16px; }
+  .d-in h2 { font-size: 34px; }
+  .d-sec dl { grid-template-columns: 1fr; }
+  .ident { grid-template-columns: 1fr 1fr; border-bottom: 0; }
+  .ident > div { border-left: 0; padding-left: 0; border-bottom: 1px solid var(--rule); }
+  .ident > div:nth-child(even) { border-left: 1px solid var(--rule); padding-left: 10px; }
+  .d-sec dt { border-bottom: 0; padding-bottom: 0; }
+  footer.foot-page { padding-bottom: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
 </style>
 </head>
 <body>
+<a class="skip" id="skip-search" href="#q">Skip to search</a>
+<a class="skip" id="skip-main" href="#main">Skip to the mods</a>
+<a class="skip" id="skip-req" href="#req">Skip to your list</a>
+
 <header class="top">
-  <div>
-    <h1>Fallout 4 mod catalogue</h1>
-    <p>Tested for runtime 1.11.240 on an Apple Silicon Mac. Pick mods, and the list adds their requirements and patches and flags conflicts. Data from <a href="https://github.com/MorganKryze/fallout4-macos-modding">fallout4-macos-modding</a>.</p>
-  </div>
-  <div class="views" role="group" aria-label="View">
-    <button class="seg" data-view="cards" aria-pressed="true">Cards</button>
-    <button class="seg" data-view="table" aria-pressed="false">Table</button>
-  </div>
+  <a class="wordmark" href="./">Fallout 4 mod catalogue</a>
+  <nav class="navlinks" aria-label="Guides">
+    <a href="https://github.com/MorganKryze/fallout4-macos-modding/blob/main/docs/setup.md">Setup guide</a>
+    <a href="https://github.com/MorganKryze/fallout4-macos-modding/blob/main/docs/reference-playthrough.md">Our playthrough, explained</a>
+    <a href="https://github.com/MorganKryze/fallout4-macos-modding/tree/main/data">Raw data</a>
+    <a href="https://github.com/MorganKryze/fallout4-macos-modding">GitHub</a>
+  </nav>
+  <details class="guides">
+    <summary>Guides</summary>
+    <ul>
+      <li><a href="https://github.com/MorganKryze/fallout4-macos-modding/blob/main/docs/setup.md">Setup guide</a></li>
+      <li><a href="https://github.com/MorganKryze/fallout4-macos-modding/blob/main/docs/reference-playthrough.md">Our playthrough, explained</a></li>
+      <li><a href="https://github.com/MorganKryze/fallout4-macos-modding/tree/main/data">Raw data</a></li>
+      <li><a href="https://github.com/MorganKryze/fallout4-macos-modding">GitHub</a></li>
+    </ul>
+  </details>
 </header>
 
+<section class="hero" aria-labelledby="hero-h">
+  <div class="text">
+    <div class="hwrap">
+      <svg class="stamp" id="stamp" viewBox="0 0 200 200" role="img" aria-label="Stamp: checked one by one for Fallout 4 runtime 1.11.240">
+        <defs>
+          <filter id="ink" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="7" result="n"/>
+            <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  4.2 0 0 0 -.95" result="m"/>
+            <feComposite in="SourceGraphic" in2="m" operator="in" result="t"/>
+            <feDisplacementMap in="t" in2="n" scale="1.6"/>
+          </filter>
+          <path id="ring" d="M27,100 a73,73 0 1,1 146,0 a73,73 0 1,1 -146,0"/>
+        </defs>
+        <g filter="url(#ink)" fill="currentColor" stroke="currentColor" font-family="Sofia Sans Extra Condensed, Arial Narrow, sans-serif">
+          <circle cx="100" cy="100" r="95" fill="none" stroke-width="5"/>
+          <circle cx="100" cy="100" r="88" fill="none" stroke-width="1.5"/>
+          <circle cx="100" cy="100" r="60" fill="none" stroke-width="2.5"/>
+          <text font-size="17" font-weight="800" stroke="none" textLength="452" lengthAdjust="spacing"><textPath href="#ring">CHECKED ONE BY ONE ✶ FALLOUT 4 RUNTIME 1.11.240 ✶</textPath></text>
+          <text id="stamp-label" x="100" y="80" text-anchor="middle" font-size="13" font-weight="800" stroke="none">RUNTIME</text>
+          <text id="stamp-date" x="100" y="117" text-anchor="middle" font-size="42" font-weight="800" stroke="none">1.11.240</text>
+          <text id="stamp-year" x="100" y="140" text-anchor="middle" font-size="18" font-weight="800" stroke="none"></text>
+        </g>
+      </svg>
+      <h1 id="hero-h">Build a mod list<br> <span class="nb">that holds together</span></h1>
+    </div>
+    <p class="lede"><span class="n-total">…</span> Fallout 4 mods, each checked one by one against the current game version (1.11.240), Lunar Fallout Overhaul and Sim Settlements 2. Start from the list we play on a base M3 Mac, or build your own: your list adds the requirements and patches each mod needs and warns you about conflicts. The ratings hold on Windows too.</p>
+    <div class="starts" role="group" aria-label="Start from">
+      <button class="start primary preset" data-preset="pick" aria-pressed="false"><strong>Start from our playthrough</strong><small><span id="n-pick">…</span> mods, built for a base M3 Mac</small></button>
+      <button class="start preset" data-preset="core" aria-pressed="false"><strong>Core fixes only</strong><small>The <span id="n-core">…</span> every list needs</small></button>
+      <button class="start preset" data-preset="clear" aria-pressed="false"><strong>Start empty</strong><small>Build your own</small></button>
+    </div>
+  </div>
+  <div class="record">
+    <table>
+      <caption>Inspection record</caption>
+      <tr><th scope="row">Mods checked</th><td id="rec-total">…</td></tr>
+      <tr><th scope="row">In our playthrough</th><td id="rec-pick">…</td></tr>
+      <tr><th scope="row"><button class="textbtn" id="rec-avoid-btn">Rejected, with the reason</button></th><td id="rec-avoid">…</td></tr>
+      <tr><th scope="row">Last check</th><td id="rec-date">…</td></tr>
+    </table>
+  </div>
+</section>
+
 <div class="wrap">
-  <aside class="filters" aria-label="Filters">
-    <div class="fgroup">
-      <span>Start from</span>
-      <div class="presets">
-        <button class="preset" data-preset="pick"><strong>Our playthrough</strong><small>The reference list: stable, 40-45 fps on a base M3</small></button>
-        <button class="preset" data-preset="core"><strong>Core only</strong><small>The fixes every list needs</small></button>
-        <button class="preset" data-preset="clear"><strong>Empty list</strong><small>Build your own</small></button>
+  <aside class="filters" id="filters" aria-labelledby="filters-h">
+    <div class="fhead">
+      <h2 id="filters-h" tabindex="-1" data-sheet-focus>Narrow it down</h2>
+      <div class="fbtns">
+        <button class="textbtn" id="f-reset" hidden>Reset</button>
+        <button class="done" id="f-done">Show mods</button>
       </div>
     </div>
-    <div class="fgroup">
-      <label for="q"><span>Search</span></label>
-      <input id="q" class="search" type="search" placeholder="Name or description">
-    </div>
-    <div class="fgroup"><span>Playthrough</span><div class="chips" id="f-profile"></div></div>
-    <div class="fgroup"><span>Tier</span><div class="chips" id="f-tier"></div></div>
-    <div class="fgroup"><span>Performance cost at most</span><div class="chips" id="f-perf"></div></div>
-    <div class="fgroup">
-      <span>Only show</span>
-      <label class="toggle"><input type="checkbox" id="f-runtime"> Known to work on 1.11.240</label>
-      <label class="toggle"><input type="checkbox" id="f-nodll"> No F4SE DLL</label>
-      <label class="toggle"><input type="checkbox" id="f-noend"> No ending lock</label>
-      <label class="toggle"><input type="checkbox" id="f-pick"> Our picks</label>
-    </div>
+    <fieldset class="block"><legend><i>1</i>Playing as</legend><div class="opts" id="f-profile"></div></fieldset>
+    <fieldset class="block"><legend><i>2</i>Tier</legend><div class="opts" id="f-tier"></div></fieldset>
+    <fieldset class="block"><legend><i>3</i>Cost on a base M3</legend><div class="opts" id="f-perf"></div></fieldset>
+    <fieldset class="block"><legend><i>4</i>Only show</legend>
+      <label class="box"><input type="checkbox" id="f-runtime"><span>Works on 1.11.240</span></label>
+      <label class="box"><input type="checkbox" id="f-lunar"><span>Works with Lunar</span></label>
+      <label class="box"><input type="checkbox" id="f-ss2"><span>Works with Sim Settlements 2</span></label>
+      <p class="hint">Hides mods we know conflict. Most mods are not checked against these yet.</p>
+      <label class="box"><input type="checkbox" id="f-nodll"><span>No F4SE DLL</span></label>
+      <label class="box"><input type="checkbox" id="f-noend"><span>No faction ending lock</span></label>
+      <label class="box"><input type="checkbox" id="f-pick"><span>In our playthrough</span></label>
+      <label class="box"><input type="checkbox" id="f-inlist"><span>In your list</span></label>
+    </fieldset>
+    <nav class="secindex" id="sec-index" aria-labelledby="sec-h">
+      <div class="sihead"><h2 id="sec-h">Sections</h2><span>Shown</span><span>Listed</span></div>
+      <ol id="sec-list"></ol>
+    </nav>
   </aside>
 
-  <main id="main" aria-live="polite"><p class="empty">Loading the catalogue…</p></main>
-
-  <aside class="req" id="req" aria-label="Your list">
-    <div class="form">
-      <header><h2>Your list</h2><span id="req-count">0 mods</span></header>
-      <div class="stat"><span>Full plugin slots</span><b id="s-full">0 / 254</b></div>
-      <div class="slots" id="slots"><i style="width:0"></i></div>
-      <div class="stat"><span>Light plugins (ESL)</span><b id="s-light">0</b></div>
-      <div class="stat"><span>Download size</span><b id="s-size">0 GB</b></div>
-      <div class="stat"><span>F4SE DLLs</span><b id="s-dll">0</b></div>
-      <div class="stat"><span>Script-heavy mods</span><b id="s-heavy">0</b></div>
-      <div class="stat"><span>High performance cost</span><b id="s-high">0</b></div>
-      <div class="alerts" id="alerts"></div>
-      <ul class="picked" id="picked"></ul>
-      <div class="actions">
-        <button class="primary" id="x-csv">Download CSV</button>
-        <button id="x-txt">Copy load order</button>
-        <button id="x-link">Copy share link</button>
-        <button id="x-clear">Clear</button>
+  <div class="results">
+    <div class="toolbar">
+      <div class="field"><label for="q">Search<span class="kbd hide-s"> (press /)</span></label><input id="q" type="search" placeholder="Name or what it does" autocomplete="off" spellcheck="false"></div>
+      <button class="fbtn midonly" id="filters-btn" aria-controls="filters" aria-expanded="false">Filters</button>
+      <label class="jumpwrap midonly"><span class="vh">Jump to section</span><select id="jump" aria-label="Jump to section"><option value="">Jump to section</option></select></label>
+      <span id="result-count">Loading…</span>
+      <div class="views" role="group" aria-label="View">
+        <button class="seg" data-view="cards" aria-pressed="true">Cards</button>
+        <button class="seg" data-view="table" aria-pressed="false">Table</button>
       </div>
+    </div>
+    <div class="subbar" id="subbar">
+      <span class="hn" id="hidden-note"></span>
+      <span class="xc" id="xc"><button class="textbtn" data-all="open">Expand all</button><button class="textbtn" data-all="close">Collapse all</button></span>
+    </div>
+    <div id="notice" hidden><p id="notice-text"></p><span class="nbtns" id="notice-btns"></span></div>
+    <main id="main" tabindex="-1">
+      <p class="loading">Loading the catalogue…</p>
+      <div class="ph" aria-hidden="true"><i></i><i></i><i></i></div>
+    </main>
+  </div>
+
+  <aside class="req" id="req" aria-labelledby="req-h">
+    <div class="fbody">
+      <div class="rhead"><h2 id="req-h" tabindex="-1" data-sheet-focus>Your list</h2><span id="req-count">0 mods</span><button id="req-close">Close</button></div>
+      <p class="sub" id="req-sub">Pick a starting point or tick mods in the catalogue.</p>
+      <div class="gauge">
+        <div class="line"><span>Full plugin slots</span><span id="s-full"><b>0</b> <small>of 254</small></span></div>
+        <div class="slots" id="slots" role="img" aria-label="0 of 254 full plugin slots used"><i class="counted" style="width:0"></i><i class="estimate" style="left:0;width:0"></i></div>
+        <div class="scale" aria-hidden="true"><span style="left:0">0</span><span style="left:19.685%">50</span><span style="left:39.37%">100</span><span style="left:59.055%">150</span><span style="left:78.74%">200</span><span style="left:100%">254</span></div>
+        <p class="note" id="slots-note"></p>
+      </div>
+      <div class="gauge">
+        <div class="line"><span>Cost mix</span></div>
+        <div class="mix" id="mix" role="img" aria-label="Cost mix"></div>
+        <div class="mixkey" id="mixkey"></div>
+      </div>
+      <dl class="stats">
+        <div><dt>Light plugins</dt><dd id="s-light">0</dd></div>
+        <div><dt>Download</dt><dd id="s-size">0 GB</dd></div>
+        <div><dt>F4SE DLLs</dt><dd id="s-dll">0</dd></div>
+        <div><dt>Script-heavy</dt><dd id="s-heavy">0</dd></div>
+        <div><dt>High cost</dt><dd id="s-high">0</dd></div>
+        <div><dt>Added for you</dt><dd id="s-auto">0</dd></div>
+      </dl>
+      <section id="notes-sec" hidden><h3>Notes</h3><div class="alerts" id="alerts"></div></section>
+      <h3>Load order</h3>
+      <p class="lohint">Grouped by load group. Inside a group, any order works unless a note says otherwise.</p>
+      <ol id="picked"></ol>
+    </div>
+    <div class="exports">
+      <div class="row">
+        <button class="x primary" id="x-csv">Download CSV</button>
+        <button class="x" id="x-txt">Copy load order</button>
+        <button class="x" id="x-link">Copy share link</button>
+      </div>
+      <div class="clr"><button class="textbtn" id="x-clear">Clear list</button><span class="nothing" id="x-nothing">Nothing to export yet</span></div>
     </div>
   </aside>
 </div>
-<button class="mobilebar" id="mobilebar" aria-controls="req" aria-expanded="false"><span>Your list</span><span id="mb-count">0 mods</span></button>
 
+<footer class="foot-page">
+  <p>A fan project. Not affiliated with Bethesda Softworks or ZeniMax. Mod names, descriptions and images belong to their authors and come from Nexus Mods.</p>
+  <p id="foot-dates">Loading the data dates…</p>
+  <nav aria-label="Project links">
+    <a href="https://github.com/MorganKryze/fallout4-macos-modding/blob/main/docs/setup.md">Setup guide</a>
+    <a href="https://github.com/MorganKryze/fallout4-macos-modding/blob/main/docs/reference-playthrough.md">Our playthrough, explained</a>
+    <a href="https://github.com/MorganKryze/fallout4-macos-modding/blob/main/docs/troubleshooting.md">Troubleshooting</a>
+    <a href="https://github.com/MorganKryze/fallout4-macos-modding/tree/main/data">Raw data</a>
+    <a href="https://github.com/MorganKryze/fallout4-macos-modding">GitHub</a>
+  </nav>
+</footer>
+
+<button id="mobilebar" aria-controls="req" aria-expanded="false"><span class="mbt">Your list</span><span id="mb-count">0 mods</span><span class="show" aria-hidden="true">Show ▴</span></button>
 <dialog class="detail" id="detail" aria-labelledby="d-title"></dialog>
+<div id="sheet-backdrop" hidden></div>
+<div id="sr-status" class="vh" role="status"></div>
 
 <script>
+"use strict";
 const MODULES = {
   base: "Base", stability: "Stability and performance", interface: "Interface", gameplay: "Gameplay and enemies",
   brotherhood: "Brotherhood of Steel", minutemen: "Minutemen", institute: "The Institute", railroad: "The Railroad",
@@ -256,13 +729,50 @@ const MODULES = {
   dlc: "DLC", quests: "Quests and locations", "weapons-armor": "Weapons and armor", immersion: "Immersion and quality of life",
   companions: "Companions",
 };
+const MOD_KEYS = Object.keys(MODULES);
+const secNo = k => String(MOD_KEYS.indexOf(k) + 1).padStart(2, "0");
 const TIERS = ["core", "recommended", "optional", "avoid"];
+const TIER_LABEL = { core: "Core", recommended: "Recommended", optional: "Optional", avoid: "Avoid" };
 const PERF = ["low", "med", "high"];
-const PROFILES = ["all", "bos", "minutemen", "institute", "railroad", "raider", "neutral"];
-const PROFILE_LABEL = { all: "Any", bos: "Brotherhood", minutemen: "Minutemen", institute: "Institute", railroad: "Railroad", raider: "Raider", neutral: "Neutral" };
+const PERF_OPT = { low: "Low only", med: "Up to medium", high: "Any" };
+const PROFILES = ["bos", "minutemen", "institute", "railroad", "raider", "neutral"];
+const PROFILE_LABEL = { all: "Any playthrough", bos: "Brotherhood", minutemen: "Minutemen", institute: "Institute", railroad: "Railroad", raider: "Raider", neutral: "Neutral" };
+const FACTION = { bos: "Brotherhood", minutemen: "Minutemen", institute: "Institute", railroad: "Railroad" };
+const LOAD_GROUPS = { "0": "No plugin: F4SE and DLL mods", "10": "Unofficial patch and frameworks", "20": "Overhauls", "30": "Large content frameworks", "40": "Content", "50": "Gear, weapons and armor", "60": "Tweaks and immersion", "80": "Compatibility patches", "90": "Precombine and previs patches", "99": "Load last", "": "Load group not recorded" };
+const LBL = {
+  perf: { low: "Low", med: "Medium", high: "High", "": "Not rated" },
+  perfLong: { low: "Low cost on a base M3", med: "Medium cost on a base M3", high: "High cost on a base M3", "": "Not rated yet" },
+  rt: { yes: "Yes", "plugin-only": "Works", no: "No", unknown: "Unchecked", "": "Unchecked" },
+  rtLong: { yes: "Supported (the author says so)", "plugin-only": "Works: plugin only, no DLL", no: "Not supported", unknown: "Not checked yet", "": "Not checked yet" },
+  dll: { yes: "Needs an F4SE DLL", no: "No DLL", "": "Not checked yet" },
+  dllShort: { yes: "Needed", no: "None", "": "Unchecked" },
+  pc: { safe: "Safe", breaks: "Breaks precombines", "prp-patch": "Needs the PRP patch (added for you)", "": "Not checked yet" },
+  compat: { ok: "Works", patch: "Patch", conflict: "Conflict", "n/a": "Unrelated", "": "Unchecked" },
+  compatLong: { ok: "Works", patch: "Needs a patch (added for you)", conflict: "Conflicts", "n/a": "Unrelated", "": "Unchecked" },
+  scripts: { none: "No scripts", light: "Light scripts", heavy: "Script-heavy", "": "Not checked yet" },
+  npcs: { none: "No NPCs", few: "A few NPCs", many: "Many NPCs", "": "Not checked yet" },
+};
+const lab = (map, v) => map[v ?? ""] ?? map[""] ?? v;
+const endingLabel = v => !v || v === "none" ? "Leaves every ending open" : `Locks the ${FACTION[v] || v} ending`;
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const MONTHS_LONG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+function fmtDate(s, long) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(s || ""); if (!m) return "";
+  return long ? `${+m[3]} ${MONTHS[+m[2] - 1]} ${m[1]}` : `${MONTHS[+m[2] - 1]} ${m[1]}`;
+}
+const num = n => Number(n).toLocaleString("en");
+const plural = (n, one, many) => `${num(n)} ${n === 1 ? one : (many || one + "s")}`;
+const joinAnd = a => a.length <= 1 ? (a[0] || "") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1];
 
-const state = { view: "cards", q: "", profiles: new Set(), tiers: new Set(["core", "recommended", "optional"]), perf: "high", runtime: false, nodll: false, noend: false, pick: false, chosen: new Set() };
-let MODS = [], BY = {}, NX = {};
+const DEFAULT_TIERS = ["core", "recommended", "optional"];
+const state = { view: "cards", q: "", profiles: new Set(), tiers: new Set(DEFAULT_TIERS), perf: "high", runtime: false, nodll: false, noend: false, pick: false, lunar: false, ss2: false, inlist: false, unrated: false, chosen: new Set() };
+const CHECKS = ["runtime", "lunar", "ss2", "nodll", "noend", "pick", "inlist"];
+let MODS = [], BY = {}, NX = {}, R = null, byMod = {}, shown = [], loaded = false;
+let openSet = new Set(["base", "stability"]), qClosed = new Set();
+let sortKey = "tier", sortDir = 1;
+let effCache = new Map();
+let openId = null, detailOpener = null;
+const $ = id => document.getElementById(id);
 
 function parseCSV(text) {
   const rows = []; let row = [], field = "", q = false;
@@ -287,82 +797,9 @@ const nexusUrl = m => m.nexus_id ? `https://www.nexusmods.com/fallout4/mods/${m.
 const sizeOf = m => (NX[m.nexus_id]?.main_files?.[0]?.size_bytes) || 0;
 const fmtSize = b => b >= 1e9 ? (b / 1e9).toFixed(1) + " GB" : b >= 1e6 ? Math.round(b / 1e6) + " MB" : b ? Math.round(b / 1e3) + " KB" : "";
 
-function visible(m) {
-  if (!state.tiers.has(m.tier)) return false;
-  if (state.profiles.size && !list(m.profiles).some(p => p === "all" || state.profiles.has(p))) return false;
-  if (m.perf && PERF.indexOf(m.perf) > PERF.indexOf(state.perf)) return false;
-  if (state.runtime && !["yes", "plugin-only"].includes(m.runtime_1_11_240)) return false;
-  if (state.nodll && m.f4se_dll === "yes") return false;
-  if (state.noend && m.ending_lock && m.ending_lock !== "none") return false;
-  if (state.pick && m.our_pick !== "yes") return false;
-  if (state.q) {
-    const hay = (m.name + " " + m.summary + " " + (NX[m.nexus_id]?.name || "")).toLowerCase();
-    if (!hay.includes(state.q)) return false;
-  }
-  return true;
-}
-
-function badges(m) {
-  const out = [];
-  if (m.our_pick === "yes") out.push('<span class="b pick">Our pick</span>');
-  out.push(`<span class="b">${esc(m.tier)}</span>`);
-  if (m.perf) out.push(`<span class="b${m.perf === "high" ? " warn" : ""}">${esc(m.perf)} cost</span>`);
-  if (m.f4se_dll === "yes") out.push('<span class="b dll">F4SE DLL</span>');
-  if (m.runtime_1_11_240 === "no") out.push('<span class="b warn">Not 1.11.240</span>');
-  if (m.precombines === "breaks") out.push('<span class="b warn">Breaks precombines</span>');
-  if (m.ending_lock && m.ending_lock !== "none") out.push(`<span class="b warn">Ending: ${esc(m.ending_lock)}</span>`);
-  if (m.lunar === "conflict") out.push('<span class="b warn">Lunar conflict</span>');
-  return out.join("");
-}
-
-function card(m) {
-  const n = NX[m.nexus_id] || {};
-  const img = n.thumbnail && !n.adult ? `<img src="${esc(n.thumbnail)}" alt="" loading="lazy">` : "";
-  const on = state.chosen.has(m.id);
-  return `<article class="card t-${m.tier}">
-    <div class="thumb">${img}</div>
-    <div class="body">
-      <h3><button data-open="${esc(m.id)}">${esc(m.name)}</button></h3>
-      <div class="by">${esc([n.author && "by " + n.author, n.updated && "updated " + n.updated, fmtSize(sizeOf(m))].filter(Boolean).join(", "))}</div>
-      <p class="sum">${esc(m.summary)}</p>
-    </div>
-    <div class="foot"><div class="badges">${badges(m)}</div>
-      <button class="add" data-toggle="${esc(m.id)}" aria-pressed="${on}" aria-label="${on ? "Remove" : "Add"} ${esc(m.name)}">${on ? "✓" : "+"}</button></div>
-  </article>`;
-}
-
-let sortKey = "name", sortDir = 1;
-function table(mods) {
-  const cols = [["name", "Mod"], ["module", "Module"], ["tier", "Tier"], ["perf", "Cost"], ["runtime_1_11_240", "1.11.240"], ["f4se_dll", "DLL"], ["plugins_full", "Full"], ["updated", "Updated"]];
-  const val = (m, k) => k === "updated" ? (NX[m.nexus_id]?.updated || "") : m[k] || "";
-  mods = [...mods].sort((a, b) => String(val(a, sortKey)).localeCompare(String(val(b, sortKey)), undefined, { numeric: true }) * sortDir);
-  return `<table><thead><tr><th></th>${cols.map(([k, l]) => `<th><button data-sort="${k}">${l}${sortKey === k ? (sortDir > 0 ? " ▴" : " ▾") : ""}</button></th>`).join("")}</tr></thead><tbody>
-  ${mods.map(m => `<tr><td><button class="add" data-toggle="${esc(m.id)}" aria-pressed="${state.chosen.has(m.id)}" aria-label="Add ${esc(m.name)}">${state.chosen.has(m.id) ? "✓" : "+"}</button></td>
-    <td><button class="linkid" data-open="${esc(m.id)}">${esc(m.name)}</button>${m.our_pick === "yes" ? ' <span class="b pick">Our pick</span>' : ""}</td>
-    <td>${esc(MODULES[m.module] || m.module)}</td><td>${esc(m.tier)}</td><td>${esc(m.perf)}</td><td>${esc(m.runtime_1_11_240)}</td><td>${esc(m.f4se_dll)}</td><td class="n">${esc(m.plugins_full)}</td><td>${esc(val(m, "updated"))}</td></tr>`).join("")}
-  </tbody></table>`;
-}
-
-function render() {
-  const main = document.getElementById("main");
-  const shown = MODS.filter(visible);
-  if (!shown.length) { main.innerHTML = '<p class="empty">No mod matches these filters. Widen the tier or cost filters, or clear the search.</p>'; return; }
-  if (state.view === "table") { main.innerHTML = table(shown); return; }
-  const open = new Set([...document.querySelectorAll("details.module[open]")].map(d => d.dataset.module));
-  const first = !document.querySelector("details.module");
-  main.innerHTML = Object.entries(MODULES).map(([key, title]) => {
-    const mods = shown.filter(m => m.module === key);
-    if (!mods.length) return "";
-    const isOpen = first ? ["base", "stability"].includes(key) || state.q : open.has(key) || state.q;
-    return `<details class="module" data-module="${key}" ${isOpen ? "open" : ""}>
-      <summary><h2>${esc(title)}</h2><span class="count">${mods.length} mods, ${mods.filter(m => state.chosen.has(m.id)).length} in your list</span></summary>
-      ${TIERS.map(t => { const g = mods.filter(m => m.tier === t); return g.length ? `<div class="tierhead">${t[0].toUpperCase() + t.slice(1)}</div><div class="grid">${g.map(card).join("")}</div>` : ""; }).join("")}
-    </details>`;
-  }).join("");
-}
-
-function resolve() {
-  const chosen = new Set(state.chosen), auto = new Set();
+/* ---------- Resolver ---------- */
+function resolve(chosenSet = state.chosen) {
+  const chosen = new Set(chosenSet), auto = new Set();
   const addReq = id => list(BY[id]?.requires).forEach(r => { if (BY[r] && !chosen.has(r) && !auto.has(r)) { auto.add(r); addReq(r); } });
   [...chosen].forEach(addReq);
   const all = new Set([...chosen, ...auto]);
@@ -373,150 +810,862 @@ function resolve() {
     if (list(pm.requires).every(r => all.has(r))) patches.add(p);
   }));
   patches.forEach(p => all.add(p));
-  const conflicts = [];
-  all.forEach(id => list(BY[id]?.conflicts).forEach(c => { if (all.has(c) && id < c) conflicts.push([id, c]); }));
+  // Conflicts are reported once per pair, whichever side declares them.
+  const conflicts = [], seen = new Set();
+  all.forEach(id => list(BY[id]?.conflicts).forEach(c => {
+    if (!all.has(c) || c === id) return;
+    const [a, b] = id < c ? [id, c] : [c, id], k = a + "|" + b;
+    if (!seen.has(k)) { seen.add(k); conflicts.push([a, b]); }
+  }));
   return { chosen, auto, patches, all, conflicts };
 }
+const stOf = id => R.chosen.has(id) ? "on" : R.all.has(id) ? "auto" : "off";
+function reqClosure(id) {
+  const out = new Set();
+  const walk = x => list(BY[x]?.requires).forEach(r => { if (BY[r] && !out.has(r)) { out.add(r); walk(r); } });
+  walk(id); return out;
+}
+function neededBy(id) { return [...R.all].filter(x => list(BY[x]?.requires).includes(id)); }
+function whyAuto(id) {
+  if (R.patches.has(id)) { const masters = list(BY[id].requires).filter(x => BY[x]); return { kind: "patch", names: masters.map(x => BY[x].name) }; }
+  return { kind: "req", names: neededBy(id).map(x => BY[x].name) };
+}
+function effectOf(id) {
+  if (effCache.has(id)) return effCache.get(id);
+  let out = { html: "", sr: "" };
+  if (!R.all.has(id)) {
+    const nr = resolve(new Set([...state.chosen, id]));
+    const reqs = [], pats = [];
+    nr.all.forEach(x => { if (x !== id && !R.all.has(x)) (nr.patches.has(x) ? pats : reqs).push(x); });
+    const confl = [];
+    nr.conflicts.forEach(([a, b]) => {
+      const aIn = R.all.has(a), bIn = R.all.has(b);
+      if (aIn !== bIn) { const other = aIn ? a : b; if (!confl.includes(other)) confl.push(other); }
+    });
+    const items = [];
+    if (reqs.length && reqs.length <= 2) items.push(...reqs.map(x => BY[x].name));
+    else if (reqs.length) items.push(plural(reqs.length, "requirement"));
+    if (pats.length) items.push(plural(pats.length, "patch", "patches"));
+    const brings = items.length ? `Adding it brings ${esc(joinAnd(items))}.` : "";
+    const names = confl.map(x => BY[x].name);
+    const cText = confl.length ? `Conflicts with ${joinAnd(names)}, which ${confl.length > 1 ? "are" : "is"} in your list.` : "";
+    out = {
+      html: (cText ? `<span class="bad">${esc(cText)}</span>` : "") + (cText && brings ? " " : "") + brings,
+      sr: [items.length ? `Brings ${joinAnd(items)}.` : "", cText].filter(Boolean).join(" "),
+      brings: items.length ? `Brings ${joinAnd(items)}.` : "",
+    };
+  }
+  effCache.set(id, out); return out;
+}
 
+/* ---------- Filtering ---------- */
+function passes(m, skip = "") {
+  if (skip !== "tier" && !state.tiers.has(m.tier)) return false;
+  if (state.profiles.size && !m.prof.some(p => p === "all" || state.profiles.has(p))) return false;
+  if (state.perf !== "high") {
+    if (m.perf) { if (PERF.indexOf(m.perf) > PERF.indexOf(state.perf)) return false; }
+    else if (skip !== "unrated" && !state.unrated) return false;
+  }
+  if (state.runtime && !["yes", "plugin-only"].includes(m.runtime_1_11_240)) return false;
+  if (state.lunar && m.lunar === "conflict") return false;
+  if (state.ss2 && m.ss2 === "conflict") return false;
+  if (state.nodll && m.f4se_dll === "yes") return false;
+  if (state.noend && m.ending_lock && m.ending_lock !== "none") return false;
+  if (state.pick && m.our_pick !== "yes") return false;
+  if (state.inlist && !R.all.has(m.id)) return false;
+  if (state.q && !m.hay.includes(state.q)) return false;
+  return true;
+}
+function filterCount() {
+  let n = 0;
+  if (state.profiles.size) n++;
+  if (state.tiers.size !== DEFAULT_TIERS.length || DEFAULT_TIERS.some(t => !state.tiers.has(t))) n++;
+  if (state.perf !== "high") n++;
+  CHECKS.forEach(k => { if (state[k]) n++; });
+  return n;
+}
+
+/* ---------- Catalogue: cards ---------- */
+function plugShape(m) {
+  if (m.load_group === "0") return "No plugin";
+  if (m.plugins_full === "") return '<i class="hatchsw" aria-hidden="true"></i>Plugins not counted';
+  const f = +m.plugins_full || 0, l = +m.plugins_light || 0;
+  if (!f && !l) return "No plugin";
+  const p = [];
+  if (f) p.push(plural(f, "plugin"));
+  if (l) p.push(plural(l, "light plugin"));
+  return p.join(", ");
+}
+function avoidWhy(m) {
+  const c = list(m.notes).map(s => s.trim()).find(s => !/^(v?\d|\(|unknown|frozen|abandoned)/i.test(s));
+  return c ? c.replace(/\.$/, "") : "";
+}
+function watchItems(m) {
+  const w = [];
+  if (m.f4se_dll === "yes") w.push(["needs an F4SE DLL", false]);
+  if (m.precombines === "breaks") w.push(["breaks precombines", true]);
+  if (m.precombines === "prp-patch") w.push(["PRP patch added for you", false]);
+  if (m.ending_lock && m.ending_lock !== "none") w.push([`locks the ${FACTION[m.ending_lock] || m.ending_lock} ending`, true]);
+  if (m.scripts === "heavy") w.push(["script-heavy", true]);
+  return w;
+}
+function watchLine(m) {
+  const w = watchItems(m); if (!w.length) return "";
+  return `<p class="watch">${w.map(([t, bad], i) => { const s = i ? t : t[0].toUpperCase() + t.slice(1); return bad ? `<span class="bad">${esc(s)}</span>` : esc(s); }).join(", ")}.</p>`;
+}
+function specCell(label, text, cls) { return `<div><dt>${label}</dt><dd${cls ? ` class="${cls}"` : ""}>${esc(text)}</dd></div>`; }
+function specStrip(m) {
+  const compatCls = v => v === "conflict" ? "bad" : (!v || v === "n/a") ? "na" : "";
+  return `<dl class="spec">${specCell("Cost", lab(LBL.perf, m.perf), m.perf === "high" ? "bad" : !m.perf ? "na" : "")}${specCell("1.11.240", lab(LBL.rt, m.runtime_1_11_240), m.runtime_1_11_240 === "no" ? "bad" : ["yes", "plugin-only"].includes(m.runtime_1_11_240) ? "" : "na")}${specCell("Lunar", lab(LBL.compat, m.lunar), compatCls(m.lunar))}${specCell("SS2", lab(LBL.compat, m.ss2), compatCls(m.ss2))}</dl>`;
+}
+const TICK = '<span class="bx" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 8.5l3.5 3.2L13.5 4"/></svg></span>';
+function tickLabel(st) { return st === "on" ? "In your list" : st === "auto" ? "Added for you" : "Add to list"; }
+function tickAria(st, name) { return st === "on" ? `Remove ${name} from your list` : st === "auto" ? `Keep ${name} in your list` : `Add ${name} to your list`; }
+function tickBtn(m) {
+  const st = stOf(m.id);
+  return `<button class="add" data-toggle="${esc(m.id)}" data-st="${st}" aria-pressed="${st !== "off"}" aria-label="${esc(tickAria(st, m.name))}">${TICK}<span class="lbl">${tickLabel(st)}</span></button>`;
+}
+const pickMark = m => m.our_pick === "yes" ? '<span class="pickmark">Our pick</span>' : "";
+function entry(m) {
+  const n = NX[m.nexus_id] || {};
+  const hasImg = n.thumbnail && !n.adult;
+  const by = [n.author && "by " + n.author, n.updated && "updated " + fmtDate(n.updated)].filter(Boolean).join(", ");
+  const why = m.tier === "avoid" ? avoidWhy(m) : "";
+  return `<article class="entry${R.all.has(m.id) ? " on" : ""}${hasImg ? "" : " nothumb"}" data-id="${esc(m.id)}">
+<div class="ref"><span>${m.nexus_id ? "No. " + esc(m.nexus_id) : "No Nexus page"}</span><span>${plugShape(m)}</span></div>
+${m.tier === "avoid" ? `<p class="avoidwhy">Avoid${why ? ": " + esc(why) : ""}</p>` : ""}
+${hasImg ? `<div class="thumb"><img src="${esc(n.thumbnail)}" alt="" loading="lazy" decoding="async"></div>` : ""}
+<h4><button class="nm" data-open="${esc(m.id)}">${esc(m.name)}</button></h4>
+${by ? `<p class="by">${esc(by)}</p>` : ""}
+<p class="sum">${esc(m.summary)}</p>
+${watchLine(m)}<p class="effect" data-effect="${esc(m.id)}"></p>${specStrip(m)}
+<div class="foot">${tickBtn(m)}${pickMark(m)}</div></article>`;
+}
+function sectionBody(key) {
+  const mods = byMod[key] || [];
+  if (!mods.length) return state.q ? `<p class="stub">No mods in this section match "${esc(state.q)}". <button class="textbtn" data-reset="all">Clear search and filters</button></p>`
+    : `<p class="stub">No mods in this section match your filters. <button class="textbtn" data-reset>Reset filters</button></p>`;
+  return TIERS.map(t => {
+    const g = mods.filter(m => m.tier === t);
+    return g.length ? `<h3 class="tierhead t-${t}">${TIER_LABEL[t]}</h3><div class="grid">${g.map(entry).join("")}</div>` : "";
+  }).join("");
+}
+function countHTML(key) {
+  const mods = byMod[key] || [], inl = mods.filter(m => R.all.has(m.id)).length;
+  return `${plural(mods.length, "mod")}${inl ? `, <b>${num(inl)} in your list</b>` : ""}`;
+}
+function isOpen(key) {
+  const c = (byMod[key] || []).length;
+  if (!c) return false;
+  return state.q ? !qClosed.has(key) : openSet.has(key);
+}
+function fillSection(d) {
+  const body = d.querySelector(".mbody");
+  if (body && !body.dataset.filled) { body.innerHTML = sectionBody(d.dataset.module); body.dataset.filled = "1"; scheduleEffects(); }
+}
+
+/* ---------- Catalogue: table ---------- */
+const COLS = [["tick", "", ""], ["name", "Mod", "mn"], ["module", "Section", "hide-s hide-m"], ["tier", "Tier", "nw hide-s hide-m"], ["perf", "Cost", "nw"], ["rt", "1.11.240", "nw"], ["dll", "DLL", "hide-s nw"], ["plugins", "Plugins", "hide-s nw"], ["updated", "Updated", "hide-s hide-m nw"]];
+const ORD = { perf: { low: 0, med: 1, high: 2 }, rt: { yes: 0, "plugin-only": 1, no: 2 }, dll: { no: 0, yes: 1 } };
+function sortVal(m, k) {
+  switch (k) {
+    case "name": return m.name.toLowerCase();
+    case "module": return m.mi;
+    case "tier": return m.ti;
+    case "perf": return ORD.perf[m.perf] ?? 9;
+    case "rt": return ORD.rt[m.runtime_1_11_240] ?? 9;
+    case "dll": return ORD.dll[m.f4se_dll] ?? 9;
+    case "plugins": return m.load_group === "0" ? 0 : m.plugins_full === "" ? 999 : +m.plugins_full;
+    case "updated": return NX[m.nexus_id]?.updated || "";
+  }
+  return "";
+}
+function nameWithMark(m) {
+  if (m.our_pick !== "yes") return esc(m.name);
+  const i = m.name.lastIndexOf(" ");
+  return `${esc(m.name.slice(0, i + 1))}<span class="lw">${esc(m.name.slice(i + 1))}${pickMark(m)}</span>`;
+}
+function tableHTML(mods) {
+  const rows = [...mods].sort((a, b) => {
+    const x = sortVal(a, sortKey), y = sortVal(b, sortKey);
+    const c = typeof x === "number" && typeof y === "number" ? x - y : String(x).localeCompare(String(y));
+    return c * sortDir || a.name.localeCompare(b.name);
+  });
+  const head = COLS.map(([k, l, cls]) => k === "tick" ? `<th scope="col"><span class="vh">In your list</span></th>`
+    : `<th scope="col" class="${cls}"${sortKey === k ? ` aria-sort="${sortDir > 0 ? "ascending" : "descending"}"` : ""}><button data-sort="${k}">${l}${sortKey === k ? `<span aria-hidden="true">${sortDir > 0 ? " ▴" : " ▾"}</span>` : ""}</button></th>`).join("");
+  const plug = m => m.load_group === "0" ? "None" : m.plugins_full === "" ? "Not counted" : `${+m.plugins_full || 0}${+m.plugins_light ? ` + ${m.plugins_light} light` : ""}`;
+  const body = rows.map(m => `<tr data-id="${esc(m.id)}"${R.all.has(m.id) ? ' class="on"' : ""}><td>${tickBtn(m)}</td>
+<td class="mn"><button class="linkid" data-open="${esc(m.id)}">${nameWithMark(m)}</button><span class="mt${m.tier === "avoid" ? " bad" : ""}">${TIER_LABEL[m.tier] || esc(m.tier)}</span></td>
+<td class="hide-s hide-m">${esc(MODULES[m.module] || m.module)}</td><td class="nw hide-s hide-m${m.tier === "avoid" ? " bad" : ""}">${TIER_LABEL[m.tier] || esc(m.tier)}</td>
+<td class="nw${m.perf === "high" ? " bad" : ""}">${lab(LBL.perf, m.perf)}</td><td class="nw${m.runtime_1_11_240 === "no" ? " bad" : ""}">${lab(LBL.rt, m.runtime_1_11_240)}</td>
+<td class="hide-s nw">${lab(LBL.dllShort, m.f4se_dll)}</td><td class="hide-s nw">${plug(m)}</td><td class="hide-s hide-m nw">${fmtDate(NX[m.nexus_id]?.updated)}</td></tr>`).join("");
+  return `<div class="tablewrap" tabindex="0" role="region" aria-label="Mods table"><table class="ledger"><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
+}
+
+/* ---------- Render ---------- */
+let countTimer = 0, ioObs = null;
+function render(opts = {}) {
+  if (!loaded) return;
+  const main = $("main");
+  // Focus safety net: remember a focused control inside #main so its replacement gets focus back.
+  const f = document.activeElement, inMain = main.contains(f);
+  const fKey = inMain && f.dataset ? (f.dataset.toggle ? ["toggle", f.dataset.toggle] : f.dataset.open ? ["open", f.dataset.open] : f.dataset.sort ? ["sort", f.dataset.sort] : null) : null;
+  const fIndex = fKey ? [...main.querySelectorAll(`[data-${fKey[0]}]`)].indexOf(f) : -1;
+
+  shown = MODS.filter(m => passes(m));
+  byMod = {}; MOD_KEYS.forEach(k => byMod[k] = []);
+  shown.forEach(m => (byMod[m.module] || (byMod[m.module] = [])).push(m));
+  updateBars();
+  if (!shown.length) {
+    main.innerHTML = `<div class="nomatch"><strong>No mod matches these filters.</strong><p>Widen the tier or cost, or clear the search.</p><button class="btn" data-reset="all">Reset filters</button></div>`;
+  } else if (state.view === "table") {
+    main.innerHTML = tableHTML(shown);
+  } else {
+    main.innerHTML = MOD_KEYS.map(key => {
+      const c = byMod[key].length, open = isOpen(key);
+      return `<details class="module${c ? "" : " empty"}" data-module="${key}" id="mod-${key}"${open ? " open" : ""}>
+<summary><span class="no">${secNo(key)}</span><h2>${esc(MODULES[key])}</h2><span class="count">${countHTML(key)}</span></summary>
+<div class="mbody"${open ? ' data-filled="1"' : ""}>${open ? sectionBody(key) : ""}</div></details>`;
+    }).join("");
+    observeSections();
+  }
+  updateIndex();
+  scheduleEffects();
+  if (fKey) {
+    const sel = `[data-${fKey[0]}="${CSS.escape(fKey[1])}"]`;
+    const t = main.querySelector(sel) || main.querySelectorAll(`[data-${fKey[0]}]`)[fIndex] || null;
+    (t || main).focus({ preventScroll: !!t });
+  }
+  if (!opts.quiet) { clearTimeout(countTimer); countTimer = setTimeout(() => announce(`${plural(shown.length, "mod")} shown`), 400); }
+}
+function updateBars() {
+  $("result-count").innerHTML = `<b>${num(shown.length)}</b> of ${num(MODS.length)} mods`;
+  const notes = [];
+  if (!state.tiers.has("avoid")) {
+    const n = MODS.filter(m => m.tier === "avoid" && passes(m, "tier")).length;
+    if (n) notes.push(`${num(n)} marked avoid ${n === 1 ? "is" : "are"} hidden. <button class="textbtn" data-show="avoid">Show them</button>`);
+  }
+  if (state.perf !== "high" && !state.unrated) {
+    const n = MODS.filter(m => !m.perf && passes(m, "unrated")).length;
+    if (n) notes.push(`${num(n)} with no cost rating ${n === 1 ? "is" : "are"} hidden by the cost limit. <button class="textbtn" data-show="unrated">Show them</button>`);
+  }
+  $("hidden-note").innerHTML = notes.join(" ");
+  $("xc").hidden = state.view !== "cards" || !shown.length;
+  const fc = filterCount();
+  $("filters-btn").textContent = fc ? `Filters (${fc})` : "Filters";
+  $("f-reset").hidden = !fc;
+  $("f-done").textContent = `Show ${plural(shown.length, "mod")}`;
+}
+function updateIndex() {
+  const ol = $("sec-list"), jump = $("jump");
+  ol.innerHTML = MOD_KEYS.map(k => {
+    const c = byMod[k]?.length || 0, l = (byMod[k] || []).filter(m => R.all.has(m.id)).length;
+    return `<li><a href="#mod-${k}" data-jump="${k}" class="${c ? "" : "zero"}"><span class="no">${secNo(k)}</span><span class="t">${esc(MODULES[k])}</span><span class="c">${num(c)}</span><span class="c l${l ? " has" : ""}">${num(l)}</span></a></li>`;
+  }).join("");
+  jump.innerHTML = `<option value="">Jump to section</option>` + MOD_KEYS.map(k => {
+    const c = byMod[k]?.length || 0, l = (byMod[k] || []).filter(m => R.all.has(m.id)).length;
+    return `<option value="${k}">${secNo(k)} ${esc(MODULES[k])} (${num(c)} shown, ${num(l)} in your list)</option>`;
+  }).join("");
+  if (activeSec) markActive(activeSec);
+}
+let activeSec = "";
+function markActive(key) {
+  activeSec = key;
+  document.querySelectorAll("#sec-list a").forEach(a => a.classList.toggle("active", a.dataset.jump === key));
+}
+function observeSections() {
+  if (ioObs) ioObs.disconnect();
+  if (!("IntersectionObserver" in window)) return;
+  ioObs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) markActive(e.target.parentElement.dataset.module); }), { rootMargin: "0px 0px -70% 0px" });
+  document.querySelectorAll("details.module > summary").forEach(s => ioObs.observe(s));
+}
+function jumpTo(key) {
+  if (state.view !== "cards") setView("cards");
+  const d = $("mod-" + key); if (!d) return;
+  if (!d.open) { d.open = true; fillSection(d); }
+  if (state.q) qClosed.delete(key); else openSet.add(key);
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  d.scrollIntoView({ block: "start", behavior: reduce ? "auto" : "smooth" });
+  d.querySelector("summary").focus({ preventScroll: true });
+  markActive(key);
+}
+
+/* In-place updates after a list change */
+function syncToggles() {
+  document.querySelectorAll("button[data-toggle][data-st]").forEach(b => {
+    const id = b.dataset.toggle, st = stOf(id);
+    if (b.dataset.st === st) return;
+    b.dataset.st = st; b.setAttribute("aria-pressed", st !== "off");
+    const name = BY[id]?.name || id;
+    if (b.classList.contains("add")) { b.setAttribute("aria-label", tickAria(st, name)); b.querySelector(".lbl").textContent = tickLabel(st); }
+    else if (b.classList.contains("dtoggle")) b.textContent = st === "on" ? "Remove from list" : st === "auto" ? "Keep in your list" : "Add to list";
+  });
+  document.querySelectorAll("#main .entry, #main tr[data-id]").forEach(e => e.classList.toggle("on", R.all.has(e.dataset.id)));
+  document.querySelectorAll("details.module").forEach(d => { const c = d.querySelector("summary .count"); if (c) c.innerHTML = countHTML(d.dataset.module); });
+}
+let effRaf = 0;
+function scheduleEffects() {
+  cancelAnimationFrame(effRaf);
+  effRaf = requestAnimationFrame(() => {
+    document.querySelectorAll("#main .effect").forEach(p => {
+      const html = R.all.has(p.dataset.effect) ? "" : effectOf(p.dataset.effect).html;
+      if (p.innerHTML !== html) p.innerHTML = html;
+    });
+  });
+}
+
+/* ---------- Your list ---------- */
+// Sort by the same key the load order groups by; unrecorded groups go last, in one block.
+const groupRank = m => (m.load_group !== "" && m.load_group in LOAD_GROUPS) ? +m.load_group : 1000;
+const groupLabel = g => LOAD_GROUPS[g] || (g ? "Group " + g : LOAD_GROUPS[""]);
+function ordered(mods) { return [...mods].sort((a, b) => groupRank(a) - groupRank(b) || a.load_group.localeCompare(b.load_group) || a.name.localeCompare(b.name)); }
 function renderReq() {
-  const r = resolve(), mods = [...r.all].map(id => BY[id]).filter(Boolean);
+  const r = R, mods = [...r.all].map(id => BY[id]).filter(Boolean);
+  const n = mods.length, nAuto = r.auto.size + r.patches.size;
   const full = mods.reduce((s, m) => s + (+m.plugins_full || 0), 0);
   const light = mods.reduce((s, m) => s + (+m.plugins_light || 0), 0);
   const size = mods.reduce((s, m) => s + sizeOf(m), 0);
-  const n = mods.length;
-  document.getElementById("req-count").textContent = document.getElementById("mb-count").textContent = `${n} mod${n === 1 ? "" : "s"}`;
-  const unknown = mods.filter(m => m.plugins_full === "").length;
-  document.getElementById("s-full").textContent = `${full} / 254` + (unknown ? ` + ${unknown} unknown` : "");
-  const slots = document.getElementById("slots");
-  slots.querySelector("i").style.width = Math.min(100, full / 254 * 100) + "%";
-  slots.classList.toggle("over", full > 254);
-  document.getElementById("s-light").textContent = light;
-  document.getElementById("s-size").textContent = fmtSize(size) || "0 GB";
-  document.getElementById("s-dll").textContent = mods.filter(m => m.f4se_dll === "yes").length;
-  document.getElementById("s-heavy").textContent = mods.filter(m => m.scripts === "heavy").length;
-  document.getElementById("s-high").textContent = mods.filter(m => m.perf === "high").length;
+  const est = mods.filter(m => m.plugins_full === "" && m.load_group !== "0").length;
+  const over = full + est > 254;
+  $("req-count").textContent = plural(n, "mod");
+  $("req-sub").textContent = n ? `${num(r.chosen.size)} picked by you, ${num(nAuto)} added for you.` : "Pick a starting point or tick mods in the catalogue.";
+  const sf = $("s-full");
+  sf.innerHTML = `<b>${num(full)}</b> <small>${over ? "over the limit" : "of 254"}</small><span class="vh"> / 254${est ? ` + ${est} not counted` : ""}</span>`;
+  sf.classList.toggle("over", over);
+  const slots = $("slots");
+  const cw = Math.min(100, full / 254 * 100), ew = Math.max(0, Math.min(100 - cw, est / 254 * 100));
+  slots.querySelector(".counted").style.width = cw + "%";
+  const e = slots.querySelector(".estimate"); e.style.left = cw + "%"; e.style.width = ew + "%";
+  slots.classList.toggle("over", over);
+  slots.setAttribute("aria-label", `${full} of 254 full plugin slots counted${est ? `, plus ${est} mods not counted yet` : ""}`);
+  $("slots-note").innerHTML = over ? `<span class="bad">Over the limit by ${num(full + est - 254)}${est ? ", counting each uncounted mod as one slot" : ""}.</span>`
+    : est ? `Plus ${plural(est, "mod")} whose plugins are not counted yet, drawn as one slot each.` : n ? "Every plugin in your list is counted." : "";
+  // Cost mix
+  const c = { low: 0, med: 0, high: 0, "": 0 }; mods.forEach(m => c[m.perf in c ? m.perf : ""]++);
+  $("mix").innerHTML = n ? [["lo", "low"], ["md", "med"], ["hi", "high"], ["nr", ""]].map(([cls, k]) => c[k] ? `<span class="${cls}" style="flex-basis:${c[k] / n * 100}%"></span>` : "").join("") : "";
+  $("mix").setAttribute("aria-label", `Cost mix: low ${c.low}, medium ${c.med}, high ${c.high}, not rated ${c[""]}`);
+  $("mixkey").innerHTML = `<span><i class="mk" style="background:color-mix(in srgb, var(--pencil) 45%, transparent)"></i>Low ${c.low}</span><span><i style="background:var(--violet)"></i>Medium ${c.med}</span><span${c.high ? ' class="bad"' : ""}><i style="background:var(--red)"></i>High ${c.high}</span><span><i style="background:var(--hatch)"></i>Not rated ${c[""]}</span>`;
+  $("s-light").textContent = num(light);
+  $("s-size").textContent = fmtSize(size) || "0 GB";
+  $("s-dll").textContent = num(mods.filter(m => m.f4se_dll === "yes").length);
+  const heavy = mods.filter(m => m.scripts === "heavy").length, high = mods.filter(m => m.perf === "high").length;
+  $("s-heavy").textContent = num(heavy); $("s-heavy").classList.toggle("bad", heavy > 2);
+  $("s-high").textContent = num(high); $("s-high").classList.toggle("bad", high > 2);
+  $("s-auto").textContent = num(nAuto);
+  // Notes
   const alerts = [];
-  r.conflicts.forEach(([a, b]) => alerts.push(`<div class="alert"><b>Conflict:</b> ${esc(BY[a].name)} and ${esc(BY[b].name)}. Keep one.</div>`));
+  r.conflicts.forEach(([a, b]) => {
+    const keep = (k, d) => canDrop(d) ? `<button class="textbtn" data-keep="${esc(k)}" data-drop="${esc(d)}">Keep ${esc(BY[k].name)}</button>` : "";
+    alerts.push(`<div class="alert"><b>Conflict:</b> ${esc(BY[a].name)} and ${esc(BY[b].name)} can't share a save. Keep one:<span class="keeps">${keep(a, b)}${keep(b, a)}</span></div>`);
+  });
   mods.filter(m => m.runtime_1_11_240 === "no").forEach(m => alerts.push(`<div class="alert"><b>${esc(m.name)}</b> does not support 1.11.240.</div>`));
   mods.filter(m => m.precombines === "breaks").forEach(m => alerts.push(`<div class="alert"><b>${esc(m.name)}</b> breaks precombines: lower fps in its area.</div>`));
-  if (unknown) alerts.push(`<div class="alert info">Plugin count not recorded yet for ${unknown} mod${unknown > 1 ? "s" : ""}: the slot gauge is a minimum.</div>`);
-  if (r.auto.size) alerts.push(`<div class="alert info">${r.auto.size} requirement${r.auto.size > 1 ? "s" : ""} added automatically.</div>`);
-  if (r.patches.size) alerts.push(`<div class="alert info">${r.patches.size} compatibility patch${r.patches.size > 1 ? "es" : ""} added automatically.</div>`);
-  document.getElementById("alerts").innerHTML = alerts.join("");
-  const ordered = mods.sort((a, b) => (+a.load_group || 0) - (+b.load_group || 0) || a.name.localeCompare(b.name));
-  document.getElementById("picked").innerHTML = ordered.length ? ordered.map(m => `<li><span>${esc(m.name)}${r.auto.has(m.id) ? " <small>required</small>" : r.patches.has(m.id) ? " <small>patch</small>" : ""}</span>${r.chosen.has(m.id) ? `<button data-toggle="${esc(m.id)}" aria-label="Remove ${esc(m.name)}">×</button>` : ""}</li>`).join("") : '<li class="empty">Add mods with + or start from a preset.</li>';
-  history.replaceState(null, "", state.chosen.size ? "#list=" + [...state.chosen].join(",") : location.pathname);
-  return ordered;
+  mods.filter(m => m.ending_lock && m.ending_lock !== "none").forEach(m => alerts.push(`<div class="alert"><b>${esc(m.name)}</b> ${esc(endingLabel(m.ending_lock).toLowerCase().replace(/brotherhood|minutemen|institute|railroad/, w => w[0].toUpperCase() + w.slice(1)))}.</div>`));
+  if (r.auto.size) alerts.push(`<div class="alert info">${plural(r.auto.size, "requirement")} added for you.</div>`);
+  if (r.patches.size) alerts.push(`<div class="alert info">${plural(r.patches.size, "compatibility patch", "compatibility patches")} added for you.</div>`);
+  if (est) alerts.push(`<div class="alert info">Plugins not counted yet for ${plural(est, "mod")}, so the slot count is a minimum.</div>`);
+  $("alerts").innerHTML = alerts.join("");
+  $("notes-sec").hidden = !alerts.length;
+  // Load order
+  const ord = ordered(mods);
+  if (!ord.length) {
+    $("picked").innerHTML = `<li class="empty"><p>Nothing on your list yet.</p><div><button class="textbtn preset" data-preset="pick">Start from our playthrough</button><button class="textbtn preset" data-preset="core">Core fixes only</button></div></li>`;
+  } else {
+    let i = 0; const groups = [];
+    ord.forEach(m => { const g = m.load_group; const last = groups[groups.length - 1]; if (!last || last.g !== g) groups.push({ g, items: [m] }); else last.items.push(m); });
+    $("picked").innerHTML = groups.map(({ g, items }) => `<li><h4>${esc(groupLabel(g))}</h4><ol start="${i + 1}">${items.map(m => {
+      i++;
+      let why = "";
+      if (!r.chosen.has(m.id)) { const w = whyAuto(m.id); why = w.names.length ? `<small>${w.kind === "patch" ? "patch for " : "needed by "}${esc(joinAnd(w.names))}</small>` : `<small>added for you</small>`; }
+      return `<li class="m"><span class="no" aria-hidden="true">${i}</span><span><button class="linkid" data-open="${esc(m.id)}">${esc(m.name)}</button>${why}</span>${r.chosen.has(m.id) ? `<button class="rm" data-toggle="${esc(m.id)}" aria-label="Remove ${esc(m.name)}">×</button>` : "<span></span>"}</li>`;
+    }).join("")}</ol></li>`).join("");
+  }
+  ["x-csv", "x-txt", "x-link", "x-clear"].forEach(id => $(id).disabled = !n);
+  $("x-nothing").hidden = !!n;
+  // Mobile bar
+  $("mb-count").innerHTML = n ? `${plural(n, "mod")}, ${r.conflicts.length ? `<span class="bad">${plural(r.conflicts.length, "conflict")}</span>` : `${num(full)} of 254 slots`}` : "Empty";
+  return ord;
+}
+function canDrop(id) {
+  if (state.chosen.has(id)) return true;
+  return [...state.chosen].some(c => reqClosure(c).has(id));
+}
+function dropFor(id) {
+  if (state.chosen.has(id)) return { drop: [id] };
+  return { drop: [...state.chosen].filter(c => reqClosure(c).has(id)) };
 }
 
-function openDetail(id) {
+/* ---------- List changes, presets, undo ---------- */
+function writeHash() {
+  const p = [];
+  if (state.chosen.size) p.push("list=" + [...state.chosen].join(","));
+  if (openId) p.push("mod=" + openId);
+  history.replaceState(null, "", p.length ? "#" + p.join("&") : location.pathname + location.search);
+  lastWrittenHash = location.hash;
+}
+let lastWrittenHash = null;
+function syncPresets() {
+  const eq = ids => ids.length === state.chosen.size && ids.every(id => state.chosen.has(id));
+  document.querySelectorAll(".start.preset").forEach(b => {
+    const p = b.dataset.preset;
+    b.setAttribute("aria-pressed", p === "clear" ? "false" : String(state.chosen.size > 0 && eq(presetIds(p))));
+  });
+}
+const presetIds = p => p === "pick" ? MODS.filter(m => m.our_pick === "yes").map(m => m.id) : p === "core" ? MODS.filter(m => m.tier === "core").map(m => m.id) : [];
+function listChanged(keepNotice) {
+  R = resolve(); effCache = new Map();
+  if (!keepNotice) hideNotice();
+  // Keep focus in the load order when its button is rebuilt.
+  const f = document.activeElement, picked = $("picked");
+  const pIdx = picked.contains(f) ? [...picked.querySelectorAll("button")].indexOf(f) : -1;
+  renderReq();
+  if (pIdx >= 0) { const bs = picked.querySelectorAll("button"); (bs[Math.min(pIdx, bs.length - 1)] || $("req-h")).focus(); }
+  syncPresets(); writeHash();
+  if (state.inlist) render({ quiet: true });
+  else { updateIndex(); scheduleEffects(); updateBars(); }
+  syncToggles();
+  if (openId) updateDetail();
+}
+function toggle(id) {
   const m = BY[id]; if (!m) return;
-  const n = NX[m.nexus_id] || {};
-  const ref = ids => list(ids).map(x => BY[x] ? `<button class="linkid" data-open="${esc(x)}">${esc(BY[x].name)}</button>` : esc(x)).join(", ") || "None";
-  const d = document.getElementById("detail");
-  d.innerHTML = `<button class="close" data-close>Close</button>
-    ${n.picture && !n.adult ? `<div class="hero"><img src="${esc(n.picture)}" alt=""></div>` : ""}
-    <div class="in">
-      <h2 id="d-title">${esc(m.name)}</h2>
-      <p class="by">${esc([n.author && "by " + n.author, n.version && "version " + n.version, n.updated && "updated " + n.updated, n.endorsements && n.endorsements.toLocaleString("en") + " endorsements"].filter(Boolean).join(", "))}</p>
-      <div class="badges">${badges(m)}</div>
-      <p><b>${esc(m.summary)}</b></p>
-      ${n.summary ? `<p>${esc(n.summary)}</p>` : ""}
-      ${m.notes ? `<p><b>Notes:</b> ${esc(m.notes)}</p>` : ""}
-      <dl>
-        <dt>Module</dt><dd>${esc(MODULES[m.module] || m.module)}</dd>
-        <dt>File to take</dt><dd>${esc(m.file || "Main file")}</dd>
-        <dt>Runtime 1.11.240</dt><dd>${esc(m.runtime_1_11_240)}</dd>
-        <dt>F4SE DLL</dt><dd>${esc(m.f4se_dll || "unknown")}</dd>
-        <dt>Plugins</dt><dd>${esc(m.plugins_full || "?")} full, ${esc(m.plugins_light || "?")} light</dd>
-        <dt>Scripts, NPCs</dt><dd>${esc(m.scripts || "?")}, ${esc(m.npcs || "?")}</dd>
-        <dt>Precombines</dt><dd>${esc(m.precombines || "unknown")}</dd>
-        <dt>With Lunar</dt><dd>${esc(m.lunar || "unknown")}</dd>
-        <dt>With SS2</dt><dd>${esc(m.ss2 || "unknown")}</dd>
-        <dt>Ending lock</dt><dd>${esc(m.ending_lock || "none known")}</dd>
-        <dt>Requires</dt><dd>${ref(m.requires)}</dd>
-        <dt>Patches</dt><dd>${ref(m.patches)}</dd>
-        <dt>Conflicts with</dt><dd>${ref(m.conflicts)}</dd>
-        <dt>Size</dt><dd>${esc(fmtSize(sizeOf(m)) || "unknown")}</dd>
-        <dt>Sources</dt><dd>${list(m.evidence).map(u => `<a href="${esc(u)}" rel="noopener">${esc(new URL(u, location.href).hostname)}</a>`).join(", ") || "None"}</dd>
-      </dl>
-      <p>${nexusUrl(m) ? `<a href="${nexusUrl(m)}" rel="noopener">Open on Nexus Mods</a>` : ""}</p>
-      <div class="actions"><button class="primary" data-toggle="${esc(m.id)}">${state.chosen.has(m.id) ? "Remove from list" : "Add to list"}</button></div>
-    </div>`;
-  d.showModal();
+  if (state.chosen.has(id)) {
+    state.chosen.delete(id); listChanged();
+    announce(`${m.name} removed.${R.all.has(id) ? " It stays in your list because another mod needs it." : ""}`);
+  } else {
+    const wasAuto = R.all.has(id), eff = effectOf(id);
+    state.chosen.add(id); listChanged();
+    announce(wasAuto ? `${m.name} kept in your list.` : `${m.name} added.${eff.sr ? " " + eff.sr : ""}`);
+  }
+}
+let undoSet = null, noticeTimer = 0;
+function setChosen(ids, msg, extra) {
+  undoSet = new Set(state.chosen);
+  state.chosen = new Set(ids);
+  listChanged(true);
+  showNotice(typeof msg === "function" ? msg() : msg, extra);
+}
+function showNotice(text, extra = {}) {
+  const n = $("notice");
+  $("notice-text").textContent = text;
+  noticeBtns(extra);
+  n.hidden = false; document.body.classList.add("has-notice");
+  announce(text);
+  armNoticeTimer();
+}
+function noticeBtns(extra = {}) {
+  $("notice-btns").innerHTML = (extra.showList ? `<button class="textbtn" data-notice="inlist">Show only my list</button>` : "") + (undoSet ? `<button class="textbtn" data-notice="undo">Undo</button>` : "") + `<button class="textbtn" data-notice="close">Dismiss</button>`;
+}
+function armNoticeTimer() {
+  clearTimeout(noticeTimer);
+  noticeTimer = setTimeout(() => { if ($("notice").contains(document.activeElement)) armNoticeTimer(); else hideNotice(); }, 12000);
+}
+function hideNotice() {
+  const n = $("notice"); if (n.hidden) return;
+  const hadFocus = n.contains(document.activeElement);
+  n.hidden = true; clearTimeout(noticeTimer); document.body.classList.remove("has-notice");
+  if (hadFocus) $("main").focus({ preventScroll: true });
+}
+function applyPreset(p) {
+  if (p === "clear") {
+    const k = R.all.size;
+    setChosen([], k ? `Cleared ${plural(k, "mod")} from your list.` : "Your list is empty. Tick mods to add them.");
+    if (!k) { undoSet = null; noticeBtns(); }
+    return;
+  }
+  setChosen(presetIds(p), () => {
+    const added = R.all.size - R.chosen.size;
+    return p === "pick" ? `Loaded our playthrough: ${plural(R.chosen.size, "mod")}${added ? `, plus ${num(added)} added for you` : ""}.`
+      : `Loaded the ${num(R.chosen.size)} core fixes${added ? `, plus ${num(added)} added for you` : ""}.`;
+  }, { showList: p === "pick" });
+}
+function keepConflict(keep, drop) {
+  const { drop: ids } = dropFor(drop);
+  if (!ids.length) return;
+  const names = ids.map(x => BY[x].name);
+  const msg = ids.length === 1 && ids[0] === drop ? `Removed ${BY[drop].name} from your list.` : `Removed ${joinAnd(names)} from your list, because ${ids.length > 1 ? "they need" : "it needs"} ${BY[drop].name}.`;
+  setChosen([...state.chosen].filter(x => !ids.includes(x)), msg);
 }
 
+/* ---------- Detail record ---------- */
+function srcLabel(u, m) {
+  let url; try { url = new URL(u); } catch { return u; }
+  const host = url.hostname.replace(/^www\./, ""), parts = url.pathname.split("/").filter(Boolean);
+  const words = s => decodeURIComponent(s).replace(/\.(md|html?)$/i, "").replace(/[-_]+/g, " ");
+  if (host === "nexusmods.com") {
+    const tab = url.searchParams.get("tab");
+    if (parts[1] === "mods" && parts[2]) {
+      if (tab) return `Nexus: ${tab}`;
+      if (parts[2] === m.nexus_id) return "Nexus: mod page";
+      const other = MODS.find(x => x.nexus_id === parts[2]);
+      return other ? `Nexus: ${other.name}` : `Nexus: mod ${parts[2]}`;
+    }
+    if (parts[1] === "articles") return `Nexus: article ${parts[2] || ""}`.trim();
+    return "Nexus: " + (parts.slice(1).join("/") || "home");
+  }
+  if (host === "reddit.com") return parts[0] === "r" && parts[1] ? `reddit.com/r/${parts[1]}` : "reddit.com";
+  if (host === "github.com") {
+    const i = parts.indexOf("issues"), p = parts.indexOf("pull");
+    if (i > 0 && parts[i + 1]) return `GitHub: issue ${parts[i + 1]}`;
+    if (p > 0 && parts[p + 1]) return `GitHub: pull request ${parts[p + 1]}`;
+    return `GitHub: ${parts[1] || parts[0] || ""}${parts.length > 2 ? ", " + words(parts[parts.length - 1]) : ""}`;
+  }
+  if (host === "raw.githubusercontent.com" && parts[0] === "wabbajack-tools") { const r = parts.indexOf("reports"); return `Wabbajack: ${words(parts[r + 2] || parts[r + 1] || "report")} report`; }
+  if (host === "wiki.simsettlements2.com") return `Sim Settlements 2 wiki: ${words(parts[parts.length - 1] || "home")}`;
+  if (host === "stepmodifications.org") return `STEP: ${words(parts[parts.length - 1] || "wiki").replace(/^Fallout4:/, "")}`;
+  return parts.length ? `${host}: ${words(parts[parts.length - 1])}` : host;
+}
+function goesHTML(m) {
+  const row = (ids, never) => {
+    const items = list(ids);
+    if (!items.length) return "Nothing";
+    return items.map(x => {
+      if (!BY[x]) return `<span class="it">${esc(x)}</span>`;
+      const st = stOf(x);
+      const s = st === "on" ? (never ? '<span class="st bad">in your list</span>' : '<span class="st in">in your list</span>')
+        : st === "auto" ? (never ? '<span class="st bad">added for you</span>' : '<span class="st in">added for you</span>') : '<span class="st">not in your list</span>';
+      return `<span class="it"><button class="linkid" data-open="${esc(x)}">${esc(BY[x].name)}</button> ${s}</span>`;
+    }).join("");
+  };
+  return `<h3>Goes with</h3><dl><dt>Needs</dt><dd>${row(m.requires)}</dd><dt>Patches added when both are present</dt><dd>${row(m.patches)}</dd><dt>Never with</dt><dd>${row(m.conflicts, true)}</dd></dl>`;
+}
+function detailEffect(id) {
+  const st = stOf(id), m = BY[id];
+  if (st === "on") { const nb = neededBy(id).filter(x => x !== id); return nb.length ? `In your list. ${esc(joinAnd(nb.map(x => BY[x].name)))} also ${nb.length > 1 ? "need" : "needs"} it.` : "In your list, picked by you."; }
+  if (st === "auto") { const w = whyAuto(id); return w.names.length ? `Added for you ${w.kind === "patch" ? "as a patch for" : "because"} ${esc(joinAnd(w.names))}${w.kind === "patch" ? "" : (w.names.length > 1 ? " need it" : " needs it")}.` : "Added for you."; }
+  const e = effectOf(id);
+  return (e.html.includes("bad") ? e.html.replace("Adding it brings", "It brings") : e.html.replace("Adding it brings", "Brings")) || `${esc(m.name)} brings nothing else with it.`;
+}
+const isStamp = s => /^(v?\d[\w.]*(\s*\(\d{4}(-\d{2}){0,2}\))?|\d{4}(-\d{2}){1,2})(\s*$|[,:]\s*)/i.test(s);
+function openDetail(id, opener) {
+  const m = BY[id]; if (!m) return;
+  const n = NX[m.nexus_id] || {}, d = $("detail");
+  const risks = [];
+  if (m.f4se_dll === "yes") risks.push(["Needs an F4SE DLL built for 1.11.240", true]);
+  if (m.runtime_1_11_240 === "no") risks.push(["Not supported on 1.11.240", true]);
+  if (m.precombines === "breaks") risks.push(["Breaks precombines: lower fps in its area", true]);
+  if (m.precombines === "prp-patch") risks.push(["Needs the PRP patch (added for you)", true]);
+  if (m.lunar === "conflict") risks.push(["Conflicts with Lunar", true]);
+  if (m.ss2 === "conflict") risks.push(["Conflicts with Sim Settlements 2", true]);
+  if (m.ending_lock && m.ending_lock !== "none") risks.push([endingLabel(m.ending_lock), true]);
+  if (m.scripts === "heavy") risks.push(["Script-heavy", true]);
+  // Notes that start with a version or date stamp go to "Version checked", the rest are things to watch.
+  const metaNotes = [];
+  list(m.notes).map(s => s.trim()).filter(Boolean).forEach(s => (isStamp(s) ? metaNotes : risks).push(isStamp(s) ? s : [s.replace(/^./, c => c.toUpperCase()), false]));
+  if (m.file) risks.push([`Take this file on the Files tab: ${m.file}`, false]);
+  const watch = risks.length ? `<ul class="risks">${risks.map(([t, bad]) => `<li${bad ? ' class="bad"' : ""}>${bad ? `<span class="bad">${esc(t)}</span>` : esc(t)}</li>`).join("")}</ul>` : `<p class="d-nx">Nothing to watch: safe on 1.11.240 in our tests.</p>`;
+  const plugins = m.load_group === "0" ? "No plugin" : m.plugins_full === "" ? "Not counted yet" : `${+m.plugins_full || 0} full, ${+m.plugins_light || 0} light`;
+  const dd = (label, val, bad) => `<dt>${label}</dt><dd${bad ? ' class="bad"' : ""}>${esc(val)}</dd>`;
+  let nxs = (n.summary || "").trim(); if (nxs && !/[.!?…]$/.test(nxs)) nxs += "…";
+  const ident = [["Author", n.author], ["Version", n.version], ["Updated", fmtDate(n.updated, true)], ["Endorsements", n.endorsements != null ? num(n.endorsements) : ""], ["Download", fmtSize(sizeOf(m))]].filter(([, v]) => v);
+  const src = list(m.evidence);
+  d.innerHTML = `<div class="d-head"><span>${m.nexus_id ? `Record No. ${esc(m.nexus_id)}` : "Record"}</span><button class="close" data-close>Close</button></div>
+<div class="d-body">
+${n.picture && !n.adult ? `<div class="d-hero"><img src="${esc(n.picture)}" alt="" decoding="async"></div>` : ""}
+<div class="d-in">
+  <p class="where">Section ${secNo(m.module)}, ${esc(MODULES[m.module] || m.module)}</p>
+  <h2 id="d-title">${esc(m.name)}</h2>
+  ${ident.length ? `<dl class="ident">${ident.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>` : ""}
+  <div class="verdict"><span class="tier t-${esc(m.tier)}">${TIER_LABEL[m.tier] || esc(m.tier)}</span>${pickMark(m)}</div>
+  <p class="d-lead">${esc(m.summary)}</p>
+  <section class="d-sec"><h3>What to watch</h3>${watch}</section>
+  <section class="d-sec" id="d-goes">${goesHTML(m)}</section>
+  <section class="d-sec"><h3>Compatibility</h3><dl>
+    ${dd("Runtime 1.11.240", lab(LBL.rtLong, m.runtime_1_11_240), m.runtime_1_11_240 === "no")}
+    ${metaNotes.length ? `<dt>Version checked</dt><dd>${metaNotes.map(t => `<span class="it">${esc(t)}</span>`).join("")}</dd>` : ""}
+    ${dd("F4SE DLL", lab(LBL.dll, m.f4se_dll))}
+    ${dd("Precombines", lab(LBL.pc, m.precombines), m.precombines === "breaks")}
+    ${dd("With Lunar", lab(LBL.compatLong, m.lunar), m.lunar === "conflict")}
+    ${dd("With Sim Settlements 2", lab(LBL.compatLong, m.ss2), m.ss2 === "conflict")}
+    ${dd("Faction ending", endingLabel(m.ending_lock), m.ending_lock && m.ending_lock !== "none")}
+    ${dd("Playing as", list(m.profiles).map(p => PROFILE_LABEL[p] || p).join(", ") || "Not recorded")}
+  </dl></section>
+  <section class="d-sec"><h3>Cost</h3><dl>
+    ${dd("Cost on a base M3", lab(LBL.perfLong, m.perf), m.perf === "high")}
+    ${dd("Scripts", lab(LBL.scripts, m.scripts), m.scripts === "heavy")}
+    ${dd("NPCs", lab(LBL.npcs, m.npcs))}
+    ${dd("Plugins", plugins)}
+    ${dd("Load group", LOAD_GROUPS[m.load_group] || (m.load_group ? "Group " + m.load_group : "Not recorded"))}
+    ${dd("Download size", fmtSize(sizeOf(m)) || "Not known")}
+  </dl></section>
+  ${nxs ? `<section class="d-sec"><h3>From the Nexus page</h3><p class="d-nx">${esc(nxs)}</p></section>` : ""}
+  <section class="d-sec"><h3>Sources</h3>${src.length ? `<ol class="d-src">${src.map(u => `<li><a href="${esc(u)}" rel="noopener">${esc(srcLabel(u, m))}</a></li>`).join("")}</ol>` : `<p class="d-nx">No sources recorded.</p>`}
+  ${m.checked_on ? `<p class="d-checked">Checked on ${fmtDate(m.checked_on, true)}.</p>` : ""}</section>
+</div></div>
+<div class="d-foot"><button class="dtoggle" data-toggle="${esc(m.id)}" data-st="">Add to list</button><p class="d-eff" id="d-eff"></p>${nexusUrl(m) ? `<a href="${nexusUrl(m)}" rel="noopener">Open on Nexus Mods</a>` : ""}</div>`;
+  openId = id;
+  syncToggles();
+  $("d-eff").innerHTML = detailEffect(id);
+  if (!d.open) { detailOpener = opener || document.activeElement; d.showModal(); }
+  d.querySelector(".d-body").scrollTop = 0;
+  d.querySelector("[data-close]").focus();
+  writeHash();
+}
+function updateDetail() {
+  const d = $("detail"); if (!d.open || !openId) return;
+  const g = $("d-goes"); if (g) g.innerHTML = goesHTML(BY[openId]);
+  const e = $("d-eff"); if (e) e.innerHTML = detailEffect(openId);
+  const b = d.querySelector(".dtoggle");
+  if (b) { const st = stOf(openId); b.dataset.st = st; b.setAttribute("aria-pressed", st !== "off"); b.textContent = st === "on" ? "Remove from list" : st === "auto" ? "Keep in your list" : "Add to list"; }
+}
+
+/* ---------- Filters UI ---------- */
+function opts(el, values, labels, isOn, onClick, single) {
+  el.innerHTML = values.map(v => `<button class="opt" data-v="${v}" aria-pressed="${isOn(v)}">${esc(labels[v] || v)}</button>`).join("");
+  el.onclick = e => {
+    const b = e.target.closest("button.opt"); if (!b) return;
+    onClick(b.dataset.v);
+    if (single) el.querySelectorAll(".opt").forEach(x => x.setAttribute("aria-pressed", isOn(x.dataset.v)));
+    else b.setAttribute("aria-pressed", isOn(b.dataset.v));
+    render();
+  };
+  el._sync = () => el.querySelectorAll(".opt").forEach(x => x.setAttribute("aria-pressed", isOn(x.dataset.v)));
+}
+function syncFilterUI() {
+  ["f-profile", "f-tier", "f-perf"].forEach(id => $(id)._sync && $(id)._sync());
+  CHECKS.forEach(k => $("f-" + k).checked = state[k]);
+  $("q").value = state.q;
+}
+function resetFilters(clearSearch) {
+  state.profiles = new Set(); state.tiers = new Set(DEFAULT_TIERS); state.perf = "high"; state.unrated = false;
+  CHECKS.forEach(k => state[k] = false);
+  if (clearSearch) { state.q = ""; qClosed.clear(); }
+  syncFilterUI(); render();
+}
+function setView(v) {
+  state.view = v;
+  document.querySelectorAll(".seg").forEach(x => x.setAttribute("aria-pressed", x.dataset.view === v));
+  render();
+}
+function setupFilters() {
+  opts($("f-profile"), PROFILES, PROFILE_LABEL, v => state.profiles.has(v), v => state.profiles.has(v) ? state.profiles.delete(v) : state.profiles.add(v));
+  opts($("f-tier"), TIERS, TIER_LABEL, v => state.tiers.has(v), v => state.tiers.has(v) ? state.tiers.delete(v) : state.tiers.add(v));
+  opts($("f-perf"), PERF, PERF_OPT, v => state.perf === v, v => { state.perf = v; state.unrated = false; }, true);
+  let qt = 0;
+  $("q").addEventListener("input", e => {
+    clearTimeout(qt);
+    qt = setTimeout(() => { const v = e.target.value.trim().toLowerCase(); if (v !== state.q) { state.q = v; qClosed.clear(); render(); } }, 120);
+  });
+  $("q").addEventListener("keydown", e => {
+    if (e.key === "Escape" && e.target.value) { e.preventDefault(); e.stopPropagation(); e.target.value = ""; clearTimeout(qt); state.q = ""; qClosed.clear(); render(); }
+  });
+  CHECKS.forEach(k => $("f-" + k).addEventListener("change", e => { state[k] = e.target.checked; render(); }));
+  document.querySelectorAll(".seg").forEach(b => b.addEventListener("click", () => setView(b.dataset.view)));
+  $("f-reset").addEventListener("click", () => resetFilters(false));
+  $("jump").addEventListener("change", e => { const k = e.target.value; e.target.value = ""; if (k) jumpTo(k); });
+}
+
+/* ---------- Sheets (filters below 1280, list below 760) ---------- */
+const mqMid = matchMedia("(max-width: 1279px)"), mqMob = matchMedia("(max-width: 759px)");
+let sheet = null, sheetReturn = null, inerted = [];
+function inertOthers(el) {
+  const keep = new Set([$("sheet-backdrop"), $("sr-status")]);
+  for (let node = el; node && node.parentElement && node !== document.body; node = node.parentElement) {
+    for (const sib of node.parentElement.children) {
+      if (sib !== node && !keep.has(sib) && !sib.inert && sib.tagName !== "SCRIPT") { sib.inert = true; inerted.push(sib); }
+    }
+  }
+}
+function applySheetInert() {
+  $("filters").inert = mqMid.matches && sheet !== $("filters");
+  $("req").inert = mqMob.matches && sheet !== $("req");
+}
+function openSheet(el, ret) {
+  if (sheet) closeSheet(false);
+  sheet = el; sheetReturn = ret;
+  el.inert = false; el.classList.add("open");
+  $("sheet-backdrop").hidden = false;
+  document.body.classList.add("sheet-open");
+  inertOthers(el);
+  ret.setAttribute("aria-expanded", "true");
+  el.querySelector("[data-sheet-focus]").focus({ preventScroll: true });
+}
+function closeSheet(restore = true) {
+  if (!sheet) return;
+  const el = sheet, ret = sheetReturn; sheet = null;
+  el.classList.remove("open");
+  $("sheet-backdrop").hidden = true;
+  document.body.classList.remove("sheet-open");
+  inerted.forEach(e => e.inert = false); inerted = [];
+  applySheetInert();
+  ret.setAttribute("aria-expanded", "false");
+  if (restore) ret.focus();
+}
+[mqMid, mqMob].forEach(mq => mq.addEventListener("change", () => { closeSheet(false); applySheetInert(); }));
+
+/* ---------- Events ---------- */
+function announce(t) { const s = $("sr-status"); s.textContent = ""; requestAnimationFrame(() => s.textContent = t); }
+document.addEventListener("click", e => {
+  const pre = e.target.closest(".preset[data-preset]");
+  if (pre) { if (loaded) applyPreset(pre.dataset.preset); return; }
+  const t = e.target.closest("[data-toggle],[data-open],[data-close],[data-sort],[data-jump],[data-reset],[data-show],[data-all],[data-notice],[data-keep]");
+  if (!t) return;
+  const ds = t.dataset;
+  if (ds.toggle) toggle(ds.toggle);
+  else if (ds.open) { e.preventDefault(); openDetail(ds.open, t); }
+  else if (ds.close !== undefined) $("detail").close();
+  else if (ds.sort) { sortDir = sortKey === ds.sort ? -sortDir : 1; sortKey = ds.sort; render({ quiet: true }); announce(`Sorted by ${t.textContent.replace(/[▴▾]/g, "").trim()}, ${sortDir > 0 ? "ascending" : "descending"}`); }
+  else if (ds.jump) { e.preventDefault(); jumpTo(ds.jump); }
+  else if (ds.reset !== undefined) resetFilters(ds.reset === "all");
+  else if (ds.show === "avoid") { state.tiers.add("avoid"); syncFilterUI(); render(); }
+  else if (ds.show === "unrated") { state.unrated = true; render(); }
+  else if (ds.all) {
+    const open = ds.all === "open";
+    if (state.q) { qClosed = open ? new Set() : new Set(MOD_KEYS); } else openSet = open ? new Set(MOD_KEYS) : new Set();
+    document.querySelectorAll("details.module").forEach(d => { if (!d.classList.contains("empty")) { d.open = open; if (open) fillSection(d); } });
+  }
+  else if (ds.notice === "undo") {
+    if (!undoSet) return;
+    const prev = undoSet; undoSet = null; state.chosen = new Set(prev); listChanged(); announce("Undone. Your list is back.");
+  }
+  else if (ds.notice === "close") hideNotice();
+  else if (ds.notice === "inlist") { state.inlist = true; syncFilterUI(); hideNotice(); render(); $("main").focus({ preventScroll: true }); $("main").scrollIntoView({ block: "start" }); }
+  else if (ds.keep) keepConflict(ds.keep, ds.drop);
+});
+$("main").addEventListener("toggle", e => {
+  const d = e.target; if (!d.matches || !d.matches("details.module")) return;
+  const k = d.dataset.module;
+  if (d.open) { fillSection(d); if (state.q) qClosed.delete(k); else openSet.add(k); }
+  else {
+    if (state.q) qClosed.add(k); else openSet.delete(k);
+    const b = d.querySelector(".mbody"); if (b && !b.contains(document.activeElement)) { b.innerHTML = ""; delete b.dataset.filled; }
+  }
+}, true);
+$("detail").addEventListener("click", e => { if (e.target.id === "detail") e.target.close(); });
+$("detail").addEventListener("close", () => {
+  const closedId = openId; openId = null; writeHash();
+  if (detailOpener && document.contains(detailOpener)) detailOpener.focus();
+  else {
+    const t = closedId && document.querySelector(`#main [data-open="${CSS.escape(closedId)}"]`);
+    if (t) t.focus(); else $("main").focus({ preventScroll: true });
+  }
+  detailOpener = null;
+});
+$("filters-btn").addEventListener("click", () => openSheet($("filters"), $("filters-btn")));
+$("f-done").addEventListener("click", () => closeSheet());
+$("mobilebar").addEventListener("click", () => openSheet($("req"), $("mobilebar")));
+$("req-close").addEventListener("click", () => closeSheet());
+$("sheet-backdrop").addEventListener("click", () => closeSheet());
+$("skip-req").addEventListener("click", e => { if (mqMob.matches) { e.preventDefault(); openSheet($("req"), $("mobilebar")); } else { e.preventDefault(); $("req").scrollIntoView({ block: "start" }); $("req-h").focus({ preventScroll: true }); } });
+$("skip-search").addEventListener("click", e => { e.preventDefault(); $("q").focus(); });
+$("skip-main").addEventListener("click", e => { e.preventDefault(); $("main").focus(); $("main").scrollIntoView({ block: "start" }); });
+$("rec-avoid-btn").addEventListener("click", () => {
+  if (!loaded) return;
+  state.tiers.add("avoid"); syncFilterUI(); render();
+  $("main").scrollIntoView({ block: "start" }); $("main").focus({ preventScroll: true });
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && sheet) { e.preventDefault(); closeSheet(); return; }
+  if (e.key === "/" && !e.metaKey && !e.ctrlKey && !e.altKey && !$("detail").open && !sheet) {
+    const a = document.activeElement;
+    if (a && (a.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName))) return;
+    e.preventDefault(); $("q").focus();
+  }
+});
+$("notice").addEventListener("focusout", () => armNoticeTimer());
+// A Nexus image that fails to load leaves no broken frame behind.
+document.addEventListener("error", e => {
+  const i = e.target; if (!i || i.tagName !== "IMG") return;
+  const box = i.closest(".thumb, .d-hero"); if (!box) return;
+  box.closest(".entry")?.classList.add("nothumb"); box.remove();
+}, true);
+// A share link pasted into a tab already on the site only changes the hash.
+const parseList = v => (v || "").split(",").map(x => x.trim()).filter(Boolean);
+const missingNote = ids => `${plural(ids.length, "mod")} from this link ${ids.length > 1 ? "are" : "is"} no longer in the catalogue: ${ids.join(", ")}.`;
+window.addEventListener("hashchange", () => {
+  if (!loaded || location.hash === lastWrittenHash) return;
+  const hp = new URLSearchParams(location.hash.slice(1));
+  if (hp.has("list")) {
+    const raw = parseList(hp.get("list")), ids = raw.filter(id => BY[id]), missing = raw.filter(id => !BY[id]);
+    const same = ids.length === state.chosen.size && ids.every(id => state.chosen.has(id));
+    if (!same) setChosen(ids, `Loaded the list from the link: ${plural(ids.length, "mod")}.${missing.length ? " " + missingNote(missing) : ""}`);
+  }
+  const m = hp.get("mod");
+  if (m && BY[m]) openDetail(m); else writeHash();
+});
+
+/* ---------- Exports ---------- */
 function download(name, text, type) {
   const a = document.createElement("a");
   a.href = URL.createObjectURL(new Blob([text], { type }));
-  a.download = name; a.click(); URL.revokeObjectURL(a.href);
+  a.download = name; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 }
-
-function chips(el, values, labels, isOn, onClick) {
-  el.innerHTML = values.map(v => `<button class="chip" data-v="${v}" aria-pressed="${isOn(v)}">${esc(labels[v] || v)}</button>`).join("");
-  el.onclick = e => { const b = e.target.closest("button"); if (b) { onClick(b.dataset.v); chips(el, values, labels, isOn, onClick); render(); } };
+function flash(btn, text) {
+  const orig = btn.dataset.label || (btn.dataset.label = btn.textContent);
+  btn.textContent = text; clearTimeout(btn._t);
+  btn._t = setTimeout(() => btn.textContent = orig, 2000);
 }
-
-function setupFilters() {
-  chips(document.getElementById("f-profile"), PROFILES, PROFILE_LABEL, v => state.profiles.has(v), v => state.profiles.has(v) ? state.profiles.delete(v) : state.profiles.add(v));
-  chips(document.getElementById("f-tier"), TIERS, {}, v => state.tiers.has(v), v => state.tiers.has(v) ? state.tiers.delete(v) : state.tiers.add(v));
-  chips(document.getElementById("f-perf"), PERF, { low: "Low", med: "Medium", high: "Any" }, v => state.perf === v, v => state.perf = v);
-  document.getElementById("q").oninput = e => { state.q = e.target.value.trim().toLowerCase(); render(); };
-  for (const k of ["runtime", "nodll", "noend", "pick"]) document.getElementById("f-" + k).onchange = e => { state[k] = e.target.checked; render(); };
-  document.querySelectorAll(".seg").forEach(b => b.onclick = () => {
-    state.view = b.dataset.view;
-    document.querySelectorAll(".seg").forEach(x => x.setAttribute("aria-pressed", x === b));
-    render();
-  });
-  document.querySelectorAll(".preset").forEach(b => b.onclick = () => {
-    const p = b.dataset.preset;
-    state.chosen = new Set(p === "pick" ? MODS.filter(m => m.our_pick === "yes").map(m => m.id) : p === "core" ? MODS.filter(m => m.tier === "core").map(m => m.id) : []);
-    renderReq(); render();
-  });
-}
-
-document.addEventListener("click", e => {
-  const t = e.target.closest("[data-toggle],[data-open],[data-close],[data-sort]");
-  if (!t) return;
-  if (t.dataset.toggle) {
-    const id = t.dataset.toggle;
-    state.chosen.has(id) ? state.chosen.delete(id) : state.chosen.add(id);
-    renderReq(); render();
-    if (document.getElementById("detail").open) openDetail(id);
-  } else if (t.dataset.open) openDetail(t.dataset.open);
-  else if (t.dataset.close !== undefined) document.getElementById("detail").close();
-  else if (t.dataset.sort) { sortDir = sortKey === t.dataset.sort ? -sortDir : 1; sortKey = t.dataset.sort; render(); }
-});
-document.getElementById("detail").addEventListener("click", e => { if (e.target.id === "detail") e.target.close(); });
-
-document.getElementById("x-csv").onclick = () => {
-  const mods = renderReq(), cols = ["load_group", "name", "nexus_id", "file", "module", "tier", "notes"];
+const shareUrl = () => location.origin + location.pathname + location.search + (state.chosen.size ? "#list=" + [...state.chosen].join(",") : "");
+$("x-csv").onclick = () => {
+  const mods = ordered([...R.all].map(id => BY[id]).filter(Boolean)), cols = ["load_group", "name", "nexus_id", "file", "module", "tier", "notes"];
   const q = s => `"${String(s ?? "").replace(/"/g, '""')}"`;
   download("fallout4-mod-list.csv", [cols.join(","), ...mods.map(m => cols.map(c => q(c === "nexus_id" && m.nexus_id ? nexusUrl(m) : m[c])).join(","))].join("\n"), "text/csv");
+  announce("CSV downloaded.");
 };
-document.getElementById("x-txt").onclick = async () => {
-  const text = renderReq().map((m, i) => `${i + 1}. ${m.name}${m.file ? " (" + m.file + ")" : ""}${m.nexus_id ? " " + nexusUrl(m) : ""}`).join("\n");
-  try { await navigator.clipboard.writeText(text); } catch { download("fallout4-load-order.txt", text, "text/plain"); }
+$("x-txt").onclick = async () => {
+  const text = ordered([...R.all].map(id => BY[id]).filter(Boolean)).map((m, i) => `${i + 1}. ${m.name}${m.file ? " (" + m.file + ")" : ""}${m.nexus_id ? " " + nexusUrl(m) : ""}`).join("\n");
+  try { await navigator.clipboard.writeText(text); flash($("x-txt"), "Copied"); announce("Load order copied."); }
+  catch { download("fallout4-load-order.txt", text, "text/plain"); flash($("x-txt"), "Saved as a file"); announce("Load order saved as a file."); }
 };
-document.getElementById("x-link").onclick = async () => { try { await navigator.clipboard.writeText(location.href); } catch {} };
-document.getElementById("x-clear").onclick = () => { state.chosen.clear(); renderReq(); render(); };
-const mb = document.getElementById("mobilebar");
-mb.onclick = () => { const open = document.getElementById("req").classList.toggle("open"); document.body.classList.toggle("reqopen", open); mb.setAttribute("aria-expanded", open); };
+$("x-link").onclick = async () => {
+  const url = shareUrl();
+  try { await navigator.clipboard.writeText(url); flash($("x-link"), "Copied"); announce("Share link copied."); }
+  catch { window.prompt("Copy this link", url); }
+};
+$("x-clear").onclick = () => applyPreset("clear");
 
-(async () => {
+/* ---------- Load ---------- */
+function fillStatic() {
+  const maxOf = arr => arr.filter(Boolean).sort().pop() || "";
+  const checked = maxOf(MODS.map(m => m.checked_on)), synced = maxOf(Object.values(NX).map(n => n.synced_on));
+  const picks = MODS.filter(m => m.our_pick === "yes").length, cores = MODS.filter(m => m.tier === "core").length, avoid = MODS.filter(m => m.tier === "avoid").length;
+  document.querySelectorAll(".n-total").forEach(e => e.textContent = num(MODS.length));
+  $("n-pick").textContent = num(picks); $("n-core").textContent = num(cores);
+  $("rec-total").textContent = num(MODS.length); $("rec-pick").textContent = num(picks); $("rec-avoid").textContent = num(avoid);
+  $("rec-date").textContent = fmtDate(checked, true) || "Not recorded";
+  const dm = /^(\d{4})-(\d{2})-(\d{2})/.exec(checked);
+  if (dm) {
+    $("stamp-label").textContent = "LAST CHECK";
+    $("stamp-date").textContent = `${+dm[3]} ${MONTHS[+dm[2] - 1].toUpperCase()}`;
+    $("stamp-year").textContent = dm[1];
+    $("stamp").setAttribute("aria-label", `Stamp: checked one by one for Fallout 4 runtime 1.11.240, last check ${+dm[3]} ${MONTHS_LONG[+dm[2] - 1]} ${dm[1]}`);
+  }
+  $("foot-dates").textContent = `Data checked up to ${fmtDate(checked, true) || "an unknown date"}${synced ? `, Nexus details synced on ${fmtDate(synced, true)}` : ""}.`;
+}
+let setupDone = false;
+async function load() {
+  const main = $("main");
+  main.innerHTML = '<p class="loading">Loading the catalogue…</p><div class="ph" aria-hidden="true"><i></i><i></i><i></i></div>';
   try {
     const [csv, nx] = await Promise.all([
       fetch("../data/mods.csv").then(r => { if (!r.ok) throw new Error("mods.csv " + r.status); return r.text(); }),
-      fetch("../data/nexus.json").then(r => r.ok ? r.json() : {}),
+      fetch("../data/nexus.json").then(r => r.ok ? r.json() : {}).catch(() => ({})),
     ]);
-    MODS = parseCSV(csv); NX = nx; BY = Object.fromEntries(MODS.map(m => [m.id, m]));
-    const fromHash = new URLSearchParams(location.hash.slice(1)).get("list");
-    if (fromHash) state.chosen = new Set(fromHash.split(",").filter(id => BY[id]));
-    setupFilters(); renderReq(); render();
+    MODS = parseCSV(csv); NX = nx && typeof nx === "object" && !Array.isArray(nx) ? nx : {}; BY = Object.fromEntries(MODS.map(m => [m.id, m]));
+    MODS.forEach(m => {
+      const n = NX[m.nexus_id] || {};
+      m.hay = (m.name + " " + m.summary + " " + (n.name || "") + " " + (n.author || "")).toLowerCase();
+      m.mi = MOD_KEYS.indexOf(m.module); m.ti = TIERS.indexOf(m.tier); m.prof = list(m.profiles);
+    });
+    const hp = new URLSearchParams(location.hash.slice(1));
+    const raw = parseList(hp.get("list")), missing = raw.filter(id => !BY[id]);
+    if (raw.length) state.chosen = new Set(raw.filter(id => BY[id]));
+    R = resolve(); loaded = true;
+    if (!setupDone) { setupFilters(); setupDone = true; }
+    fillStatic(); renderReq(); syncPresets(); render({ quiet: true });
+    const mod = hp.get("mod");
+    if (mod && BY[mod]) openDetail(mod, $("main")); else writeHash();
+    if (missing.length) showNotice(missingNote(missing));
   } catch (err) {
-    document.getElementById("main").innerHTML = `<p class="empty">The catalogue data could not be loaded (${esc(err.message)}). Open this page from the published site or a local web server, not as a file.</p>`;
+    main.innerHTML = `<div class="loaderr"><p>The catalogue data could not be loaded (${esc(err.message)}). Open this page from the published site or a local web server, not as a file.</p><button class="btn" id="retry">Try again</button></div>`;
+    $("retry").onclick = load;
+    $("result-count").textContent = "No data";
+    ["x-csv", "x-txt", "x-link", "x-clear"].forEach(id => $(id).disabled = true);
   }
-})();
+}
+R = resolve(new Set());
+applySheetInert();
+load();
 </script>
 </body>
 </html>
