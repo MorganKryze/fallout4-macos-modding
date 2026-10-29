@@ -1,8 +1,19 @@
 # Fallout 4 on macOS, modded
 
-A tested setup for running a modded Fallout 4 on an Apple Silicon Mac: the macOS Steam client launches the Windows game through Not Proton and CrossOver, Mod Organizer 2 runs inside the game's Wine prefix, and F4SE loads on runtime 1.11.240. Every step was run on a real machine.
+A tested setup for running a modded Fallout 4 on an Apple Silicon Mac, and a catalogue of about 900 mods evaluated for runtime 1.11.240. The macOS Steam client launches the Windows game through Not Proton and CrossOver, Mod Organizer 2 runs inside the game's Wine prefix, and F4SE loads. Every setup step was run on a real machine.
 
-**Status: work in progress.** The base works (game, MO2, F4SE up to the main menu). Mods are being added in batches; the mod list will be published with v1.0.0.
+**Status: work in progress.** The base works (game, MO2, F4SE up to the main menu). The catalogue is researched; mods are being installed and tested in batches, and v1.0.0 will mark a full tested playthrough.
+
+## Choose your mods
+
+| | |
+| --- | --- |
+| **[Interactive catalogue](https://morgankryze.github.io/fallout4-macos-modding/site/)** | Filter by faction, tier and performance cost, build a list that adds its own requirements and patches, see conflicts, export it |
+| [Catalogue pages](docs/catalog/README.md) | The same data as readable pages, one per area: Brotherhood, Minutemen, Institute, Railroad, raiders, settlements, DLC, quests, weapons, companions… |
+| [Reference playthrough](docs/reference-playthrough.md) | The list we play and every trade-off behind it, with the alternatives |
+| [data/mods.csv](data/mods.csv) | The raw data, documented in [data/README.md](data/README.md). AI assistants: start from [llms.txt](llms.txt) |
+
+Each mod is rated on what decides whether it belongs in a stable list: support for 1.11.240, F4SE DLLs, effect on precombines (PRP), performance cost, compatibility with Lunar Fallout Overhaul and Sim Settlements 2, faction-ending locks, requirements, patches and conflicts, with sources.
 
 ## What works so far
 
@@ -15,7 +26,7 @@ A tested setup for running a modded Fallout 4 on an Apple Silicon Mac: the macOS
 
 Reference machine: Apple M3, 16 GB, macOS 26.5.1.
 
-## Documentation
+## Set up
 
 | File | Contents |
 | --- | --- |
@@ -31,6 +42,10 @@ Reference machine: Apple M3, 16 GB, macOS 26.5.1.
 - Fallout 4 on Steam
 - A Nexus Mods account, for F4SE and the mods
 
+## Maintaining the catalogue
+
+Edit `data/mods.csv`, then run `python3 scripts/nexus_sync.py` (refreshes Nexus metadata) and `python3 scripts/build_catalog.py` (regenerates the pages). Both use the Python standard library only.
+
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE). Mod names, images and descriptions shown by the catalogue belong to their authors on Nexus Mods.
