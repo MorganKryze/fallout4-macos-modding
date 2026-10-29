@@ -15,7 +15,7 @@ The mod list we play ourselves, and why. It is one way through the [catalogue](c
 | Settlements live | Sim Settlements 2: settlers build, a voiced campaign, an army for the Minutemen |
 | The Minutemen are present | Who's The General, You And What Army 2, Minuteman Watchtowers, the Castle restored, Minutemen Takeover in Nuka-World |
 | The Brotherhood is credible | Lunar's BoS gear, Show No Mercy (Fort Strong), David Hunter, Baseline Plots Brotherhood, He's With Me, A New Dawn |
-| New content | America Rising 2, Far Better Far Harbor, Tales from the Commonwealth, Goodneighbor Expanded, Diamond City Expansion |
+| New content | America Rising 2, Far Better Far Harbor, Tales from the Commonwealth, Goodneighbor Expanded, Diamond City Expansion, a busier road (Random Encounter Framework, Commonwealth Encounter Pack, Commonwealth Broadcasting Services) |
 | A new companion | Heather Casdin |
 | Fewer chores | No endless "another settlement needs your help", full dialogue lines, a readable interface |
 
@@ -41,5 +41,21 @@ The mod list we play ourselves, and why. It is one way through the [catalogue](c
 
 ## Before the real game
 
-- Check the Lunar patches (UFO4P, SS2, Tales from the Commonwealth, NPCs Travel) against Lunar 114f in FO4Edit: they were made for earlier Lunar versions.
+- Install in batches with the [install plan](install-plan.md), and run its FO4Edit checks: the Lunar patches were made for earlier Lunar versions.
 - Play a throwaway test of at least an hour through Sanctuary, Concord and Boston with the full list.
+
+## Playing it well
+
+The list prevents most problems; these habits handle the rest.
+
+| Moment | Habit |
+| --- | --- |
+| Saving | Hard saves rotated over at least three slots, not quicksaves. Never save in combat, during a scripted scene or on a vertibird. After a death, quit to the main menu and load from there. Keep vanilla autosaves on as a safety net |
+| Named saves | Before the Concord deathclaw, the first Sim Settlements 2 recruitment beacon, the Fort Hagen exit, the first vertibird ride, Mass Fusion, *Blind Betrayal*, the Fort Strong assault, the Minutemen Takeover attack, and the final faction quests |
+| Sim Settlements 2 | Decline Prepopulation at the start. At most one city plan around Sanctuary, Red Rocket, Abernathy and Concord, 6-8 city plans in total, spread across the map. No city plan at the Castle. Keep the dialogue camera on. Update SS2 and its Reconstruction Kit together |
+| Building | Never scrap or move objects that glow yellow: they are precombined, and touching them costs frame rate in that area. Keep Place Everywhere off unless placing something. With Lunar, settlers die for good: build defences before inviting people |
+| America Rising 2 | Its Enclave storyline locks once you reach Mass Fusion with another faction. On a Brotherhood run, finish its first act (up to *The Remnants*) before *Liberty Reprimed* |
+| Big battles | Fort Strong, the Minutemen Takeover battle, Mass Fusion and the final faction battle are the heaviest moments. Keep one follower, send the others home, and save first |
+| Danse | Turn on He's With Me only after dismissing Danse |
+| On the Mac | Keep `bDisableAllGore=1`. Set macOS Low Power Mode to "Always" if the game freezes while charging. Restart the game after a few hours if speech audio degrades. Test VATS in Vault 111 on the graphics backend you keep |
+| Mid-game additions | Small fixes marked safe mid-game can be added later. Never remove Sim Settlements 2, Lunar, Workshop Framework, America Rising 2 or Show No Mercy from a running save |
