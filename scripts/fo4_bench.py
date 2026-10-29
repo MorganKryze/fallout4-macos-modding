@@ -26,10 +26,11 @@ def frames(text, proc=None, start=None, end=None):
             continue
         v = [float(x) for x in m[3].strip(",").split(",") if x][3:]
         stream += [(v[i], v[i + 1]) for i in range(0, len(v) - 1, 2)]
-    pairs = list(zip(stream[0::2], stream[1::2]))
-    # ponytail: "every frame twice" is detected on the whole stream, not per line
-    if pairs and sum(a == b for a, b in pairs) / len(pairs) > 0.9:
-        stream = stream[0::2]
+    # A copy can straddle two lines, so drop repeats of the previous frame
+    # instead of taking every other one.
+    # ponytail: a real frame identical to the one before is dropped too; rare at 2 decimals
+    if stream and sum(a == b for a, b in zip(stream, stream[1:])) / len(stream) > 0.4:
+        stream = [f for i, f in enumerate(stream) if i == 0 or f != stream[i - 1]]
     return [f for f in stream if f[0] > 0]
 
 
