@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fallout 4 mod catalogue</title>
+<meta name="description" content="Browse a tested catalogue of Fallout 4 mods for runtime 1.11.240 and build a conflict-free list.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #E9EDF1;
+  --sheet: #F6F8FA;
+  --ink: #14233A;
+  --muted: #56667A;
+  --line: #C9D2DC;
+  --blue: #1E4F9A;
+  --yellow: #F3C43A;
+  --red: #C23B2A;
+  --green: #2F7A4F;
+  --focus: #1E4F9A;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0E1E36;
+    --sheet: #15294A;
+    --ink: #E8EEF6;
+    --muted: #9FB0C6;
+    --line: #2A4268;
+    --blue: #7FA8EC;
+    --yellow: #F3C43A;
+    --red: #F07A68;
+    --green: #6CC293;
+    --focus: #F3C43A;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 15px/1.5 "Archivo", system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+a { color: var(--blue); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+
+/* Header */
+.top {
+  display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: end;
+  padding: 28px 24px 18px; border-bottom: 3px solid var(--ink);
+}
+.top h1 {
+  margin: 0; font-size: clamp(30px, 5vw, 52px); line-height: .95;
+  font-stretch: 62%; font-weight: 900; letter-spacing: .5px;
+}
+.top p { margin: 6px 0 0; color: var(--muted); max-width: 70ch; }
+.top .views { display: flex; gap: 6px; }
+.seg { border: 2px solid var(--ink); background: transparent; padding: 6px 12px; font-weight: 600; }
+.seg[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+/* Layout */
+.wrap { display: grid; grid-template-columns: 240px minmax(0, 1fr) 320px; gap: 24px; padding: 20px 24px 80px; align-items: start; }
+aside.filters, aside.req { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; }
+
+/* Filters */
+.filters h2, .req h2 { font-size: 20px; font-stretch: 75%; font-weight: 800; margin: 0 0 10px; }
+.fgroup { margin: 0 0 18px; }
+.fgroup > span { display: block; font-weight: 700; font-size: 13px; margin-bottom: 6px; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1px solid var(--line); background: var(--sheet); padding: 3px 9px; border-radius: 14px; font-size: 13px; }
+.chip[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: #fff; }
+.toggle { display: flex; gap: 8px; align-items: center; font-size: 14px; margin: 4px 0; }
+.search { width: 100%; padding: 8px 10px; border: 2px solid var(--ink); background: var(--sheet); }
+.presets { display: grid; gap: 6px; }
+.preset { text-align: left; border: 1px solid var(--line); background: var(--sheet); padding: 8px 10px; }
+.preset strong { display: block; font-stretch: 85%; }
+.preset small { color: var(--muted); }
+
+/* Modules */
+details.module { border-top: 2px solid var(--ink); padding: 4px 0 18px; }
+details.module > summary {
+  list-style: none; display: flex; align-items: baseline; gap: 12px; padding: 10px 0; cursor: pointer;
+}
+details.module > summary::-webkit-details-marker { display: none; }
+details.module > summary h2 { margin: 0; font-size: 26px; font-stretch: 70%; font-weight: 850; }
+details.module > summary .count { color: var(--muted); font-size: 14px; }
+details.module > summary::before { content: "+"; font-weight: 800; width: 14px; }
+details.module[open] > summary::before { content: "\2212"; }
+.tierhead { font-size: 15px; font-weight: 700; margin: 14px 0 8px; color: var(--muted); }
+
+/* Cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+.card {
+  display: grid; grid-template-rows: auto 1fr auto; background: var(--sheet);
+  border: 1px solid var(--line); border-left: 4px solid var(--line); min-height: 100%;
+}
+.card.t-core { border-left-color: var(--ink); }
+.card.t-recommended { border-left-color: var(--blue); }
+.card.t-avoid { border-left-color: var(--red); opacity: .85; }
+.card .thumb { aspect-ratio: 16 / 9; background: var(--paper); overflow: hidden; }
+.card .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card .body { padding: 10px 12px 8px; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.2; font-stretch: 85%; font-weight: 750; }
+.card h3 button { all: unset; cursor: pointer; }
+.card h3 button:focus-visible { outline: 3px solid var(--focus); }
+.card .by { color: var(--muted); font-size: 12.5px; }
+.card .sum { margin: 6px 0 0; font-size: 14px; }
+.card .foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 12px 10px; }
+.badges { display: flex; flex-wrap: wrap; gap: 4px; }
+.b { font-size: 11.5px; font-weight: 600; padding: 1px 6px; border: 1px solid var(--line); border-radius: 3px; white-space: nowrap; }
+.b.pick { background: var(--yellow); border-color: var(--yellow); color: #14233A; }
+.b.warn { border-color: var(--red); color: var(--red); }
+.b.dll { border-color: var(--blue); color: var(--blue); }
+.add {
+  flex: none; width: 34px; height: 34px; border: 2px solid var(--ink); background: transparent;
+  font-size: 20px; font-weight: 700; line-height: 1;
+}
+.add[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+/* Table */
+table { width: 100%; border-collapse: collapse; background: var(--sheet); font-size: 14px; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { position: sticky; top: 0; background: var(--sheet); font-stretch: 85%; }
+th button { all: unset; cursor: pointer; font-weight: 700; }
+td.n { text-align: right; }
+
+/* Requisition */
+.req .form { background: var(--sheet); border: 2px solid var(--ink); padding: 14px; }
+.req .form header { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid var(--ink); margin-bottom: 10px; padding-bottom: 6px; }
+.req .form header h2 { margin: 0; }
+.slots { margin: 6px 0 2px; height: 16px; border: 1px solid var(--ink);
+  background: repeating-linear-gradient(90deg, transparent 0 calc(100% / 254 - 1px), var(--line) calc(100% / 254 - 1px) calc(100% / 254)); position: relative; }
+.slots i { position: absolute; inset: 0 auto 0 0; background: var(--blue); }
+.slots.over i { background: var(--red); }
+.stat { display: flex; justify-content: space-between; font-size: 14px; padding: 3px 0; border-bottom: 1px dotted var(--line); }
+.stat b { font-weight: 700; }
+.alerts { margin: 10px 0; display: grid; gap: 6px; }
+.alert { font-size: 13px; padding: 6px 8px; border-left: 4px solid var(--red); background: color-mix(in srgb, var(--red) 10%, transparent); }
+.alert.info { border-left-color: var(--blue); background: color-mix(in srgb, var(--blue) 10%, transparent); }
+.picked { list-style: none; margin: 8px 0; padding: 0; font-size: 13.5px; max-height: 34vh; overflow: auto; }
+.picked li { display: flex; justify-content: space-between; gap: 6px; padding: 3px 0; border-bottom: 1px solid var(--line); }
+.picked li small { color: var(--muted); }
+.picked li button { border: none; background: none; color: var(--muted); font-size: 16px; padding: 0 4px; }
+.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
+.actions button { border: 2px solid var(--ink); background: transparent; padding: 7px; font-weight: 600; }
+.actions button.primary { background: var(--yellow); border-color: var(--yellow); color: #14233A; }
+.empty { color: var(--muted); font-size: 14px; }
+
+/* Detail drawer */
+dialog.detail { border: none; padding: 0; width: min(640px, 100vw); max-width: 100vw; height: 100vh; max-height: 100vh; margin: 0 0 0 auto; background: var(--sheet); color: var(--ink); }
+dialog.detail::backdrop { background: rgba(10, 20, 35, .45); }
+dialog.detail[open] { animation: slide .18s ease-out; }
+@keyframes slide { from { transform: translateX(24px); opacity: .6; } }
+.detail .hero { aspect-ratio: 16 / 9; background: var(--paper); }
+.detail .hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.detail .in { padding: 18px 22px 40px; }
+.detail h2 { margin: 0; font-size: 30px; line-height: 1.05; font-stretch: 70%; font-weight: 850; }
+.detail dl { display: grid; grid-template-columns: 150px 1fr; gap: 4px 12px; font-size: 14px; }
+.detail dt { color: var(--muted); }
+.detail dd { margin: 0; }
+.detail .close { position: sticky; top: 0; float: right; margin: 10px; border: 2px solid var(--ink); background: var(--sheet); padding: 4px 10px; font-weight: 700; }
+.linkid { all: unset; color: var(--blue); text-decoration: underline; cursor: pointer; }
+
+.mobilebar { display: none; }
+@media (max-width: 1100px) {
+  .wrap { grid-template-columns: minmax(0, 1fr) 300px; }
+  aside.filters { position: static; max-height: none; grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0 20px; }
+}
+@media (max-width: 760px) {
+  .top { grid-template-columns: 1fr; padding: 20px 16px 14px; }
+  .wrap { grid-template-columns: 1fr; padding: 16px 16px 90px; }
+  aside.req { position: fixed; inset: auto 0 0 0; max-height: 70vh; transform: translateY(calc(100% - 0px)); transition: transform .2s; z-index: 5; }
+  aside.req.open { transform: none; }
+  .mobilebar { display: flex; position: fixed; inset: auto 0 0 0; z-index: 6; background: var(--ink); color: var(--paper); padding: 10px 16px; justify-content: space-between; align-items: center; border: none; width: 100%; font-weight: 700; }
+  body.reqopen .mobilebar { bottom: 70vh; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Fallout 4 mod catalogue</h1>
+    <p>Tested for runtime 1.11.240 on an Apple Silicon Mac. Pick mods, and the list adds their requirements and patches and flags conflicts. Data from <a href="https://github.com/MorganKryze/fallout4-macos-modding">fallout4-macos-modding</a>.</p>
+  </div>
+  <div class="views" role="group" aria-label="View">
+    <button class="seg" data-view="cards" aria-pressed="true">Cards</button>
+    <button class="seg" data-view="table" aria-pressed="false">Table</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside class="filters" aria-label="Filters">
+    <div class="fgroup">
+      <span>Start from</span>
+      <div class="presets">
+        <button class="preset" data-preset="pick"><strong>Our playthrough</strong><small>The reference list: stable, 40-45 fps on a base M3</small></button>
+        <button class="preset" data-preset="core"><strong>Core only</strong><small>The fixes every list needs</small></button>
+        <button class="preset" data-preset="clear"><strong>Empty list</strong><small>Build your own</small></button>
+      </div>
+    </div>
+    <div class="fgroup">
+      <label for="q"><span>Search</span></label>
+      <input id="q" class="search" type="search" placeholder="Name or description">
+    </div>
+    <div class="fgroup"><span>Playthrough</span><div class="chips" id="f-profile"></div></div>
+    <div class="fgroup"><span>Tier</span><div class="chips" id="f-tier"></div></div>
+    <div class="fgroup"><span>Performance cost at most</span><div class="chips" id="f-perf"></div></div>
+    <div class="fgroup">
+      <span>Only show</span>
+      <label class="toggle"><input type="checkbox" id="f-runtime"> Known to work on 1.11.240</label>
+      <label class="toggle"><input type="checkbox" id="f-nodll"> No F4SE DLL</label>
+      <label class="toggle"><input type="checkbox" id="f-noend"> No ending lock</label>
+      <label class="toggle"><input type="checkbox" id="f-pick"> Our picks</label>
+    </div>
+  </aside>
+
+  <main id="main" aria-live="polite"><p class="empty">Loading the catalogue…</p></main>
+
+  <aside class="req" id="req" aria-label="Your list">
+    <div class="form">
+      <header><h2>Your list</h2><span id="req-count">0 mods</span></header>
+      <div class="stat"><span>Full plugin slots</span><b id="s-full">0 / 254</b></div>
+      <div class="slots" id="slots"><i style="width:0"></i></div>
+      <div class="stat"><span>Light plugins (ESL)</span><b id="s-light">0</b></div>
+      <div class="stat"><span>Download size</span><b id="s-size">0 GB</b></div>
+      <div class="stat"><span>F4SE DLLs</span><b id="s-dll">0</b></div>
+      <div class="stat"><span>Script-heavy mods</span><b id="s-heavy">0</b></div>
+      <div class="stat"><span>High performance cost</span><b id="s-high">0</b></div>
+      <div class="alerts" id="alerts"></div>
+      <ul class="picked" id="picked"></ul>
+      <div class="actions">
+        <button class="primary" id="x-csv">Download CSV</button>
+        <button id="x-txt">Copy load order</button>
+        <button id="x-link">Copy share link</button>
+        <button id="x-clear">Clear</button>
+      </div>
+    </div>
+  </aside>
+</div>
+<button class="mobilebar" id="mobilebar" aria-controls="req" aria-expanded="false"><span>Your list</span><span id="mb-count">0 mods</span></button>
+
+<dialog class="detail" id="detail" aria-labelledby="d-title"></dialog>
+
+<script>
+const MODULES = {
+  base: "Base", stability: "Stability and performance", interface: "Interface", gameplay: "Gameplay and enemies",
+  brotherhood: "Brotherhood of Steel", minutemen: "Minutemen", institute: "The Institute", railroad: "The Railroad",
+  raiders: "Raiders and hostile factions", factions: "Factions, endings and starts", settlements: "Settlements",
+  dlc: "DLC", quests: "Quests and locations", "weapons-armor": "Weapons and armor", immersion: "Immersion and quality of life",
+  companions: "Companions",
+};
+const TIERS = ["core", "recommended", "optional", "avoid"];
+const PERF = ["low", "med", "high"];
+const PROFILES = ["all", "bos", "minutemen", "institute", "railroad", "raider", "neutral"];
+const PROFILE_LABEL = { all: "Any", bos: "Brotherhood", minutemen: "Minutemen", institute: "Institute", railroad: "Railroad", raider: "Raider", neutral: "Neutral" };
+
+const state = { view: "cards", q: "", profiles: new Set(), tiers: new Set(["core", "recommended", "optional"]), perf: "high", runtime: false, nodll: false, noend: false, pick: false, chosen: new Set() };
+let MODS = [], BY = {}, NX = {};
+
+function parseCSV(text) {
+  const rows = []; let row = [], field = "", q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) {
+      if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
+      else if (c === '"') q = false;
+      else field += c;
+    } else if (c === '"') q = true;
+    else if (c === ",") { row.push(field); field = ""; }
+    else if (c === "\n") { row.push(field); rows.push(row); row = []; field = ""; }
+    else if (c !== "\r") field += c;
+  }
+  if (field || row.length) { row.push(field); rows.push(row); }
+  const head = rows.shift();
+  return rows.filter(r => r.length === head.length).map(r => Object.fromEntries(head.map((h, i) => [h, r[i]])));
+}
+const list = s => (s || "").split(";").filter(Boolean);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const nexusUrl = m => m.nexus_id ? `https://www.nexusmods.com/fallout4/mods/${m.nexus_id}` : "";
+const sizeOf = m => (NX[m.nexus_id]?.main_files?.[0]?.size_bytes) || 0;
+const fmtSize = b => b >= 1e9 ? (b / 1e9).toFixed(1) + " GB" : b >= 1e6 ? Math.round(b / 1e6) + " MB" : b ? Math.round(b / 1e3) + " KB" : "";
+
+function visible(m) {
+  if (!state.tiers.has(m.tier)) return false;
+  if (state.profiles.size && !list(m.profiles).some(p => p === "all" || state.profiles.has(p))) return false;
+  if (m.perf && PERF.indexOf(m.perf) > PERF.indexOf(state.perf)) return false;
+  if (state.runtime && !["yes", "plugin-only"].includes(m.runtime_1_11_240)) return false;
+  if (state.nodll && m.f4se_dll === "yes") return false;
+  if (state.noend && m.ending_lock && m.ending_lock !== "none") return false;
+  if (state.pick && m.our_pick !== "yes") return false;
+  if (state.q) {
+    const hay = (m.name + " " + m.summary + " " + (NX[m.nexus_id]?.name || "")).toLowerCase();
+    if (!hay.includes(state.q)) return false;
+  }
+  return true;
+}
+
+function badges(m) {
+  const out = [];
+  if (m.our_pick === "yes") out.push('<span class="b pick">Our pick</span>');
+  out.push(`<span class="b">${esc(m.tier)}</span>`);
+  if (m.perf) out.push(`<span class="b${m.perf === "high" ? " warn" : ""}">${esc(m.perf)} cost</span>`);
+  if (m.f4se_dll === "yes") out.push('<span class="b dll">F4SE DLL</span>');
+  if (m.runtime_1_11_240 === "no") out.push('<span class="b warn">Not 1.11.240</span>');
+  if (m.precombines === "breaks") out.push('<span class="b warn">Breaks precombines</span>');
+  if (m.ending_lock && m.ending_lock !== "none") out.push(`<span class="b warn">Ending: ${esc(m.ending_lock)}</span>`);
+  if (m.lunar === "conflict") out.push('<span class="b warn">Lunar conflict</span>');
+  return out.join("");
+}
+
+function card(m) {
+  const n = NX[m.nexus_id] || {};
+  const img = n.thumbnail && !n.adult ? `<img src="${esc(n.thumbnail)}" alt="" loading="lazy">` : "";
+  const on = state.chosen.has(m.id);
+  return `<article class="card t-${m.tier}">
+    <div class="thumb">${img}</div>
+    <div class="body">
+      <h3><button data-open="${esc(m.id)}">${esc(m.name)}</button></h3>
+      <div class="by">${esc([n.author && "by " + n.author, n.updated && "updated " + n.updated, fmtSize(sizeOf(m))].filter(Boolean).join(", "))}</div>
+      <p class="sum">${esc(m.summary)}</p>
+    </div>
+    <div class="foot"><div class="badges">${badges(m)}</div>
+      <button class="add" data-toggle="${esc(m.id)}" aria-pressed="${on}" aria-label="${on ? "Remove" : "Add"} ${esc(m.name)}">${on ? "✓" : "+"}</button></div>
+  </article>`;
+}
+
+let sortKey = "name", sortDir = 1;
+function table(mods) {
+  const cols = [["name", "Mod"], ["module", "Module"], ["tier", "Tier"], ["perf", "Cost"], ["runtime_1_11_240", "1.11.240"], ["f4se_dll", "DLL"], ["plugins_full", "Full"], ["updated", "Updated"]];
+  const val = (m, k) => k === "updated" ? (NX[m.nexus_id]?.updated || "") : m[k] || "";
+  mods = [...mods].sort((a, b) => String(val(a, sortKey)).localeCompare(String(val(b, sortKey)), undefined, { numeric: true }) * sortDir);
+  return `<table><thead><tr><th></th>${cols.map(([k, l]) => `<th><button data-sort="${k}">${l}${sortKey === k ? (sortDir > 0 ? " ▴" : " ▾") : ""}</button></th>`).join("")}</tr></thead><tbody>
+  ${mods.map(m => `<tr><td><button class="add" data-toggle="${esc(m.id)}" aria-pressed="${state.chosen.has(m.id)}" aria-label="Add ${esc(m.name)}">${state.chosen.has(m.id) ? "✓" : "+"}</button></td>
+    <td><button class="linkid" data-open="${esc(m.id)}">${esc(m.name)}</button>${m.our_pick === "yes" ? ' <span class="b pick">Our pick</span>' : ""}</td>
+    <td>${esc(MODULES[m.module] || m.module)}</td><td>${esc(m.tier)}</td><td>${esc(m.perf)}</td><td>${esc(m.runtime_1_11_240)}</td><td>${esc(m.f4se_dll)}</td><td class="n">${esc(m.plugins_full)}</td><td>${esc(val(m, "updated"))}</td></tr>`).join("")}
+  </tbody></table>`;
+}
+
+function render() {
+  const main = document.getElementById("main");
+  const shown = MODS.filter(visible);
+  if (!shown.length) { main.innerHTML = '<p class="empty">No mod matches these filters. Widen the tier or cost filters, or clear the search.</p>'; return; }
+  if (state.view === "table") { main.innerHTML = table(shown); return; }
+  const open = new Set([...document.querySelectorAll("details.module[open]")].map(d => d.dataset.module));
+  const first = !document.querySelector("details.module");
+  main.innerHTML = Object.entries(MODULES).map(([key, title]) => {
+    const mods = shown.filter(m => m.module === key);
+    if (!mods.length) return "";
+    const isOpen = first ? ["base", "stability"].includes(key) || state.q : open.has(key) || state.q;
+    return `<details class="module" data-module="${key}" ${isOpen ? "open" : ""}>
+      <summary><h2>${esc(title)}</h2><span class="count">${mods.length} mods, ${mods.filter(m => state.chosen.has(m.id)).length} in your list</span></summary>
+      ${TIERS.map(t => { const g = mods.filter(m => m.tier === t); return g.length ? `<div class="tierhead">${t[0].toUpperCase() + t.slice(1)}</div><div class="grid">${g.map(card).join("")}</div>` : ""; }).join("")}
+    </details>`;
+  }).join("");
+}
+
+function resolve() {
+  const chosen = new Set(state.chosen), auto = new Set();
+  const addReq = id => list(BY[id]?.requires).forEach(r => { if (BY[r] && !chosen.has(r) && !auto.has(r)) { auto.add(r); addReq(r); } });
+  [...chosen].forEach(addReq);
+  const all = new Set([...chosen, ...auto]);
+  const patches = new Set();
+  all.forEach(id => list(BY[id]?.patches).forEach(p => {
+    const pm = BY[p]; if (!pm || all.has(p)) return;
+    // A patch row is useful when every mod it requires is in the list.
+    if (list(pm.requires).every(r => all.has(r))) patches.add(p);
+  }));
+  patches.forEach(p => all.add(p));
+  const conflicts = [];
+  all.forEach(id => list(BY[id]?.conflicts).forEach(c => { if (all.has(c) && id < c) conflicts.push([id, c]); }));
+  return { chosen, auto, patches, all, conflicts };
+}
+
+function renderReq() {
+  const r = resolve(), mods = [...r.all].map(id => BY[id]).filter(Boolean);
+  const full = mods.reduce((s, m) => s + (+m.plugins_full || 0), 0);
+  const light = mods.reduce((s, m) => s + (+m.plugins_light || 0), 0);
+  const size = mods.reduce((s, m) => s + sizeOf(m), 0);
+  const n = mods.length;
+  document.getElementById("req-count").textContent = document.getElementById("mb-count").textContent = `${n} mod${n === 1 ? "" : "s"}`;
+  const unknown = mods.filter(m => m.plugins_full === "").length;
+  document.getElementById("s-full").textContent = `${full} / 254` + (unknown ? ` + ${unknown} unknown` : "");
+  const slots = document.getElementById("slots");
+  slots.querySelector("i").style.width = Math.min(100, full / 254 * 100) + "%";
+  slots.classList.toggle("over", full > 254);
+  document.getElementById("s-light").textContent = light;
+  document.getElementById("s-size").textContent = fmtSize(size) || "0 GB";
+  document.getElementById("s-dll").textContent = mods.filter(m => m.f4se_dll === "yes").length;
+  document.getElementById("s-heavy").textContent = mods.filter(m => m.scripts === "heavy").length;
+  document.getElementById("s-high").textContent = mods.filter(m => m.perf === "high").length;
+  const alerts = [];
+  r.conflicts.forEach(([a, b]) => alerts.push(`<div class="alert"><b>Conflict:</b> ${esc(BY[a].name)} and ${esc(BY[b].name)}. Keep one.</div>`));
+  mods.filter(m => m.runtime_1_11_240 === "no").forEach(m => alerts.push(`<div class="alert"><b>${esc(m.name)}</b> does not support 1.11.240.</div>`));
+  mods.filter(m => m.precombines === "breaks").forEach(m => alerts.push(`<div class="alert"><b>${esc(m.name)}</b> breaks precombines: lower fps in its area.</div>`));
+  if (unknown) alerts.push(`<div class="alert info">Plugin count not recorded yet for ${unknown} mod${unknown > 1 ? "s" : ""}: the slot gauge is a minimum.</div>`);
+  if (r.auto.size) alerts.push(`<div class="alert info">${r.auto.size} requirement${r.auto.size > 1 ? "s" : ""} added automatically.</div>`);
+  if (r.patches.size) alerts.push(`<div class="alert info">${r.patches.size} compatibility patch${r.patches.size > 1 ? "es" : ""} added automatically.</div>`);
+  document.getElementById("alerts").innerHTML = alerts.join("");
+  const ordered = mods.sort((a, b) => (+a.load_group || 0) - (+b.load_group || 0) || a.name.localeCompare(b.name));
+  document.getElementById("picked").innerHTML = ordered.length ? ordered.map(m => `<li><span>${esc(m.name)}${r.auto.has(m.id) ? " <small>required</small>" : r.patches.has(m.id) ? " <small>patch</small>" : ""}</span>${r.chosen.has(m.id) ? `<button data-toggle="${esc(m.id)}" aria-label="Remove ${esc(m.name)}">×</button>` : ""}</li>`).join("") : '<li class="empty">Add mods with + or start from a preset.</li>';
+  history.replaceState(null, "", state.chosen.size ? "#list=" + [...state.chosen].join(",") : location.pathname);
+  return ordered;
+}
+
+function openDetail(id) {
+  const m = BY[id]; if (!m) return;
+  const n = NX[m.nexus_id] || {};
+  const ref = ids => list(ids).map(x => BY[x] ? `<button class="linkid" data-open="${esc(x)}">${esc(BY[x].name)}</button>` : esc(x)).join(", ") || "None";
+  const d = document.getElementById("detail");
+  d.innerHTML = `<button class="close" data-close>Close</button>
+    ${n.picture && !n.adult ? `<div class="hero"><img src="${esc(n.picture)}" alt=""></div>` : ""}
+    <div class="in">
+      <h2 id="d-title">${esc(m.name)}</h2>
+      <p class="by">${esc([n.author && "by " + n.author, n.version && "version " + n.version, n.updated && "updated " + n.updated, n.endorsements && n.endorsements.toLocaleString("en") + " endorsements"].filter(Boolean).join(", "))}</p>
+      <div class="badges">${badges(m)}</div>
+      <p><b>${esc(m.summary)}</b></p>
+      ${n.summary ? `<p>${esc(n.summary)}</p>` : ""}
+      ${m.notes ? `<p><b>Notes:</b> ${esc(m.notes)}</p>` : ""}
+      <dl>
+        <dt>Module</dt><dd>${esc(MODULES[m.module] || m.module)}</dd>
+        <dt>File to take</dt><dd>${esc(m.file || "Main file")}</dd>
+        <dt>Runtime 1.11.240</dt><dd>${esc(m.runtime_1_11_240)}</dd>
+        <dt>F4SE DLL</dt><dd>${esc(m.f4se_dll || "unknown")}</dd>
+        <dt>Plugins</dt><dd>${esc(m.plugins_full || "?")} full, ${esc(m.plugins_light || "?")} light</dd>
+        <dt>Scripts, NPCs</dt><dd>${esc(m.scripts || "?")}, ${esc(m.npcs || "?")}</dd>
+        <dt>Precombines</dt><dd>${esc(m.precombines || "unknown")}</dd>
+        <dt>With Lunar</dt><dd>${esc(m.lunar || "unknown")}</dd>
+        <dt>With SS2</dt><dd>${esc(m.ss2 || "unknown")}</dd>
+        <dt>Ending lock</dt><dd>${esc(m.ending_lock || "none known")}</dd>
+        <dt>Requires</dt><dd>${ref(m.requires)}</dd>
+        <dt>Patches</dt><dd>${ref(m.patches)}</dd>
+        <dt>Conflicts with</dt><dd>${ref(m.conflicts)}</dd>
+        <dt>Size</dt><dd>${esc(fmtSize(sizeOf(m)) || "unknown")}</dd>
+        <dt>Sources</dt><dd>${list(m.evidence).map(u => `<a href="${esc(u)}" rel="noopener">${esc(new URL(u, location.href).hostname)}</a>`).join(", ") || "None"}</dd>
+      </dl>
+      <p>${nexusUrl(m) ? `<a href="${nexusUrl(m)}" rel="noopener">Open on Nexus Mods</a>` : ""}</p>
+      <div class="actions"><button class="primary" data-toggle="${esc(m.id)}">${state.chosen.has(m.id) ? "Remove from list" : "Add to list"}</button></div>
+    </div>`;
+  d.showModal();
+}
+
+function download(name, text, type) {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([text], { type }));
+  a.download = name; a.click(); URL.revokeObjectURL(a.href);
+}
+
+function chips(el, values, labels, isOn, onClick) {
+  el.innerHTML = values.map(v => `<button class="chip" data-v="${v}" aria-pressed="${isOn(v)}">${esc(labels[v] || v)}</button>`).join("");
+  el.onclick = e => { const b = e.target.closest("button"); if (b) { onClick(b.dataset.v); chips(el, values, labels, isOn, onClick); render(); } };
+}
+
+function setupFilters() {
+  chips(document.getElementById("f-profile"), PROFILES, PROFILE_LABEL, v => state.profiles.has(v), v => state.profiles.has(v) ? state.profiles.delete(v) : state.profiles.add(v));
+  chips(document.getElementById("f-tier"), TIERS, {}, v => state.tiers.has(v), v => state.tiers.has(v) ? state.tiers.delete(v) : state.tiers.add(v));
+  chips(document.getElementById("f-perf"), PERF, { low: "Low", med: "Medium", high: "Any" }, v => state.perf === v, v => state.perf = v);
+  document.getElementById("q").oninput = e => { state.q = e.target.value.trim().toLowerCase(); render(); };
+  for (const k of ["runtime", "nodll", "noend", "pick"]) document.getElementById("f-" + k).onchange = e => { state[k] = e.target.checked; render(); };
+  document.querySelectorAll(".seg").forEach(b => b.onclick = () => {
+    state.view = b.dataset.view;
+    document.querySelectorAll(".seg").forEach(x => x.setAttribute("aria-pressed", x === b));
+    render();
+  });
+  document.querySelectorAll(".preset").forEach(b => b.onclick = () => {
+    const p = b.dataset.preset;
+    state.chosen = new Set(p === "pick" ? MODS.filter(m => m.our_pick === "yes").map(m => m.id) : p === "core" ? MODS.filter(m => m.tier === "core").map(m => m.id) : []);
+    renderReq(); render();
+  });
+}
+
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-toggle],[data-open],[data-close],[data-sort]");
+  if (!t) return;
+  if (t.dataset.toggle) {
+    const id = t.dataset.toggle;
+    state.chosen.has(id) ? state.chosen.delete(id) : state.chosen.add(id);
+    renderReq(); render();
+    if (document.getElementById("detail").open) openDetail(id);
+  } else if (t.dataset.open) openDetail(t.dataset.open);
+  else if (t.dataset.close !== undefined) document.getElementById("detail").close();
+  else if (t.dataset.sort) { sortDir = sortKey === t.dataset.sort ? -sortDir : 1; sortKey = t.dataset.sort; render(); }
+});
+document.getElementById("detail").addEventListener("click", e => { if (e.target.id === "detail") e.target.close(); });
+
+document.getElementById("x-csv").onclick = () => {
+  const mods = renderReq(), cols = ["load_group", "name", "nexus_id", "file", "module", "tier", "notes"];
+  const q = s => `"${String(s ?? "").replace(/"/g, '""')}"`;
+  download("fallout4-mod-list.csv", [cols.join(","), ...mods.map(m => cols.map(c => q(c === "nexus_id" && m.nexus_id ? nexusUrl(m) : m[c])).join(","))].join("\n"), "text/csv");
+};
+document.getElementById("x-txt").onclick = async () => {
+  const text = renderReq().map((m, i) => `${i + 1}. ${m.name}${m.file ? " (" + m.file + ")" : ""}${m.nexus_id ? " " + nexusUrl(m) : ""}`).join("\n");
+  try { await navigator.clipboard.writeText(text); } catch { download("fallout4-load-order.txt", text, "text/plain"); }
+};
+document.getElementById("x-link").onclick = async () => { try { await navigator.clipboard.writeText(location.href); } catch {} };
+document.getElementById("x-clear").onclick = () => { state.chosen.clear(); renderReq(); render(); };
+const mb = document.getElementById("mobilebar");
+mb.onclick = () => { const open = document.getElementById("req").classList.toggle("open"); document.body.classList.toggle("reqopen", open); mb.setAttribute("aria-expanded", open); };
+
+(async () => {
+  try {
+    const [csv, nx] = await Promise.all([
+      fetch("../data/mods.csv").then(r => { if (!r.ok) throw new Error("mods.csv " + r.status); return r.text(); }),
+      fetch("../data/nexus.json").then(r => r.ok ? r.json() : {}),
+    ]);
+    MODS = parseCSV(csv); NX = nx; BY = Object.fromEntries(MODS.map(m => [m.id, m]));
+    const fromHash = new URLSearchParams(location.hash.slice(1)).get("list");
+    if (fromHash) state.chosen = new Set(fromHash.split(",").filter(id => BY[id]));
+    setupFilters(); renderReq(); render();
+  } catch (err) {
+    document.getElementById("main").innerHTML = `<p class="empty">The catalogue data could not be loaded (${esc(err.message)}). Open this page from the published site or a local web server, not as a file.</p>`;
+  }
+})();
+</script>
+</body>
+</html>
