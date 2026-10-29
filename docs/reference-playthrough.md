@@ -35,7 +35,7 @@ The mod list we play ourselves, and why. It is one way through the [catalogue](c
 
 1. Compare the two Metal graphics backends (DXMT, D3DMetal) on the same route and keep the faster.
 2. Cap the frame rate at 40-45 fps with High FPS Physics Fix: a steady 45 feels better than a 60 that keeps dropping.
-3. Render below native resolution on wide screens if needed (for example 2580×1080 on a 3440×1440 display).
+3. Render at half resolution and let MetalFX upscale it (DXMT launch options, see [setup](setup.md#6-mo2-profile)): the GPU, not the CPU, is the limit in game.
 4. In Sim Settlements 2's performance options, turn off decorative actors, animations, sounds, radios and effects, and keep the number of large city plans small.
 5. Install in batches and measure after each one, so a drop points to one batch.
 

@@ -58,6 +58,20 @@ Problems met while building this setup, each with the symptom, the cause and the
 
 **Fix.** In `HighFPSPhysicsFix.ini` (in the mod's `F4SE/Plugins` folder), set `EnableVSync=false` and `InGameFPS=45.0`, and keep `AllowTearing=true`. Close heavy apps and restart the Mac if it has been up for days with swap in use. Result on a base M3 at 3440×1440: 44-45 fps, frame interval steady at 22.5 ms, clean sound.
 
+## Low frame rate in game
+
+**Symptom.** 15-20 fps outside and in the pre-war house, while the main menu ran at 45. The Metal HUD shows 69-94 ms of GPU time per frame.
+
+**Cause.** The game is GPU-bound. Fallout 4's launcher does not recognise the Apple GPU and writes the Ultra preset: 4096 shadows out to 20,000 units, godrays, ambient occlusion, bokeh. Lowering those settings alone still left 69 ms outside at 3440×1440.
+
+**Fix.** The settings and the half-resolution render with MetalFX upscaling in [setup.md](setup.md#6-mo2-profile). The game fills the screen at 1720×720 upscaled to 3440×1440.
+
+## Keys act as QWERTY
+
+**Symptom.** On an AZERTY keyboard, moving needs the keys labelled W and A.
+
+**Fix.** Remap in game, Settings → Controls: Forward on Z, Strafe Left on Q, VATS on A.
+
 ## Harmless log lines
 
 | Line | Where | Meaning |

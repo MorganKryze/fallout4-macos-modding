@@ -67,7 +67,7 @@ The manifest is a native macOS file, so the lock applies. From here on, never pr
 4. Shortcut properties → Launch Options, on one line:
 
    ```
-   STEAM_COMPAT_DATA_PATH="$HOME/Library/Application Support/Steam/steamapps/compatdata/377160" STEAM_COMPAT_INSTALL_PATH="$HOME/Library/Application Support/Steam/steamapps/common/Fallout 4" STEAM_COMPAT_LIBRARY_PATHS="$HOME/Library/Application Support/Steam/steamapps" SteamAppId=377160 %command%
+   DXMT_METALFX_SPATIAL_SWAPCHAIN=1 DXMT_CONFIG="d3d11.metalSpatialUpscaleFactor=2.0" STEAM_COMPAT_DATA_PATH="$HOME/Library/Application Support/Steam/steamapps/compatdata/377160" STEAM_COMPAT_INSTALL_PATH="$HOME/Library/Application Support/Steam/steamapps/common/Fallout 4" STEAM_COMPAT_LIBRARY_PATHS="$HOME/Library/Application Support/Steam/steamapps" SteamAppId=377160 %command%
    ```
 
 5. Launch the shortcut. MO2 asks which game to manage: pick **Fallout 4** at `S:/steamapps/common/Fallout 4`.
@@ -78,6 +78,8 @@ Why each variable is there:
 | --- | --- |
 | `STEAM_COMPAT_DATA_PATH` | Runs MO2 in the game's prefix (377160) instead of the shortcut's own |
 | `STEAM_COMPAT_INSTALL_PATH`, `STEAM_COMPAT_LIBRARY_PATHS` | Make Not Proton mount `S:`, which it only does for programs inside a Steam library |
+| `DXMT_METALFX_SPATIAL_SWAPCHAIN=1`, `DXMT_CONFIG=…` | DXMT upscales the game's image with Apple's MetalFX by the given factor, so the game can render at half resolution and still fill the screen (see step 6) |
+| `MTL_HUD_ENABLED=1` (optional) | Shows Apple's Metal HUD: fps, GPU time per frame, frame interval |
 | `SteamAppId=377160` | Makes the game see Fallout 4's app ID rather than the shortcut's (precaution, not tested on its own) |
 
 Not Proton passes launch options through a shell, as Steam does on Linux, so `NAME=value` entries before `%command%` become environment variables.
@@ -108,7 +110,21 @@ Not Proton passes launch options through a shell, as Steam does on Linux, so `NA
    | `[General]` | `bDisableAllGore=1` | Crash on dismemberment under CrossOver |
    | `[Controls]` | `bBackgroundMouse=1` | Mouse input under Wine |
 
-4. Back it up before installing any mod: `fo4-backup.sh profile "<profile name>"`.
+4. Fallout 4's launcher detects an unknown GPU and picks Ultra, far too heavy for an M3 (69-94 ms of GPU time per frame). In the profile's `fallout4prefs.ini`, under `[Display]` and `[Imagespace]`:
+
+   | Lines | Value |
+   | --- | --- |
+   | `iSize W`, `iSize H` | `1720`, `720`: half of 3440×1440, upscaled by MetalFX (factor `2.0` in the launch options). For another screen, use half its resolution |
+   | `bVolumetricLightingEnable`, `iVolumetricLightingQuality` | `0`, `0` (godrays) |
+   | `bSAOEnable`, `bScreenSpaceBokeh`, `bMBEnable`, `bLensFlare` | `0` |
+   | `bEnableWetnessMaterials`, `bEnableRainOcclusion`, `bPrecipitationOcclusion` | `0` |
+   | `iShadowMapResolution`, `fShadowDistance`, `fDirShadowDistance` | `2048`, `3000.0000`, `3000.0000` |
+   | `uiShadowFilter`, `uiOrthoShadowFilter`, `iDirShadowSplits` | `1`, `1`, `2` |
+   | `iMaxFocusShadows`, `iMaxFocusShadowsDialogue`, `iMaxAnisotropy` | `1`, `1`, `8` |
+
+5. Back it up before installing any mod: `fo4-backup.sh profile "<profile name>"`.
+
+On an AZERTY keyboard, the game reads keys as QWERTY under Wine. In game, Settings → Controls: Forward on **Z**, Strafe Left on **Q**, VATS on **A**.
 
 ## 7. Install mods
 
