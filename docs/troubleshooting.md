@@ -56,7 +56,23 @@ Problems met while building this setup, each with the symptom, the cause and the
 
 **Cause.** The GPU is idle most of each frame: the time goes to the CPU (x86 code under Rosetta) and to VSync. With VSync on, a frame that misses one 60 Hz refresh waits for the next, so the frame time doubles. Other heavy apps on the Mac make it worse.
 
-**Fix.** In `HighFPSPhysicsFix.ini` (in the mod's `F4SE/Plugins` folder), set `EnableVSync=false` and `InGameFPS=45.0`, and keep `AllowTearing=true`. Close heavy apps and restart the Mac if it has been up for days with swap in use. Result on a base M3 at 3440×1440: 44-45 fps, frame interval steady at 22.5 ms, clean sound.
+**Fix.** In `HighFPSPhysicsFix.ini` (in the mod's `F4SE/Plugins` folder), set `EnableVSync=false` and `InGameFPS=45.0`, and keep `AllowTearing=true`. Close heavy apps and restart the Mac if it has been up for days with swap in use. Result on a base M3 at 3440×1440: 44-45 fps, frame interval steady at 22.5 ms. If the sound still crackles, see [Crackling sound](#crackling-sound).
+
+## Crackling sound
+
+**Symptom.** The sound crackles in game on the MacBook's speakers, even at a steady 45 fps.
+
+**Cause.** Not confirmed. The game used Wine's own XAudio2 (built on FAudio): CodeWeavers' recipe for Fallout 4 sets `xaudio2_7` and `x3daudio1_7` to native, but Not Proton does not apply it, and the prefix's `DllOverrides` key is empty.
+
+**Fix.** Add `WINEDLLOVERRIDES="xaudio2_7,x3daudio1_7=n,b"` to the launch options. The Microsoft DLLs are already in the prefix's `system32`. Check while the game runs: `lsof -p <pid of Fallout4.exe> | grep -i xaudio` must list `windows/system32/xaudio2_7.dll`. Result: no crackling over a full session. The speakers' output was also set to 96 kHz in Audio MIDI Setup beforehand, so that change may play a part.
+
+## Game cursor drifts from the macOS cursor
+
+**Symptom.** In menus and dialogues, the game's cursor sits up and to the left of where the mouse points, and stays off for the rest of the session. The macOS cursor shows up at times.
+
+**Cause.** Two cursors move independently: the game's, driven by mouse movement, and the macOS one. Anything that takes the mouse from the game for a moment shifts one against the other: the macOS cursor reaching another display or a hot corner (with `bBackgroundMouse=1` nothing holds it in the window), or a click on the top row of the screen, which opens the menu bar even when it is hidden. `winemac.drv` releases the mouse whenever a menu opens.
+
+**Fix.** `bBackgroundMouse=0`, Wine's `MouseWarpOverride=force`, and the menu bar plugin, all in [setup.md](setup.md#6-mo2-profile). What did not help: exclusive fullscreen (`Fullscreen=true` in `HighFPSPhysicsFix.ini`, shifts the menus), the menu bar always shown, Wine's `CaptureDisplaysForFullscreen`, and Wine's event-tap cursor clipping (`UseConfinementCursorClipping=n`).
 
 ## Low frame rate in game
 
@@ -86,5 +102,5 @@ Problems met while building this setup, each with the symptom, the cause and the
 | Risk | Why | What to do |
 | --- | --- | --- |
 | A Steam client update breaks Not Proton | Not Proton hooks specific Steam client builds and reports `updatesBlocked=false` | If Windows games stop launching after a Steam update, check `~/Library/Application Support/notproton/notproton.log` and wait for a Not Proton update |
-| A second launch kills the running game | Not Proton's `run` script releases its lock before starting the game, and every later launch on app 377160 runs `wineserver -k` | While MO2 or the game runs, do not start the Steam Fallout 4 entry, another shortcut on 377160, or a Wine tool in that prefix |
+| A second launch kills the running game | Not Proton's `run` script releases its lock before starting the game, and every later launch on app 377160 runs `wineserver -k` | While MO2 or the game runs, do not start the Steam Fallout 4 entry, another shortcut on 377160, or a Wine tool through Not Proton in that prefix. Calling the runner's `wine` directly does not go through this script |
 | A Fallout 4 patch gets through | The `uchg` lock on the update manifest has not been tested against a real patch | Keep the clean clone from `fo4-backup.sh game`, and never press Play on Fallout 4 in Steam |
