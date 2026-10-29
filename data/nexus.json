@@ -1299,6 +1299,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "9057": {
+    "name": "Loads of Ammo v2",
+    "author": "Talkie Toaster",
+    "summary": "Adds the ability to switch ammunition types on the fly, and a wide range of types to craft. There's everything from AP and tracer rounds to beanbag shotgun shells and homing MIRV missiles, and an extensive framework for adding your own ammo",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/9057/9057-1749074320-1455736490.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/9057/9057-1749074320-1455736490.png",
+    "category": "Ammo",
+    "adult": false,
+    "version": "v2.1.3",
+    "updated": "2026-02-23",
+    "endorsements": 21921,
+    "downloads": 1118608,
+    "main_files": [
+      {
+        "name": "Loads of Ammo v2",
+        "version": "v2.1.3",
+        "size_bytes": 3774328
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "9103": {
     "name": "Raider Overhaul WIP",
     "author": "MadMAX713 - Joemitchell320 - Thirdstorm - KKthebeast - MunkySpunk",
@@ -1626,6 +1647,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "10654": {
+    "name": "DEF_UI",
+    "author": "Neanka and Valdacil and Old Nick and ParasiteX and sekoms",
+    "summary": "Re-release of DEF_HUD and DEF_INV by Neanka with a combined installer package.  DEF_HUD is a fully customizable HUD.  DEF_INV provide many improvements to Pipboy, container, and barter inventory screens.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/10654-2-1457246860.jpg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/10654-2-1457246860.jpg",
+    "category": "User Interface",
+    "adult": false,
+    "version": "1.6.0",
+    "updated": "2024-05-09",
+    "endorsements": 96201,
+    "downloads": 4654631,
+    "main_files": [
+      {
+        "name": "DEF_UI 1.6.0",
+        "version": "1.6.0",
+        "size_bytes": 68475974
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "10660": {
     "name": "Visible Companion Affinity",
     "author": "CDante",
@@ -1736,6 +1778,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "11130": {
+    "name": "Weapon Mod Fixes - WMF",
+    "author": "frogs345",
+    "summary": "Fixes a number of small and major bugs in vanilla mods.",
+    "picture": null,
+    "thumbnail": null,
+    "category": "Bug Fixes",
+    "adult": false,
+    "version": "1.6",
+    "updated": "2026-01-25",
+    "endorsements": 4906,
+    "downloads": 349774,
+    "main_files": [
+      {
+        "name": "Weapon Mod Fixes",
+        "version": "1.6",
+        "size_bytes": 10906992
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "11459": {
     "name": "Automatron EyeBot Companions",
     "author": "th1nk",
@@ -1837,6 +1900,27 @@
         "name": "Companion Command 1.3",
         "version": "1.3",
         "size_bytes": 8187
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "11829": {
+    "name": "Unlimited Companion Framework",
+    "author": "Expired6978",
+    "summary": "Modifies vanilla scripts to allow for you to recruit any companion plus dogmeat, and up to 15 real companions, and an infinite number of normal companions.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/11829-4-1460279760.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/11829-4-1460279760.png",
+    "category": "Companions",
+    "adult": false,
+    "version": "1.1.0",
+    "updated": "2017-04-14",
+    "endorsements": 36760,
+    "downloads": 1416987,
+    "main_files": [
+      {
+        "name": "Unlimited Companion Framework v1-1-0",
+        "version": "1.1.0",
+        "size_bytes": 309255
       }
     ],
     "synced_on": "2026-10-29"
@@ -2361,6 +2445,27 @@
         "name": "FactionMaintenance.esp v3.10",
         "version": "3.10",
         "size_bytes": 56080
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "13459": {
+    "name": "Everyone's Best Friend (Dogmeat and Companion At Same Time - No Console - No Hack)",
+    "author": "Valdacil",
+    "summary": "This mod allows you to have Dogmeat and a standard companion at the same time using in game functionality (not hacks or console commands).",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/13459-0-1463160357.jpg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/13459-0-1463160357.jpg",
+    "category": "Companions",
+    "adult": false,
+    "version": "3.0.0",
+    "updated": "2017-01-27",
+    "endorsements": 81928,
+    "downloads": 3327608,
+    "main_files": [
+      {
+        "name": "Everyone&#39;s Best Friend v3.0.0",
+        "version": "3.0.0",
+        "size_bytes": 81039
       }
     ],
     "synced_on": "2026-10-29"
@@ -2898,6 +3003,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "15804": {
+    "name": "Publick Occurrences Expanded",
+    "author": "doswillrule",
+    "summary": "You can't stop the press! POE brings Diamond City's newspaper to life with 20,000 words of new articles for 31 quests, multiple outcomes, improved textures and support for magazine racks.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/15804-0-1467307979.jpg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/15804-0-1467307979.jpg",
+    "category": "Immersion",
+    "adult": false,
+    "version": "3.6.2",
+    "updated": "2026-01-16",
+    "endorsements": 4397,
+    "downloads": 828131,
+    "main_files": [
+      {
+        "name": "Publick Occurrences Expanded",
+        "version": "3.6.2",
+        "size_bytes": 1241353
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "15814": {
     "name": "Faction Housing Overhaul - All In One",
     "author": "Elianora",
@@ -3243,6 +3369,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "17523": {
+    "name": "Nuclear Option (BoS) Maxson dialog fix",
+    "author": "Darth Donut",
+    "summary": "Fixes a very rare glitch in which Elder Maxson does not initiate dialog and advance the quest.",
+    "picture": null,
+    "thumbnail": null,
+    "category": "Bug Fixes",
+    "adult": false,
+    "version": "1.0",
+    "updated": "2016-08-18",
+    "endorsements": 28,
+    "downloads": 486,
+    "main_files": [
+      {
+        "name": "Maxson Fix",
+        "version": "",
+        "size_bytes": 2632
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "17560": {
     "name": "Railroad Redemption - Life of a Secret Agent",
     "author": "Chakka",
@@ -3260,6 +3407,32 @@
         "name": "Railroad Redemption",
         "version": "1.1",
         "size_bytes": 16761
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "17686": {
+    "name": "K-9 Harness -- Tactical Body Armor and Backpack for Dogmeat",
+    "author": "fadingsignal",
+    "summary": "New modular body armor with new meshes & textures for Dogmeat, designed after modern Military and Police K-9 gear.  Craftable side pouches, backpack, ballistic weave, faction patches, and various colors and patterns customized at the",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/17686-8-1472022676.jpg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/17686-8-1472022676.jpg",
+    "category": "Armour",
+    "adult": false,
+    "version": "1.1",
+    "updated": "2024-06-15",
+    "endorsements": 45881,
+    "downloads": 3030779,
+    "main_files": [
+      {
+        "name": "K-9 Harness - Tactical Body Armor for Dogmeat",
+        "version": "1.1",
+        "size_bytes": 28994973
+      },
+      {
+        "name": "K-9 Harness - Tactical Body Armor for Dogmeat ESL",
+        "version": "1.1",
+        "size_bytes": 28997587
       }
     ],
     "synced_on": "2026-10-29"
@@ -3520,6 +3693,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "18757": {
+    "name": "Salvage Beacons",
+    "author": "kinggath",
+    "summary": "Put your settlers to work carrying all your loot back to your settlements so you can focus on saving the Commonwealth.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/18757-0-1474900156.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/18757-0-1474900156.png",
+    "category": "Player Settlement",
+    "adult": false,
+    "version": "1.0.4",
+    "updated": "2020-05-08",
+    "endorsements": 20706,
+    "downloads": 664599,
+    "main_files": [
+      {
+        "name": "Salvage Beacons 1.0.4",
+        "version": "1.0.4",
+        "size_bytes": 99979
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "18879": {
     "name": "Nuka world - Becoming Overboss worth it",
     "author": "Smarjeon",
@@ -3673,6 +3867,27 @@
         "name": "Far Harbor Fog Free NAC Version",
         "version": "0.9beta",
         "size_bytes": 799031
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "20093": {
+    "name": "Automatically Lowered Weapons",
+    "author": "pauderek",
+    "summary": "Lowers your weapon automatically when not in combat",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/20093-1-1479656943.gif",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/20093-1-1479656943.gif",
+    "category": "Immersion",
+    "adult": false,
+    "version": "1.4",
+    "updated": "2017-08-03",
+    "endorsements": 20710,
+    "downloads": 1766279,
+    "main_files": [
+      {
+        "name": "Automatically Lowered Weapons",
+        "version": "1.4",
+        "size_bytes": 3911
       }
     ],
     "synced_on": "2026-10-29"
@@ -4016,6 +4231,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "21498": {
+    "name": "Combat Zone Restored",
+    "author": "Barbariccia",
+    "summary": "Restores the majority of the cut content from the Combat Zone.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/21498-3-1485098390.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/21498-3-1485098390.png",
+    "category": "Quests and Adventures",
+    "adult": false,
+    "version": "1.02",
+    "updated": "2017-10-29",
+    "endorsements": 13859,
+    "downloads": 560262,
+    "main_files": [
+      {
+        "name": "CombatZoneRestored",
+        "version": "1.02",
+        "size_bytes": 18711882
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "21622": {
     "name": "Power Armor HUD - paHUD",
     "author": "Gopher",
@@ -4079,6 +4315,32 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "21872": {
+    "name": "Sim Settlements",
+    "author": "kinggath",
+    "summary": "Settlers should build their own damn houses (and farms, and shops, and...), you've got a Commonwealth to explore!",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/21872-0-1489177584.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/21872-0-1489177584.png",
+    "category": "Sim Settlements",
+    "adult": false,
+    "version": "4.2.9b",
+    "updated": "2021-01-01",
+    "endorsements": 101566,
+    "downloads": 4897142,
+    "main_files": [
+      {
+        "name": "Sim Settlements - Three In One",
+        "version": "4.2.9b",
+        "size_bytes": 408676119
+      },
+      {
+        "name": "Sim Settlements",
+        "version": "4.2.9b",
+        "size_bytes": 228881121
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "21923": {
     "name": "The Danse Dilemma (pka Face Maxson etc.)",
     "author": "DavidTheFalcon",
@@ -4117,6 +4379,48 @@
         "name": "Nuka-World Monorail Fast Travel",
         "version": "1.1",
         "size_bytes": 4702
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "22105": {
+    "name": "Rename Anything",
+    "author": "registrator2000",
+    "summary": "A F4SE plugin that lets you rename anything in your inventory or in the world, including containers, settlers, and more. Names can be restored to default at any time.It also restores the ability to use formatting tags (e.g. bold, italics,",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/22105-0-1487376052.jpg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/22105-0-1487376052.jpg",
+    "category": "User Interface",
+    "adult": false,
+    "version": "1.11.240",
+    "updated": "2026-09-06",
+    "endorsements": 10879,
+    "downloads": 519696,
+    "main_files": [
+      {
+        "name": "Rename Anything 1.11.240",
+        "version": "1.11.240",
+        "size_bytes": 194042
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "22166": {
+    "name": "Player Comments and Head Tracking",
+    "author": "Gargorias",
+    "summary": "This mod makes your character speak other then just in dialog scenes. Includes combat taunts, player hello's, responses  to NPC's  and much, much more including player head tracking! Comes with full MCM configuration!",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/22166-0-1487608165.jpg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/22166-0-1487608165.jpg",
+    "category": "Immersion",
+    "adult": false,
+    "version": "2.65",
+    "updated": "2025-09-07",
+    "endorsements": 14807,
+    "downloads": 1165435,
+    "main_files": [
+      {
+        "name": "Player Comments and Head Tracking",
+        "version": "2.65",
+        "size_bytes": 3954083
       }
     ],
     "synced_on": "2026-10-29"
@@ -4185,6 +4489,42 @@
         "name": "Dual Survivors v1.3.2",
         "version": "1.3.2",
         "size_bytes": 18601989
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "22431": {
+    "name": "Eli's Armour Compendium - EAC",
+    "author": "Elianora",
+    "summary": "The most popular armour collection for Fallout 4 has had a 2024 upgrade! 80+ new lore-friendly armours, 30+ accessories, tons of moddable colours. Institute, Settler, Wastelander, Minutemen, BoS, Raider, Vault suit. Unisex outfits. Vanilla",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/22431/22431-1787947610-288603479.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/22431/22431-1787947610-288603479.png",
+    "category": "Armour",
+    "adult": false,
+    "version": "2.1.1",
+    "updated": "2026-08-27",
+    "endorsements": 73295,
+    "downloads": 4795398,
+    "main_files": [
+      {
+        "name": "EAC - 2.1.0 CBBE BODY AND BODYSLIDES",
+        "version": "2.1.0",
+        "size_bytes": 3773633399
+      },
+      {
+        "name": "EAC - 2.1.0 CBBE BODY AND BODYSLIDES 2K TEXTURES",
+        "version": "2.1.0",
+        "size_bytes": 1728441685
+      },
+      {
+        "name": "EAC - 2.1.1 VANILLA BODY",
+        "version": "2.1.1",
+        "size_bytes": 3668439900
+      },
+      {
+        "name": "Eli Armour Compendium HOTFIX 2.1.1",
+        "version": "2.1.1",
+        "size_bytes": 122308
       }
     ],
     "synced_on": "2026-10-29"
@@ -5210,6 +5550,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "28009": {
+    "name": "CROSS_Courser Strigidae",
+    "author": "Niero",
+    "summary": "",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/28009/28009-1512176807-804938340.jpeg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/28009/28009-1512176807-804938340.jpeg",
+    "category": "Armour",
+    "adult": false,
+    "version": "090c",
+    "updated": "2017-12-02",
+    "endorsements": 29302,
+    "downloads": 2142166,
+    "main_files": [
+      {
+        "name": "CROSS_CourserStrigidae_090c",
+        "version": "090c",
+        "size_bytes": 127792858
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "28023": {
     "name": "Heavy Institute Armor Corpus Praesidium",
     "author": "Scail",
@@ -5545,6 +5906,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "29447": {
+    "name": "Backpacks of the Commonwealth",
+    "author": "BmanBlazer",
+    "summary": "This mod adds 29 unique backpacks into the game. Find them on NPCs, vendors, in containers, or search for the hand-picked world locations. Customize with 100+ workbench mods and 50+ outfit-matching skins. Collect five new magazines and 8",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/29447/29447-1716805520-323629442.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/29447/29447-1716805520-323629442.png",
+    "category": "Clothing",
+    "adult": false,
+    "version": "2.1.3",
+    "updated": "2026-10-11",
+    "endorsements": 28729,
+    "downloads": 2230312,
+    "main_files": [
+      {
+        "name": "Backpacks of the Commonwealth 2.1.3",
+        "version": "2.1.3",
+        "size_bytes": 122056539
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "29568": {
     "name": "PipboyTabs",
     "author": "Neanka",
@@ -5604,6 +5986,27 @@
         "name": "Automatron Expanded Weapons System",
         "version": "1.2.4",
         "size_bytes": 57863439
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "29905": {
+    "name": "Custom Camera",
+    "author": "Qudix",
+    "summary": "Allows you to customize the in-game camera with a convenient MCM interface, while also providing other features.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/29905/29905-1519283834-1618941735.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/29905/29905-1519283834-1618941735.png",
+    "category": "User Interface",
+    "adult": false,
+    "version": "0.5.5",
+    "updated": "2026-09-10",
+    "endorsements": 10884,
+    "downloads": 987197,
+    "main_files": [
+      {
+        "name": "Custom Camera",
+        "version": "0.5.5",
+        "size_bytes": 4579045
       }
     ],
     "synced_on": "2026-10-29"
@@ -5756,6 +6159,27 @@
         "name": "SKKKillablePreston_002",
         "version": "002",
         "size_bytes": 15195
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "30765": {
+    "name": "More Enemies",
+    "author": "Aramiteus",
+    "summary": "Spawning of additional enemies",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/30765/30765-1541601786-1336624020.jpeg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/30765/30765-1541601786-1336624020.jpeg",
+    "category": "Gameplay",
+    "adult": false,
+    "version": "1.02",
+    "updated": "2025-04-17",
+    "endorsements": 2892,
+    "downloads": 88693,
+    "main_files": [
+      {
+        "name": "MoreEnemies",
+        "version": "1.03",
+        "size_bytes": 16822
       }
     ],
     "synced_on": "2026-10-29"
@@ -6127,6 +6551,27 @@
         "name": "Scavengers mod v3",
         "version": "v3",
         "size_bytes": 455948
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "33305": {
+    "name": "Taking Independence Quest Fix",
+    "author": "DKhanno",
+    "summary": "A fix for those who can't get the quest \"Taking Independence\" to start.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/33305/33305-1531701384-1059438241.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/33305/33305-1531701384-1059438241.png",
+    "category": "Bug Fixes",
+    "adult": false,
+    "version": "1",
+    "updated": "2018-07-16",
+    "endorsements": 116,
+    "downloads": 3355,
+    "main_files": [
+      {
+        "name": "TakingIndependenceQuestFix",
+        "version": "1",
+        "size_bytes": 3402
       }
     ],
     "synced_on": "2026-10-29"
@@ -7019,6 +7464,32 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "37535": {
+    "name": "Hunting Revolver and Ranger Sequoia",
+    "author": "The Rizzler and Navaro",
+    "summary": "The Hunting Revolver and unique variant, the Ranger Sequoia, return to the wasteland from Fallout: New Vegas, along with a host of new modifications.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/37535/37535-1550597071-882767783.jpeg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/37535/37535-1550597071-882767783.jpeg",
+    "category": "Weapons",
+    "adult": false,
+    "version": "1.02hotfix",
+    "updated": "2019-02-23",
+    "endorsements": 10423,
+    "downloads": 715431,
+    "main_files": [
+      {
+        "name": "Hunting Revolver and Ranger Sequoia (Far Harbor version)",
+        "version": "1.02hotfix",
+        "size_bytes": 55588188
+      },
+      {
+        "name": "Hunting Revolver and Ranger Sequoia (Vanilla)",
+        "version": "1.02hotfix",
+        "size_bytes": 55588683
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "37599": {
     "name": "Survival Configuration Menu",
     "author": "Zzyxzz",
@@ -7549,6 +8020,32 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "41471": {
+    "name": "Getting a Clue Quest Fix",
+    "author": "Sorrywerefull",
+    "summary": "If Valentine keeps sitting in the wrong chair, this is the mod for you.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/41471/41471-1570491719-1812320702.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/41471/41471-1570491719-1812320702.png",
+    "category": "Bug Fixes",
+    "adult": false,
+    "version": "1.1",
+    "updated": "2019-10-08",
+    "endorsements": 163,
+    "downloads": 5134,
+    "main_files": [
+      {
+        "name": "Getting a Clue Fix",
+        "version": "1.1",
+        "size_bytes": 7713
+      },
+      {
+        "name": "Getting a Clue Fix 2",
+        "version": "1.0",
+        "size_bytes": 12631
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "41476": {
     "name": "Institute Centaurs",
     "author": "HcG x Grill TheFriedturkey",
@@ -7983,6 +8480,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "43974": {
+    "name": "Tales from the Commonwealth Visual Fixes",
+    "author": "evilzer2",
+    "summary": "Fixes lots of visual issues with the mod Tales from the Commonwealth. Also includes an optional version with pre-combined data.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/43974/43974-1584774889-488736417.jpeg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/43974/43974-1584774889-488736417.jpeg",
+    "category": "Patches",
+    "adult": false,
+    "version": "1.2",
+    "updated": "2020-06-26",
+    "endorsements": 2357,
+    "downloads": 749983,
+    "main_files": [
+      {
+        "name": "TftC - Visual Fixes",
+        "version": "1.2",
+        "size_bytes": 31265299
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "43979": {
     "name": "Fourville",
     "author": "Seddon4494",
@@ -8000,6 +8518,27 @@
         "name": "Fourville",
         "version": "1.16",
         "size_bytes": 667193698
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "44054": {
+    "name": "Forces Ronnie Shaw to Show so the Old Guns Quest Can Commencest",
+    "author": "Septpas",
+    "summary": "If Ronnie Shaw doesn't appear, this ESL will bring her to The Castle so the Old Guns quest may begin.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/44054/44054-1585153220-1137308402.jpeg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/44054/44054-1585153220-1137308402.jpeg",
+    "category": "Bug Fixes",
+    "adult": false,
+    "version": "1.01",
+    "updated": "2020-03-25",
+    "endorsements": 124,
+    "downloads": 3017,
+    "main_files": [
+      {
+        "name": "Forces Ronnie Shaw to Show so the Old Guns Quest Can Commencest",
+        "version": "1.01",
+        "size_bytes": 16253
       }
     ],
     "synced_on": "2026-10-29"
@@ -8172,6 +8711,37 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "45169": {
+    "name": "Desperados Overhaul",
+    "author": "Spifferino and BenRierimanu",
+    "summary": "This mod makes you wish for a nuclear winter.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/45169/45169-1780028550-2018765500.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/45169/45169-1780028550-2018765500.png",
+    "category": "Overhauls",
+    "adult": false,
+    "version": "0.4.1",
+    "updated": "2026-08-04",
+    "endorsements": 2691,
+    "downloads": 349594,
+    "main_files": [
+      {
+        "name": "Desperados Overhaul",
+        "version": "0.4.1",
+        "size_bytes": 2275827894
+      },
+      {
+        "name": "Desperados Overhaul PRP Patch (No LOD)",
+        "version": "0.4.1",
+        "size_bytes": 967178800
+      },
+      {
+        "name": "Desperados Overhaul PRP Patch (With LOD)",
+        "version": "0.4.1",
+        "size_bytes": 2199455000
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "45546": {
     "name": "Diary of a Madman",
     "author": "Project Valkyrie Discord Server",
@@ -8273,6 +8843,32 @@
         "name": "Minutemen Ending Dialogue Fix",
         "version": "1.1",
         "size_bytes": 2720
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "45813": {
+    "name": "Grease Rat Garbs",
+    "author": "Tinuvia and Myrmarachne",
+    "summary": "New Armor, Headgear and Backpacks for male and female. Inspired by the Tank Girl comics and the Mad Max universe. Mashups and re-textures of Fallout 4 outfits. Can be crafted or injected to Raider or Settler leveled lists.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/45813/45813-1592858722-341322092.jpeg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/45813/45813-1592858722-341322092.jpeg",
+    "category": "Clothing",
+    "adult": false,
+    "version": "1.3.2",
+    "updated": "2024-06-02",
+    "endorsements": 2774,
+    "downloads": 359998,
+    "main_files": [
+      {
+        "name": "Grease Rat Garbs - CBBE",
+        "version": "1.3.2",
+        "size_bytes": 128591687
+      },
+      {
+        "name": "Grease Rat Garbs - Vanilla",
+        "version": "1.3.2",
+        "size_bytes": 64651018
       }
     ],
     "synced_on": "2026-10-29"
@@ -8957,6 +9553,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "48853": {
+    "name": "Hunter of the Commonwealth",
+    "author": "Zzyxzz",
+    "summary": "Adds a new mechanic to gather meat, bones, skin and other materials from animals in a new immersive way.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/48853/48853-1607527309-2066657863.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/48853/48853-1607527309-2066657863.png",
+    "category": "Overhauls",
+    "adult": false,
+    "version": "2.0.4",
+    "updated": "2026-10-17",
+    "endorsements": 1970,
+    "downloads": 217922,
+    "main_files": [
+      {
+        "name": "Hunter of the Commonwealth",
+        "version": "2.0.4",
+        "size_bytes": 404762
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "48951": {
     "name": "NPCS Travel - Fixes",
     "author": "Sedevacantist",
@@ -8978,6 +9595,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "48958": {
+    "name": "FallUI - Confirm Boxes (incl. Yes Im Sure)",
+    "author": "m8r98a4f2",
+    "summary": "Overhaul of all confirm box interfaces. Including different designs and styles for many box types (configurable). You can also choose to disable confirms, so it automatically accept without confirmation (like \"Yes Im Sure\"). Interface",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/48958/48958-1619017899-322981148.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/48958/48958-1619017899-322981148.png",
+    "category": "User Interface",
+    "adult": false,
+    "version": "2.2.3",
+    "updated": "2022-11-01",
+    "endorsements": 16189,
+    "downloads": 1948985,
+    "main_files": [
+      {
+        "name": "FallUI - Confirm Boxes",
+        "version": "2.2.3",
+        "size_bytes": 1470559
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "48960": {
     "name": "Sim Settlements 2 Wasteland Reconstruction Kit",
     "author": "Sim Settlements Team",
@@ -8995,6 +9633,27 @@
         "name": "Wasteland Reconstruction Kit",
         "version": "3.8.1a",
         "size_bytes": 2082907073
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "49070": {
+    "name": "FallUI - Sleep and Wait",
+    "author": "m8r98a4f2",
+    "summary": "Overhaul of the sleeping and waiting menu for Fallout 4. Directly click on your desired wake-up time with target time buttons. See the daylight level at target time in the daytime graph and more. Interface available in all languages.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/49070/49070-1621691660-2041324943.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/49070/49070-1621691660-2041324943.png",
+    "category": "User Interface",
+    "adult": false,
+    "version": "1.4",
+    "updated": "2022-11-12",
+    "endorsements": 17766,
+    "downloads": 1982755,
+    "main_files": [
+      {
+        "name": "FallUI - Sleep And Wait",
+        "version": "1.4",
+        "size_bytes": 798024
       }
     ],
     "synced_on": "2026-10-29"
@@ -9168,6 +9827,27 @@
         "name": "SS2RobotMod-Universal",
         "version": "2.1.1",
         "size_bytes": 18082
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "50505": {
+    "name": "Combined Arms - Modern Weapon Pack",
+    "author": "Nova and Friends",
+    "summary": "Combined Arms is a large weapon pack consisting of some of my better weapons plus some brand new ones all with a large array of attachments and configurations.No matter what situation you find yourself in you'll find something in here to",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/50505/50505-1622118615-1736979185.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/50505/50505-1622118615-1736979185.png",
+    "category": "Weapons",
+    "adult": false,
+    "version": "1.1",
+    "updated": "2021-06-28",
+    "endorsements": 21131,
+    "downloads": 3571691,
+    "main_files": [
+      {
+        "name": "Combined Arms - 1.0",
+        "version": "1.0",
+        "size_bytes": 4014542260
       }
     ],
     "synced_on": "2026-10-29"
@@ -9973,6 +10653,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "56195": {
+    "name": "MCM Settings Manager",
+    "author": "m8r98a4f2",
+    "summary": "Save, load, transfer, import and export all your MCM settings at once. Transfer settings between savegames, backup your favorite settings, or send your settings to another user!",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/56195/56195-1638374233-408174017.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/56195/56195-1638374233-408174017.png",
+    "category": "User Interface",
+    "adult": false,
+    "version": "1.2",
+    "updated": "2022-11-16",
+    "endorsements": 12401,
+    "downloads": 1896606,
+    "main_files": [
+      {
+        "name": "MCM Settings Manager",
+        "version": "1.2",
+        "size_bytes": 138229
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "56311": {
     "name": "NPCs Travel - MCM Settings Menu",
     "author": "m8r98a4f2",
@@ -10062,6 +10763,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "56885": {
+    "name": "Ownership Fixes",
+    "author": "Ungeziefi - Audixas",
+    "summary": "Fixes incorrect or missing ownership data assigned to junk and containers.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/56885/56885-1680149984-94624916.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/56885/56885-1680149984-94624916.png",
+    "category": "Bug Fixes",
+    "adult": false,
+    "version": "1.6",
+    "updated": "2025-03-31",
+    "endorsements": 6298,
+    "downloads": 1167494,
+    "main_files": [
+      {
+        "name": "Ownership Fixes",
+        "version": "1.6",
+        "size_bytes": 191568
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "56984": {
     "name": "Start Me Up Redux - An Update for Alternate Start and Dialogue Overhaul.",
     "author": "Dashboarderian and Oddlittleturtle",
@@ -10084,6 +10806,27 @@
         "name": "Start Me Up Redux (Normal-XDI Dialogue)",
         "version": "9.2",
         "size_bytes": 0
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "56997": {
+    "name": "MCM Booster",
+    "author": "m8r98a4f2",
+    "summary": "Reduces MCM loading time to nearly instant loading",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/56997/56997-1641059008-1632666704.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/56997/56997-1641059008-1632666704.png",
+    "category": "Performance",
+    "adult": false,
+    "version": "1.0",
+    "updated": "2022-01-01",
+    "endorsements": 13949,
+    "downloads": 1700884,
+    "main_files": [
+      {
+        "name": "MCM Booster",
+        "version": "1.0",
+        "size_bytes": 649135
       }
     ],
     "synced_on": "2026-10-29"
@@ -10967,6 +11710,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "60579": {
+    "name": "FallUI - Icon Library",
+    "author": "m8r98a4f2",
+    "summary": "A whole new icon library with many fancy icons for usage in the FallUI mods. Including many customization settings.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/60579/60579-1652974271-226033406.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/60579/60579-1652974271-226033406.png",
+    "category": "User Interface",
+    "adult": false,
+    "version": "1.0",
+    "updated": "2022-06-22",
+    "endorsements": 16988,
+    "downloads": 2033788,
+    "main_files": [
+      {
+        "name": "FallUI - Icon Library",
+        "version": "1.0",
+        "size_bytes": 437318
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "60580": {
     "name": "FIS - The NEW FallUI Item Sorter",
     "author": "m8r98a4f2",
@@ -11219,6 +11983,27 @@
         "name": "CSEP Commonwealth Killer",
         "version": "1.2",
         "size_bytes": 42582927
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "61411": {
+    "name": "Legendaries They Can Use",
+    "author": "WhiskyTangoFox",
+    "summary": "Changes how legendary enemies get legendary items to actually make sense.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/61411/61411-1655503652-1263445432.jpeg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/61411/61411-1655503652-1263445432.jpeg",
+    "category": "Gameplay",
+    "adult": false,
+    "version": "2.3",
+    "updated": "2024-09-11",
+    "endorsements": 2665,
+    "downloads": 602972,
+    "main_files": [
+      {
+        "name": "Legendaries They Can Use",
+        "version": "2.5",
+        "size_bytes": 68212
       }
     ],
     "synced_on": "2026-10-29"
@@ -11849,6 +12634,37 @@
         "name": "Raiders of the Pink Paste",
         "version": "1.7",
         "size_bytes": 22988122
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "63482": {
+    "name": "Shadow Boost FO4",
+    "author": "PK0",
+    "summary": "Sets the distance of the shadows dynamically (F4SE)",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/63482/63482-1661129510-1518982057.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/63482/63482-1661129510-1518982057.png",
+    "category": "Utilities",
+    "adult": false,
+    "version": "1.8.2",
+    "updated": "2026-02-03",
+    "endorsements": 8530,
+    "downloads": 1446566,
+    "main_files": [
+      {
+        "name": "ShadowBoostFO4 NG",
+        "version": "1.8.2",
+        "size_bytes": 545194
+      },
+      {
+        "name": "ShadowBoostFO4 OG",
+        "version": "1.8.2",
+        "size_bytes": 371722
+      },
+      {
+        "name": "ShadowBoostFO4 AE",
+        "version": "1.8.2",
+        "size_bytes": 549319
       }
     ],
     "synced_on": "2026-10-29"
@@ -12754,6 +13570,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "65761": {
+    "name": "New Equipment Overhaul (NEO) - Armor And Clothing Tweaks",
+    "author": "Dank Rafft",
+    "summary": "Overhauls armour and clothing in a lightweight fashion. Also adds a couple of additional features like functional headlamps.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/65761/65761-1687709930-608374840.jpeg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/65761/65761-1687709930-608374840.jpeg",
+    "category": "Armour",
+    "adult": false,
+    "version": "3.1.3",
+    "updated": "2026-10-02",
+    "endorsements": 5681,
+    "downloads": 1003900,
+    "main_files": [
+      {
+        "name": "NEO",
+        "version": "3.1.3",
+        "size_bytes": 699572
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "65983": {
     "name": "SPARS - Simple Power Armor Reduction System",
     "author": "StamperDoesMods",
@@ -12916,6 +13753,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "66690": {
+    "name": "Favorites Menu Ex",
+    "author": "Neanka",
+    "summary": "Favorites Menu rework in New Vegas companion wheel style.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/66690/66690-1670188973-1884003310.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/66690/66690-1670188973-1884003310.png",
+    "category": "User Interface",
+    "adult": false,
+    "version": "1.11.240",
+    "updated": "2026-09-06",
+    "endorsements": 2513,
+    "downloads": 211724,
+    "main_files": [
+      {
+        "name": "FavoritesMenuEx 1.11.240",
+        "version": "1.11.240",
+        "size_bytes": 236768
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "66713": {
     "name": "Ambient Tunnels - Audio Enhancement",
     "author": "CalicoDE",
@@ -13074,6 +13932,37 @@
         "name": "C.R.P  Minutemen Radio Relay Network 3.6",
         "version": "3.6",
         "size_bytes": 79568
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "67528": {
+    "name": "Base Object Swapper",
+    "author": "powerofthree",
+    "summary": "F4SE framework for swapping base objects and references, using config files.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/67528/67528-1672913269-611380998.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/67528/67528-1672913269-611380998.png",
+    "category": "Utilities",
+    "adult": false,
+    "version": "2.2.1",
+    "updated": "2025-11-30",
+    "endorsements": 4746,
+    "downloads": 814867,
+    "main_files": [
+      {
+        "name": "Base Object Swapper OG",
+        "version": "1.1.0",
+        "size_bytes": 289479
+      },
+      {
+        "name": "Base Object Swapper NG",
+        "version": "2.1.0",
+        "size_bytes": 3682547
+      },
+      {
+        "name": "Base Object Swapper AE",
+        "version": "2.2.1",
+        "size_bytes": 3970803
       }
     ],
     "synced_on": "2026-10-29"
@@ -14248,6 +15137,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "72021": {
+    "name": "Goodneighbor View",
+    "author": "Glitchfinder",
+    "summary": "Adjusts Goodneighbor so that the inside and outside of the town better match each other.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/72021/72021-1782255204-1940600344.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/72021/72021-1782255204-1940600344.png",
+    "category": "Immersion",
+    "adult": false,
+    "version": "1.00",
+    "updated": "2023-06-09",
+    "endorsements": 2966,
+    "downloads": 665804,
+    "main_files": [
+      {
+        "name": "Goodneighbor View",
+        "version": "1.00",
+        "size_bytes": 53173
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "72074": {
     "name": "Choose Your Mercer Safehouse",
     "author": "Yabo",
@@ -14666,6 +15576,37 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "73259": {
+    "name": "To Your Face FO4",
+    "author": "underthesky and PK0",
+    "summary": "NPCs will not speak greetings towards the Nate/Nora's back. F4SE",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/73259/73259-1690287667-263131278.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/73259/73259-1690287667-263131278.png",
+    "category": "Immersion",
+    "adult": false,
+    "version": "1.2",
+    "updated": "2025-12-02",
+    "endorsements": 3220,
+    "downloads": 363650,
+    "main_files": [
+      {
+        "name": "ToYourFaceFO4",
+        "version": "1.0",
+        "size_bytes": 113986
+      },
+      {
+        "name": "ToYourFaceFO4 NG",
+        "version": "1.1",
+        "size_bytes": 126746
+      },
+      {
+        "name": "ToYourFaceFO4 AE",
+        "version": "1.2",
+        "size_bytes": 282569
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "73394": {
     "name": "Sim Settlements 2 - Chapter 3",
     "author": "Sim Settlements Team",
@@ -14688,6 +15629,27 @@
         "name": "Sim Settlements 2 - All Chapters Pack",
         "version": "3.8.1a",
         "size_bytes": 5622732144
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "73469": {
+    "name": "Long Loading Times Fix",
+    "author": "Antonix35",
+    "summary": "Long Loading Times Fix is an F4SE plugin that reduces loading-screen bottlenecks in Fallout 4. Also some settings for loading screens.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/73469/73469-1691077370-167500569.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/73469/73469-1691077370-167500569.png",
+    "category": "Bug Fixes",
+    "adult": false,
+    "version": "1.2.0",
+    "updated": "2026-08-25",
+    "endorsements": 11358,
+    "downloads": 819764,
+    "main_files": [
+      {
+        "name": "Long Loading Times Fix",
+        "version": "1.2.0",
+        "size_bytes": 446732
       }
     ],
     "synced_on": "2026-10-29"
@@ -15694,6 +16656,48 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "76204": {
+    "name": "XDI - America Rising 2 (AR2) Patch",
+    "author": "sordac",
+    "summary": "This patches America Rising 2 to work with Extended Dialogue Interface (XDI)",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/76204/76204-1700540204-1879083487.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/76204/76204-1700540204-1879083487.png",
+    "category": "Patches",
+    "adult": false,
+    "version": "1.0.3",
+    "updated": "2024-03-19",
+    "endorsements": 997,
+    "downloads": 531555,
+    "main_files": [
+      {
+        "name": "XDI-AR2 patch",
+        "version": "1.0.3",
+        "size_bytes": 4127
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "76347": {
+    "name": "CHALLENGES - F4NV",
+    "author": "bp42s",
+    "summary": "Challenges are back! Complete 60+ fun New Vegas/76-style challenges to receive new perks, bonuses, and rewards.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/76347/76347-1737233098-581455853.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/76347/76347-1737233098-581455853.png",
+    "category": "Gameplay",
+    "adult": false,
+    "version": "3.0.5",
+    "updated": "2025-07-18",
+    "endorsements": 1962,
+    "downloads": 449901,
+    "main_files": [
+      {
+        "name": "CHALLENGES",
+        "version": "3.0.5",
+        "size_bytes": 90380
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "76398": {
     "name": "Companion Affinity Pip-Boy Tab",
     "author": "bp42s",
@@ -15784,6 +16788,57 @@
         "name": "Fort Hagen Prydwen Flyover Fix",
         "version": "1.00",
         "size_bytes": 15576
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "76732": {
+    "name": "America Rising 2 - eXoCompat Patches",
+    "author": "Exoclyps",
+    "summary": "A bunch of compatibility patches between various mods and America Rising 2.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/76732/76732-1702642758-260960823.jpeg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/76732/76732-1702642758-260960823.jpeg",
+    "category": "Patches",
+    "adult": false,
+    "version": "1.0.0",
+    "updated": "2026-08-28",
+    "endorsements": 988,
+    "downloads": 1279383,
+    "main_files": [
+      {
+        "name": "Depravity",
+        "version": "1.0.0",
+        "size_bytes": 15191
+      },
+      {
+        "name": "Father Companion",
+        "version": "1.0.0",
+        "size_bytes": 1367
+      },
+      {
+        "name": "Project Valkyrie",
+        "version": "1.1.1",
+        "size_bytes": 4411
+      },
+      {
+        "name": "A Forest",
+        "version": "1.0.0",
+        "size_bytes": 28148
+      },
+      {
+        "name": "Another Pine Forest",
+        "version": "1.0.0",
+        "size_bytes": 28188
+      },
+      {
+        "name": "Boston Natural Surroundings",
+        "version": "1.0.0",
+        "size_bytes": 15951
+      },
+      {
+        "name": "Another Pine Forest Trees Only",
+        "version": "1.0.0",
+        "size_bytes": 28224
       }
     ],
     "synced_on": "2026-10-29"
@@ -16093,6 +17148,27 @@
         "name": "Rags Pirates - ESL",
         "version": "1.2",
         "size_bytes": 32915
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "77518": {
+    "name": "Improved America Rising 2 Enclave",
+    "author": "Warsaw",
+    "summary": "Improves on the Enclave faction from America Rising 2 to add new elite Enclave soldiers based on previous Fallout games.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/77518/77518-1705227562-502373789.jpeg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/77518/77518-1705227562-502373789.jpeg",
+    "category": "Factions",
+    "adult": false,
+    "version": "2.1.2-1",
+    "updated": "2026-08-05",
+    "endorsements": 871,
+    "downloads": 160767,
+    "main_files": [
+      {
+        "name": "ImprovedAR2Enclave",
+        "version": "2.1.2-1",
+        "size_bytes": 14869127
       }
     ],
     "synced_on": "2026-10-29"
@@ -16536,6 +17612,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "79394": {
+    "name": "REPUTATION",
+    "author": "bp42s",
+    "summary": "Reputation is here! You can now earn a reputation with the major groups and factions of the wasteland, with deep integration, reactivity, dynamic consequences, rewards, and more!",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/79394/79394-1789348905-538325550.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/79394/79394-1789348905-538325550.png",
+    "category": "Overhauls",
+    "adult": false,
+    "version": "2.2.1",
+    "updated": "2026-10-09",
+    "endorsements": 1911,
+    "downloads": 332129,
+    "main_files": [
+      {
+        "name": "REPUTATION",
+        "version": "2.2.1",
+        "size_bytes": 6547295
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "79497": {
     "name": "Emirals Previs Patches for PRP .74",
     "author": "emiral85",
@@ -16684,6 +17781,58 @@
         "name": "VATS Activation Cost",
         "version": "2.1.0",
         "size_bytes": 3691
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "79618": {
+    "name": "The Rebuild Collection - AIO",
+    "author": "Aurelianis",
+    "summary": "Includes 29 Rebuild Settlements. Regenerated previsibines for use with or without PRP.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/79618/79618-1714750619-1211015775.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/79618/79618-1714750619-1211015775.png",
+    "category": "Player Settlement",
+    "adult": false,
+    "version": "1.4.1",
+    "updated": "2026-05-24",
+    "endorsements": 3835,
+    "downloads": 467538,
+    "main_files": [
+      {
+        "name": "The Rebuild Collection - AIO - Previs",
+        "version": "1.4",
+        "size_bytes": 102171891
+      },
+      {
+        "name": "The Rebuild Collection - AIO - PRP v81.x",
+        "version": "1.4",
+        "size_bytes": 98282331
+      },
+      {
+        "name": "The Rebuild Collection - AIO",
+        "version": "1.4",
+        "size_bytes": 6246856
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "79662": {
+    "name": "Enemies Fear Power Armor",
+    "author": "bp42s",
+    "summary": "Finally, enemies actually notice and fear you while you're wearing power armor!",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/79662/79662-1724907595-1672272725.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/79662/79662-1724907595-1672272725.png",
+    "category": "Gameplay",
+    "adult": false,
+    "version": "3.0.0",
+    "updated": "2024-08-29",
+    "endorsements": 929,
+    "downloads": 248325,
+    "main_files": [
+      {
+        "name": "Enemies Fear Power Armor",
+        "version": "3.0.0",
+        "size_bytes": 8359
       }
     ],
     "synced_on": "2026-10-29"
@@ -16911,6 +18060,53 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "80157": {
+    "name": "Minutemen Enforcer Armor",
+    "author": "Ariesthe_ram",
+    "summary": "A new semi-modular armor set for the minutemen. Flagged as ESL",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/80157/80157-1711913577-1752635498.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/80157/80157-1711913577-1752635498.png",
+    "category": "Armour",
+    "adult": false,
+    "version": "1.3",
+    "updated": "2024-04-06",
+    "endorsements": 1164,
+    "downloads": 220561,
+    "main_files": [
+      {
+        "name": "Minutemen Enforcer",
+        "version": "1.3",
+        "size_bytes": 55304016
+      },
+      {
+        "name": "Minutemen Enforcer (Ba2)",
+        "version": "1.3",
+        "size_bytes": 57378732
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "80425": {
+    "name": "KARMA",
+    "author": "bp42s",
+    "summary": "Karma is back! Experience a fully fledged, responsive, and polished version of Fallout 3/New Vegas’s Karma system, with custom-animated icons. Highly reactive, customizable, and includes extensive utility for modders.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/80425/80425-1712718136-1863821276.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/80425/80425-1712718136-1863821276.png",
+    "category": "Gameplay",
+    "adult": false,
+    "version": "3.4.1",
+    "updated": "2026-10-16",
+    "endorsements": 2122,
+    "downloads": 410600,
+    "main_files": [
+      {
+        "name": "KARMA",
+        "version": "3.4.1",
+        "size_bytes": 1405195
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "80451": {
     "name": "The Institute Settlement",
     "author": "GoArray",
@@ -17047,6 +18243,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "80942": {
+    "name": "Godrays Performance Fix Redux",
+    "author": "bp42s",
+    "summary": "Redux of Ultra Quality God Rays Performance Fix, built to be easily installable. Simply plug-and-play. Supports all game versions.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/80942/80942-1713653661-2057269920.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/80942/80942-1713653661-2057269920.png",
+    "category": "Performance",
+    "adult": false,
+    "version": "2.3.1",
+    "updated": "2026-05-25",
+    "endorsements": 2819,
+    "downloads": 298337,
+    "main_files": [
+      {
+        "name": "Godrays Performance Fix Redux",
+        "version": "2.3.1",
+        "size_bytes": 1962
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "80999": {
     "name": "Rebuild Bunker Hill",
     "author": "Aurelianis",
@@ -17173,6 +18390,48 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "81859": {
+    "name": "Backported Archive2 Support System",
+    "author": "Nukem",
+    "summary": "Adds support for the new BA2 archive format introduced in NG update 1.10.980 to versions 1.10.163 and older. Fixes crashes, similar to BEES for Skyrim Special Edition.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/81859/81859-1714515554-286241558.jpeg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/81859/81859-1714515554-286241558.jpeg",
+    "category": "Bug Fixes",
+    "adult": false,
+    "version": "1.0",
+    "updated": "2024-04-30",
+    "endorsements": 8912,
+    "downloads": 1130234,
+    "main_files": [
+      {
+        "name": "BackportedBA2Support-1_0",
+        "version": "1.0",
+        "size_bytes": 1303614
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "81933": {
+    "name": "Simple Fallout 4 Downgrader",
+    "author": "carxt - Nukem - Ungeziefi",
+    "summary": "A simple one-click downgrader that doesn’t require any login credentials.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/81933/81933-1714619983-1474600117.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/81933/81933-1714619983-1474600117.png",
+    "category": "Patches",
+    "adult": false,
+    "version": "0.5",
+    "updated": "2026-06-24",
+    "endorsements": 7302,
+    "downloads": 414583,
+    "main_files": [
+      {
+        "name": "Simple Fallout 4 Downgrader - for v1.11.221",
+        "version": "0.5",
+        "size_bytes": 0
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "82027": {
     "name": "LFO cc Enclave Remnants Patch WIP",
     "author": "Moonracer",
@@ -17241,6 +18500,37 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "82238": {
+    "name": "Backpacks of the Commonwealth - eXoCompat Patches",
+    "author": "Exoclyps",
+    "summary": "A couple of patches to change so that Backpacks found in the world uses the Backpacks of the Commonwealth system.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/82238/82238-1714995777-2105521009.jpeg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/82238/82238-1714995777-2105521009.jpeg",
+    "category": "Patches",
+    "adult": false,
+    "version": "1.0.0",
+    "updated": "2026-10-14",
+    "endorsements": 494,
+    "downloads": 526553,
+    "main_files": [
+      {
+        "name": "Thats Gunner Life - Backpacks Patch",
+        "version": "1.0.1",
+        "size_bytes": 1393
+      },
+      {
+        "name": "Eli's Armour Compendium - Backpacks Patch",
+        "version": "1.0.2",
+        "size_bytes": 4997
+      },
+      {
+        "name": "We Are The Minutemen - Backpacks Patch",
+        "version": "1.0.1",
+        "size_bytes": 36518
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "82265": {
     "name": "Archive - LFO Next Gen Content Patch",
     "author": "Moonracer",
@@ -17283,6 +18573,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "82592": {
+    "name": "Hit Those Explosives",
+    "author": "SoleVaultBoy",
+    "summary": "Hitting explosive weapons and ammo will now cause them to explode, allowing for chain reactions for total destruction.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/82592/82592-1715455445-2086026895.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/82592/82592-1715455445-2086026895.png",
+    "category": "Gameplay",
+    "adult": false,
+    "version": "1.6.1",
+    "updated": "2025-01-18",
+    "endorsements": 1618,
+    "downloads": 196817,
+    "main_files": [
+      {
+        "name": "Hit Those Explosives",
+        "version": "1.6.1",
+        "size_bytes": 2435
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "82661": {
     "name": "Western Wasteland Expansion - SS2 Addon Pack",
     "author": "SimSatan - ShagomyJago",
@@ -17321,6 +18632,32 @@
         "name": "ONCPlayerhome",
         "version": "0.9",
         "size_bytes": 26488
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "82806": {
+    "name": "Vintage Repeater (Winchester 1866 Henry 1860)",
+    "author": "Dak and Peg",
+    "summary": "It might be an antique but this classic lever gun still packs quite a punch!",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/82806/82806-1715745272-2054058216.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/82806/82806-1715745272-2054058216.png",
+    "category": "Weapons",
+    "adult": false,
+    "version": "1.0.4.1",
+    "updated": "2025-06-24",
+    "endorsements": 1665,
+    "downloads": 258366,
+    "main_files": [
+      {
+        "name": "CW Vintage Repeater - Munitions",
+        "version": "1.0.4.1",
+        "size_bytes": 124763687
+      },
+      {
+        "name": "CW Vintage Repeater - Vanilla",
+        "version": "1.0.4.1",
+        "size_bytes": 124763615
       }
     ],
     "synced_on": "2026-10-29"
@@ -17410,6 +18747,48 @@
         "name": "Magic Effect and Spell Engine Fixes - F4SE",
         "version": "3.2",
         "size_bytes": 204836
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "83532": {
+    "name": "Community Tweaks Merged",
+    "author": "ArcanicVoid and all authors who let me import their assets",
+    "summary": "Removes Annoyances... Implements Fixes and Immersive / QoL Tweaks. READ the Description; I know it's long, but there are many details of note.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/83532/83532-1716778657-699598686.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/83532/83532-1716778657-699598686.png",
+    "category": "Gameplay",
+    "adult": false,
+    "version": "1.2.3",
+    "updated": "2026-04-06",
+    "endorsements": 1001,
+    "downloads": 86594,
+    "main_files": [
+      {
+        "name": "Community Tweaks Merged",
+        "version": "1.2.3",
+        "size_bytes": 259051998
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "83706": {
+    "name": "Workshop Highlight Fix",
+    "author": "SoleVaultBoy",
+    "summary": "Changes the workshop selection effect from highlighting the whole object to just the outline, substantially improving the visibility.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/83706/83706-1716921838-156410274.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/83706/83706-1716921838-156410274.png",
+    "category": "User Interface",
+    "adult": false,
+    "version": "1.1.0",
+    "updated": "2024-08-10",
+    "endorsements": 2644,
+    "downloads": 185147,
+    "main_files": [
+      {
+        "name": "Workshop Highlight Fix",
+        "version": "1.1.0",
+        "size_bytes": 421
       }
     ],
     "synced_on": "2026-10-29"
@@ -17583,6 +18962,58 @@
         "name": "Simple Creation Club Delayed NG",
         "version": "1.1.0",
         "size_bytes": 64382
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "84440": {
+    "name": "Assorted Modular Tweaks",
+    "author": "bp42s - SoleVaultBoy",
+    "summary": "Compilation of small gameplay tweaks and fixes from various micro-mods, in one convenient, configurable, and modular ESPless package.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/84440/84440-1727474542-774505464.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/84440/84440-1727474542-774505464.png",
+    "category": "Gameplay",
+    "adult": false,
+    "version": "1.6.2",
+    "updated": "2026-05-25",
+    "endorsements": 1987,
+    "downloads": 429951,
+    "main_files": [
+      {
+        "name": "Assorted Modular Tweaks - TMR Config",
+        "version": "1.6.2",
+        "size_bytes": 1351
+      },
+      {
+        "name": "Assorted Modular Tweaks",
+        "version": "1.6.2",
+        "size_bytes": 6766
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "84449": {
+    "name": "Boon Island - Isles Of New England",
+    "author": "Tenhats and Shreddah4",
+    "summary": "A brand new World Space based on a real-life island with a tragic history, found between Boston and Far Harbor. Brought to life with a fully voice lore-friendly quest, secluded island settlement with immersive repairs, a detailed ocean",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/84449/84449-1718998717-314662929.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/84449/84449-1718998717-314662929.png",
+    "category": "New Lands",
+    "adult": false,
+    "version": "1.1.2",
+    "updated": "2026-10-16",
+    "endorsements": 2037,
+    "downloads": 363909,
+    "main_files": [
+      {
+        "name": "Boon Island - Loose Files",
+        "version": "1.1.0",
+        "size_bytes": 46271791
+      },
+      {
+        "name": "Boon Island",
+        "version": "1.1.2",
+        "size_bytes": 89961902
       }
     ],
     "synced_on": "2026-10-29"
@@ -18141,6 +19572,58 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "87501": {
+    "name": "Tumbajamba's Gunner Armor Collection",
+    "author": "tumbajamba and tenhats",
+    "summary": "Expand your Fallout 4 arsenal with a vast collection of Gunner-themed gear. This mod features over 24 customizable outfits, including two stunning Gunner Power Armor sets, two unique Super Mutant Armors, three dog armors, and a variety of",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/87501/87501-1726345449-1977220444.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/87501/87501-1726345449-1977220444.png",
+    "category": "Armour",
+    "adult": false,
+    "version": "1.01.2",
+    "updated": "2025-06-23",
+    "endorsements": 2055,
+    "downloads": 249297,
+    "main_files": [
+      {
+        "name": "Tumbajamba's Gunner Armor Colleciton - Loose Files",
+        "version": "1.01.2",
+        "size_bytes": 83029394
+      },
+      {
+        "name": "Tumbajamba's Gunner Armor Collection",
+        "version": "1.01.2",
+        "size_bytes": 143490875
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "87734": {
+    "name": "Wattz 3000 mkII Laser gun",
+    "author": "Painter2099",
+    "summary": "This mod will add a remade version of a popular Wattz Laser gun",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/87734/87734-1726420760-275422735.jpeg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/87734/87734-1726420760-275422735.jpeg",
+    "category": "Weapons",
+    "adult": false,
+    "version": "1.1",
+    "updated": "2024-10-21",
+    "endorsements": 3294,
+    "downloads": 634605,
+    "main_files": [
+      {
+        "name": "Wattz 3000 mkII 2k Textures",
+        "version": "1.1.4",
+        "size_bytes": 150676524
+      },
+      {
+        "name": "Wattz 3000 mkII 4k Textures",
+        "version": "1.1.4",
+        "size_bytes": 396566226
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "87827": {
     "name": "Outcasts and Remnants - T5VPatch",
     "author": "Exoclyps and The5thViking",
@@ -18158,6 +19641,53 @@
         "name": "Outcasts and Remnants - T5VPatch",
         "version": "1.0.2",
         "size_bytes": 4474379
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "87983": {
+    "name": "Misery Island - Isles Of New England",
+    "author": "Tenhats and Shreddah4",
+    "summary": "Brand new World Space based on the real-life Misery islands, found just off the coast of Salem. Brought to life with a series of lore-friendly quests, Multiple settlements with immersive repairs, New Radio station, Random Encounters, Custom",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/87983/87983-1762272388-1613680863.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/87983/87983-1762272388-1613680863.png",
+    "category": "New Lands",
+    "adult": false,
+    "version": "1.0.8",
+    "updated": "2025-12-15",
+    "endorsements": 1978,
+    "downloads": 527381,
+    "main_files": [
+      {
+        "name": "Misery Island 1.0.8",
+        "version": "1.0.8",
+        "size_bytes": 946961880
+      },
+      {
+        "name": "Misery Island 1.0.8 - Loose Files",
+        "version": "1.0.8",
+        "size_bytes": 1087385995
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "88016": {
+    "name": "Emirals Tales From The Commonwealth Fixes",
+    "author": "emiral",
+    "summary": "Contains quality of life fixes for Tales From The Commonwealth, including typo fixes, cell header fixes, and compatibility patches with the Unofficial Patch and the DLC files.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/88016/88016-1727399538-207766984.jpeg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/88016/88016-1727399538-207766984.jpeg",
+    "category": "Patches",
+    "adult": false,
+    "version": "1.3",
+    "updated": "2026-03-03",
+    "endorsements": 452,
+    "downloads": 340148,
+    "main_files": [
+      {
+        "name": "Emirals Tales From The Commonwealth Fixes",
+        "version": "1.4",
+        "size_bytes": 937307
       }
     ],
     "synced_on": "2026-10-29"
@@ -18553,6 +20083,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "89596": {
+    "name": "More Weathervanes",
+    "author": "Glitchfinder",
+    "summary": "Adds more potential MILA quest targets for Tinker Tom's \"Weathervane\" radiant quest.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/89596/89596-1741794061-1779501213.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/89596/89596-1741794061-1779501213.png",
+    "category": "Quests and Adventures",
+    "adult": false,
+    "version": "1.01",
+    "updated": "2026-07-24",
+    "endorsements": 1107,
+    "downloads": 146889,
+    "main_files": [
+      {
+        "name": "More Weathervanes",
+        "version": "1.01",
+        "size_bytes": 0
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "89669": {
     "name": "Lunar - Community Fixes Merged Patch",
     "author": "Farsveinn",
@@ -18570,6 +20121,27 @@
         "name": "Lunar - Community Fixes Merged Patch",
         "version": "1.0.3",
         "size_bytes": 99193
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "89732": {
+    "name": "Facial Expression and Eyetracking Engine Fixes - F4SE",
+    "author": "LarannKiar",
+    "summary": "Fixes various facial expression and eyetracking engine bugs.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/89732/89732-1733164663-1973905991.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/89732/89732-1733164663-1973905991.png",
+    "category": "Bug Fixes",
+    "adult": false,
+    "version": "3.2",
+    "updated": "2026-08-20",
+    "endorsements": 2395,
+    "downloads": 531476,
+    "main_files": [
+      {
+        "name": "Facial Expr. and Eyetr. Engine Fixes - F4SE",
+        "version": "3.2",
+        "size_bytes": 218295
       }
     ],
     "synced_on": "2026-10-29"
@@ -19087,6 +20659,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "91989": {
+    "name": "Commonwealth Weaponry Vendors",
+    "author": "Commonwealth Weaponry",
+    "summary": "Five brand new weapon vendors come to the commonwealth!",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/91989/91989-1741225565-139787459.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/91989/91989-1741225565-139787459.png",
+    "category": "NPC - Vendors",
+    "adult": false,
+    "version": "1.0.8",
+    "updated": "2025-03-17",
+    "endorsements": 1842,
+    "downloads": 215189,
+    "main_files": [
+      {
+        "name": "CWMerchants",
+        "version": "1.0.8",
+        "size_bytes": 43946645
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "92016": {
     "name": "Integrated Addons",
     "author": "Glitchfinder",
@@ -19186,6 +20779,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "92194": {
+    "name": "Laser RCW - Fallout New Vegas",
+    "author": "Commonwealth Weaponry",
+    "summary": "The New Vegas classic returns with brand new CUSTOM animations.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/92194/92194-1741916164-1598081623.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/92194/92194-1741916164-1598081623.png",
+    "category": "Weapons",
+    "adult": false,
+    "version": "1.0.4.1",
+    "updated": "2025-03-31",
+    "endorsements": 1654,
+    "downloads": 223032,
+    "main_files": [
+      {
+        "name": "Laser RCW",
+        "version": "1.0.4.1",
+        "size_bytes": 176221463
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "92227": {
     "name": "Knight Rhys and Scribe Haylen Dialogue Redux",
     "author": "ThreatUnprofiled",
@@ -19250,6 +20864,48 @@
         "name": "Simple Everyone's Best Friend",
         "version": "1.1.1",
         "size_bytes": 53002
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "92318": {
+    "name": "America Rising 2 - Delayed Start",
+    "author": "DBZWarrior360",
+    "summary": "Delays the start of America Rising 2",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/92318/92318-1742260707-1532208390.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/92318/92318-1742260707-1532208390.png",
+    "category": "Quests and Adventures",
+    "adult": false,
+    "version": "1.0",
+    "updated": "2025-03-18",
+    "endorsements": 155,
+    "downloads": 120997,
+    "main_files": [
+      {
+        "name": "America Rising 2 - Delayed Start",
+        "version": "1.0",
+        "size_bytes": 2645
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "92334": {
+    "name": "Hunting Shotgun - A New Vegas Classic - Remington 870",
+    "author": "Commonwealth Weaponry",
+    "summary": "The iconic Remington 870 comes to Fallout 4 with custom meshes textures sounds and animations.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/92334/92334-1742539146-1157580141.jpeg",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/92334/92334-1742539146-1157580141.jpeg",
+    "category": "Weapons",
+    "adult": false,
+    "version": "1.0.7",
+    "updated": "2026-02-20",
+    "endorsements": 1766,
+    "downloads": 236052,
+    "main_files": [
+      {
+        "name": "CW Hunting Shotgun",
+        "version": "1.0.7",
+        "size_bytes": 164748576
       }
     ],
     "synced_on": "2026-10-29"
@@ -19354,6 +21010,27 @@
         "name": "Codsworth - No Main Quest",
         "version": "1.1",
         "size_bytes": 6471
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "92613": {
+    "name": "Boston Riot Armor",
+    "author": "AriesThe_Ram",
+    "summary": "Adds a new lore friendly, modular, tiered armor to the Commonwealth. Flagged as ESL.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/92613/92613-1743298519-392903810.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/92613/92613-1743298519-392903810.png",
+    "category": "Armour",
+    "adult": false,
+    "version": "1.5.5",
+    "updated": "2026-08-21",
+    "endorsements": 2224,
+    "downloads": 313012,
+    "main_files": [
+      {
+        "name": "Boston Riot Armor",
+        "version": "1.5.4",
+        "size_bytes": 110576504
       }
     ],
     "synced_on": "2026-10-29"
@@ -20188,6 +21865,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "98208": {
+    "name": "Frame Generation",
+    "author": "doodlum",
+    "summary": "F4SE plugin which adds Frame Generation to significantly boost FPS and stabilise frame pacing. Supports all game versions and ENB.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/98208/98208-1763234834-1499454000.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/98208/98208-1763234834-1499454000.png",
+    "category": "Performance",
+    "adult": false,
+    "version": "1.3.3",
+    "updated": "2025-12-17",
+    "endorsements": 2239,
+    "downloads": 234369,
+    "main_files": [
+      {
+        "name": "Frame Generation",
+        "version": "1.3.3",
+        "size_bytes": 8976804
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "98413": {
     "name": "Oppressive and Extended Corvega Assembly Plant",
     "author": "MLVic",
@@ -20257,6 +21955,27 @@
         "name": "RR Clandestine Couture No Quest Patch",
         "version": "0.77wa",
         "size_bytes": 23954
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "98544": {
+    "name": "Motion Vector Fixes",
+    "author": "doodlum",
+    "summary": "F4SE plugin which fixes critical bugs with rendering related to TAA, motion blur, upscaling and frame generation. Supports all game versions and ENB.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/98544/98544-1764008483-1485781258.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/98544/98544-1764008483-1485781258.png",
+    "category": "Bug Fixes",
+    "adult": false,
+    "version": "1.0.4",
+    "updated": "2025-12-21",
+    "endorsements": 2894,
+    "downloads": 332573,
+    "main_files": [
+      {
+        "name": "Motion Vector Fixes",
+        "version": "1.0.4",
+        "size_bytes": 4639941
       }
     ],
     "synced_on": "2026-10-29"
@@ -20414,6 +22133,27 @@
         "name": "Who's The General Patch Hub",
         "version": "1.04",
         "size_bytes": 148653
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "99130": {
+    "name": "Upscaling",
+    "author": "doodlum",
+    "summary": "F4SE plugin which implements full support for DLSS 4 and FSR 3.1 upscaling for all game versions. DLAA support for ENB.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/99130/99130-1765838454-394509963.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/99130/99130-1765838454-394509963.png",
+    "category": "Performance",
+    "adult": false,
+    "version": "1.1.1",
+    "updated": "2025-12-26",
+    "endorsements": 1855,
+    "downloads": 199635,
+    "main_files": [
+      {
+        "name": "Upscaling",
+        "version": "1.1.1",
+        "size_bytes": 24918006
       }
     ],
     "synced_on": "2026-10-29"
@@ -20891,6 +22631,27 @@
         "name": "Longer Power Lines",
         "version": "1.0",
         "size_bytes": 351
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "102596": {
+    "name": "Refreshing Checkpoints",
+    "author": "Glitchfinder",
+    "summary": "Allows the post main quest faction checkpoints scattered across the game world to reset if all of their defenders die.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/102596/102596-1773674283-192024552.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/102596/102596-1773674283-192024552.png",
+    "category": "Gameplay",
+    "adult": false,
+    "version": "1.00",
+    "updated": "2026-03-16",
+    "endorsements": 486,
+    "downloads": 56943,
+    "main_files": [
+      {
+        "name": "Refreshing Checkpoints",
+        "version": "1.00",
+        "size_bytes": 7058
       }
     ],
     "synced_on": "2026-10-29"
@@ -21704,6 +23465,27 @@
     ],
     "synced_on": "2026-10-29"
   },
+  "106989": {
+    "name": "Rain Bug Fix - F4SE",
+    "author": "Zzyxzz",
+    "summary": "Fixes Fallout 4’s legendary rain bug: rain no longer suddenly disappears when turning, surfacing, or looking across water. Outdoor rain stays reliable while bridges and shelters still protect you correctly.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/106989/106989-1784054925-1862876536.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/106989/106989-1784054925-1862876536.png",
+    "category": "Bug Fixes",
+    "adult": false,
+    "version": "1.2.0",
+    "updated": "2026-08-27",
+    "endorsements": 910,
+    "downloads": 64206,
+    "main_files": [
+      {
+        "name": "Rain Bug Fix - RD",
+        "version": "1.2.0",
+        "size_bytes": 338159
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
   "107059": {
     "name": "Holstered Weapon Light Fix",
     "author": "Zzyxzz",
@@ -21873,6 +23655,48 @@
         "name": "People Live In   Parkview Apartments",
         "version": "1.01",
         "size_bytes": 3106440
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "107810": {
+    "name": "Smooth Cell Loading - F4SE",
+    "author": "Zzyxzz",
+    "summary": "Removes the stutter that occurs when entering or loading new cells in Fallout 4, providing smoother traversal!",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/107810/107810-1786287177-782396600.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/107810/107810-1786287177-782396600.png",
+    "category": "Bug Fixes",
+    "adult": false,
+    "version": "1.3.5",
+    "updated": "2026-08-27",
+    "endorsements": 1389,
+    "downloads": 79461,
+    "main_files": [
+      {
+        "name": "Smooth Cell Loading - RD",
+        "version": "1.3.5",
+        "size_bytes": 360668
+      }
+    ],
+    "synced_on": "2026-10-29"
+  },
+  "107858": {
+    "name": "Stuck LOD Fix - F4SE",
+    "author": "Zzyxzz",
+    "summary": "Fixes the Fallout 4 bug where distant LOD can remain stuck after loading into an area, causing low-detail geometry to stay visible instead of being replaced by the correct objects.",
+    "picture": "https://staticdelivery.nexusmods.com/mods/1151/images/107858/107858-1786308087-2146512571.png",
+    "thumbnail": "https://staticdelivery.nexusmods.com/mods/1151/images/thumbnails/107858/107858-1786308087-2146512571.png",
+    "category": "Bug Fixes",
+    "adult": false,
+    "version": "1.3.3",
+    "updated": "2026-08-27",
+    "endorsements": 799,
+    "downloads": 56891,
+    "main_files": [
+      {
+        "name": "Stuck LOD Fix - RD",
+        "version": "1.3.3",
+        "size_bytes": 350042
       }
     ],
     "synced_on": "2026-10-29"
