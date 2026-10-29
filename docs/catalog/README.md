@@ -15,20 +15,20 @@ Column definitions and allowed values: [data/README.md](../../data/README.md). I
 <!-- BEGIN GENERATED: do not edit, run scripts/build_catalog.py -->
 | Module | Mods | Core | Recommended |
 | --- | --- | --- | --- |
-| [Base: script extender and unofficial patch](base.md) | 6 | 3 | 0 |
-| [Stability and performance](stability.md) | 74 | 4 | 15 |
-| [Interface](interface.md) | 33 | 1 | 13 |
-| [Gameplay overhaul and enemies](gameplay.md) | 102 | 0 | 12 |
-| [Brotherhood of Steel](brotherhood.md) | 68 | 0 | 9 |
-| [Minutemen](minutemen.md) | 54 | 0 | 13 |
+| [Base: script extender and unofficial patch](base.md) | 7 | 3 | 0 |
+| [Stability and performance](stability.md) | 90 | 4 | 20 |
+| [Interface](interface.md) | 42 | 1 | 18 |
+| [Gameplay overhaul and enemies](gameplay.md) | 111 | 0 | 12 |
+| [Brotherhood of Steel](brotherhood.md) | 69 | 0 | 9 |
+| [Minutemen](minutemen.md) | 56 | 0 | 13 |
 | [The Institute](institute.md) | 44 | 0 | 5 |
-| [The Railroad](railroad.md) | 55 | 0 | 11 |
+| [The Railroad](railroad.md) | 56 | 0 | 12 |
 | [Raiders and hostile factions](raiders.md) | 32 | 0 | 3 |
-| [Factions, endings and starts](factions.md) | 30 | 0 | 4 |
-| [Settlements](settlements.md) | 80 | 0 | 14 |
+| [Factions, endings and starts](factions.md) | 33 | 0 | 4 |
+| [Settlements](settlements.md) | 84 | 0 | 15 |
 | [DLC](dlc.md) | 65 | 0 | 12 |
-| [Quests and locations](quests.md) | 127 | 0 | 39 |
-| [Weapons and armor](weapons-armor.md) | 77 | 0 | 12 |
-| [Immersion and quality of life](immersion.md) | 63 | 0 | 11 |
-| [Companions](companions.md) | 40 | 0 | 5 |
+| [Quests and locations](quests.md) | 138 | 0 | 41 |
+| [Weapons and armor](weapons-armor.md) | 93 | 0 | 12 |
+| [Immersion and quality of life](immersion.md) | 68 | 0 | 12 |
+| [Companions](companions.md) | 43 | 0 | 5 |
 <!-- END GENERATED -->
