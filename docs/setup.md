@@ -115,6 +115,7 @@ Not Proton passes launch options through a shell, as Steam does on Linux, so `NA
    | Lines | Value |
    | --- | --- |
    | `iSize W`, `iSize H` | `1720`, `720`: half of 3440×1440, upscaled by MetalFX (factor `2.0` in the launch options). For another screen, use half its resolution |
+   | In `HighFPSPhysicsFix.ini`, `[Display]` | `Fullscreen=false`, `Borderless=true`, `BorderlessUpscale=true`. Without them the game takes exclusive fullscreen at 1720×720, and the main menu is shifted with its buttons off screen |
    | `bVolumetricLightingEnable`, `iVolumetricLightingQuality` | `0`, `0` (godrays) |
    | `bSAOEnable`, `bScreenSpaceBokeh`, `bMBEnable`, `bLensFlare` | `0` |
    | `bEnableWetnessMaterials`, `bEnableRainOcclusion`, `bPrecipitationOcclusion` | `0` |
