@@ -67,7 +67,7 @@ The manifest is a native macOS file, so the lock applies. From here on, never pr
 4. Shortcut properties → Launch Options, on one line:
 
    ```
-   DXMT_METALFX_SPATIAL_SWAPCHAIN=1 DXMT_CONFIG="d3d11.metalSpatialUpscaleFactor=2.0" STEAM_COMPAT_DATA_PATH="$HOME/Library/Application Support/Steam/steamapps/compatdata/377160" STEAM_COMPAT_INSTALL_PATH="$HOME/Library/Application Support/Steam/steamapps/common/Fallout 4" STEAM_COMPAT_LIBRARY_PATHS="$HOME/Library/Application Support/Steam/steamapps" SteamAppId=377160 %command%
+   NOTPROTON_HIDE_MENUBAR=1 WINEMSYNC=1 WINEDLLOVERRIDES="xaudio2_7,x3daudio1_7=n,b" DXMT_METALFX_SPATIAL_SWAPCHAIN=1 DXMT_CONFIG="d3d11.metalSpatialUpscaleFactor=2.0" STEAM_COMPAT_DATA_PATH="$HOME/Library/Application Support/Steam/steamapps/compatdata/377160" STEAM_COMPAT_INSTALL_PATH="$HOME/Library/Application Support/Steam/steamapps/common/Fallout 4" STEAM_COMPAT_LIBRARY_PATHS="$HOME/Library/Application Support/Steam/steamapps" SteamAppId=377160 %command%
    ```
 
 5. Launch the shortcut. MO2 asks which game to manage: pick **Fallout 4** at `S:/steamapps/common/Fallout 4`.
@@ -79,6 +79,9 @@ Why each variable is there:
 | `STEAM_COMPAT_DATA_PATH` | Runs MO2 in the game's prefix (377160) instead of the shortcut's own |
 | `STEAM_COMPAT_INSTALL_PATH`, `STEAM_COMPAT_LIBRARY_PATHS` | Make Not Proton mount `S:`, which it only does for programs inside a Steam library |
 | `DXMT_METALFX_SPATIAL_SWAPCHAIN=1`, `DXMT_CONFIG=…` | DXMT upscales the game's image with Apple's MetalFX by the given factor, so the game can render at half resolution and still fill the screen (see step 6) |
+| `WINEMSYNC=1` | Mach-semaphore synchronisation instead of round trips to `wineserver`: `wineserver` stays under 1 % CPU in game. `notproton-wine.log` shows `msync: up and running` |
+| `WINEDLLOVERRIDES="xaudio2_7,x3daudio1_7=n,b"` | Uses Microsoft's XAudio2 from the June 2010 DirectX redistributable, already in the prefix's `system32`, instead of Wine's. This is what CodeWeavers' own Fallout 4 recipe does, but Not Proton does not apply it. Fixed the crackling sound (see [troubleshooting](troubleshooting.md#crackling-sound)) |
+| `NOTPROTON_HIDE_MENUBAR=1` | Turns on the menu bar plugin from section 6, item 5, which keeps the mouse in the game. Does nothing if the plugin is not installed |
 | `MTL_HUD_ENABLED=1` (optional) | Shows Apple's Metal HUD: fps, GPU time per frame, frame interval |
 | `SteamAppId=377160` | Makes the game see Fallout 4's app ID rather than the shortcut's (precaution, not tested on its own) |
 
@@ -108,7 +111,7 @@ Not Proton passes launch options through a shell, as Steam does on Linux, so `NA
    | Section | Line | Reason |
    | --- | --- | --- |
    | `[General]` | `bDisableAllGore=1` | Crash on dismemberment under CrossOver |
-   | `[Controls]` | `bBackgroundMouse=1` | Mouse input under Wine |
+   | `[Controls]` | `bBackgroundMouse=0` | The game takes the mouse exclusively, so Wine can keep the cursor in the window (with item 5 below). Many Mac guides say `1`; with `1` the macOS cursor wanders off and the game's cursor drifts away from it |
 
 4. Fallout 4's launcher detects an unknown GPU and picks Ultra, far too heavy for an M3 (69-94 ms of GPU time per frame). In the profile's `fallout4prefs.ini`, under `[Display]` and `[Imagespace]`:
 
@@ -123,7 +126,30 @@ Not Proton passes launch options through a shell, as Steam does on Linux, so `NA
    | `uiShadowFilter`, `uiOrthoShadowFilter`, `iDirShadowSplits` | `1`, `1`, `2` |
    | `iMaxFocusShadows`, `iMaxFocusShadowsDialogue`, `iMaxAnisotropy` | `1`, `1`, `8` |
 
-5. Back it up before installing any mod: `fo4-backup.sh profile "<profile name>"`.
+5. Keep the mouse inside the game. Two pieces, both needed:
+
+   - In the prefix's registry, make Wine's DirectInput always warp the cursor back into the window. Run it with the game closed. It calls Wine directly, not through Not Proton, so it also works with MO2 open; `WINEMSYNC=1` must match the launch options or Wine refuses to join the running `wineserver`:
+
+     ```sh
+     WINEPREFIX="$HOME/Library/Application Support/Steam/steamapps/compatdata/377160/pfx" WINEMSYNC=1 \
+       "$HOME/Library/Application Support/notproton/runners/crossover-26.3.0.39832/CrossOver/lib/wine/x86_64-unix/wine.notproton-orig" \
+       reg add 'HKCU\Software\Wine\DirectInput' /v MouseWarpOverride /t REG_SZ /d force /f
+     ```
+
+   - Install the menu bar plugin from [`plugins/hide-menubar`](../plugins/hide-menubar). A click on the top row of the screen opens the macOS menu bar, even when it is hidden, and Wine releases the mouse whenever a menu opens (`releaseMouseCapture` on `NSMenuDidBeginTrackingNotification` in `winemac.drv`). The plugin asks macOS to remove the menu bar and the Dock while `Fallout4.exe` is the active app. It loads through Not Proton's plugin folder and does not touch the runner:
+
+     ```sh
+     cd plugins/hide-menubar
+     clang -arch x86_64 -mmacosx-version-min=10.15 -O2 -dynamiclib -fobjc-arc -framework AppKit \
+       -o hide_menubar_shim.dylib hide_menubar_shim.m
+     codesign -s - -f hide_menubar_shim.dylib
+     P="$HOME/Library/Application Support/notproton/plugins"; mkdir -p "$P"
+     cp hide_menubar_shim.dylib hide-menubar.conf "$P/"
+     ```
+
+     With `NOTPROTON_HIDE_MENUBAR=1` in the launch options, `notproton-wine.log` shows `hide_menubar_shim: …Fallout4.exe on NSApplicationDidBecomeActiveNotification options=0xa`.
+
+6. Back it up before installing any mod: `fo4-backup.sh profile "<profile name>"`.
 
 On an AZERTY keyboard, the game reads keys as QWERTY under Wine. In game, Settings → Controls: Forward on **Z**, Strafe Left on **Q**, VATS on **A**.
 
