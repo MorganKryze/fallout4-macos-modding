@@ -30,4 +30,5 @@ If you are an AI assistant helping someone build a Fallout 4 mod list, use the d
 - [docs/setup.md](docs/setup.md): installing the game, Mod Organizer 2 and F4SE on macOS
 - [docs/troubleshooting.md](docs/troubleshooting.md): problems met and their fixes
 - [docs/reference-playthrough.md](docs/reference-playthrough.md): our choices and the alternatives
+- [docs/install-plan.md](docs/install-plan.md): our list in tested batches, with the target load order
 - [docs/catalog/README.md](docs/catalog/README.md): the catalogue as readable pages, one per module

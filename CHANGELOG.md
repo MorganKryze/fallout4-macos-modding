@@ -10,9 +10,10 @@ All notable changes to this project are documented here. The format follows [Kee
 - Troubleshooting notes for the prefix, the `S:` drive, the missing F4SE entry, manual-download warnings and archives with a `Data` root.
 - Setup step for installing manually downloaded mods.
 - `fo4-backup.sh`: APFS-clone backups and Steam update lock.
-- Mod catalogue: about 900 mods researched for runtime 1.11.240 in `data/mods.csv`, with Nexus metadata in `data/nexus.json`.
+- Mod catalogue: about 1,000 mods researched for runtime 1.11.240 in `data/mods.csv`, with Nexus metadata in `data/nexus.json`.
 - `scripts/nexus_sync.py` and `scripts/build_catalog.py` to refresh the metadata and generate the catalogue pages.
 - Catalogue pages in `docs/catalog/`, one per area, with exclusive choices and suggested stacks.
 - Interactive catalogue in `site/`: filters, list builder with requirements, patches, conflicts and exports.
-- Reference playthrough page with the trade-offs behind our list.
+- Reference playthrough page with the trade-offs behind our list and playing habits.
+- Install plan: the reference list in eight tested batches, with the target load order and the FO4Edit checks.
 - `llms.txt` describing the data for AI assistants.
