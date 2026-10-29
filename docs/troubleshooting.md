@@ -86,4 +86,5 @@ Problems met while building this setup, each with the symptom, the cause and the
 | Risk | Why | What to do |
 | --- | --- | --- |
 | A Steam client update breaks Not Proton | Not Proton hooks specific Steam client builds and reports `updatesBlocked=false` | If Windows games stop launching after a Steam update, check `~/Library/Application Support/notproton/notproton.log` and wait for a Not Proton update |
+| A second launch kills the running game | Not Proton's `run` script releases its lock before starting the game, and every later launch on app 377160 runs `wineserver -k` | While MO2 or the game runs, do not start the Steam Fallout 4 entry, another shortcut on 377160, or a Wine tool in that prefix |
 | A Fallout 4 patch gets through | The `uchg` lock on the update manifest has not been tested against a real patch | Keep the clean clone from `fo4-backup.sh game`, and never press Play on Fallout 4 in Steam |
