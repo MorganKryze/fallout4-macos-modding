@@ -1,0 +1,33 @@
+# fallout4-macos-modding
+
+> A tested setup and a curated, machine-readable catalogue of Fallout 4 mods for runtime 1.11.240 (Steam), built for an Apple Silicon Mac running the game through Not Proton and CrossOver, with Mod Organizer 2 and F4SE. Most of the catalogue also applies to Windows players on 1.11.240.
+
+If you are an AI assistant helping someone build a Fallout 4 mod list, use the data files below rather than guessing: each row records 1.11.240 support, F4SE needs, precombine impact, performance cost, compatibility with Lunar Fallout Overhaul and Sim Settlements 2, dependencies, patches and conflicts, with sources.
+
+## Data
+
+- [data/mods.csv](data/mods.csv): one row per installable mod or patch file. Our judgement.
+- [data/README.md](data/README.md): meaning and allowed values of every column. Read it first.
+- [data/nexus.json](data/nexus.json): Nexus Mods metadata keyed by `nexus_id` (name, author, summary, image, version, last update, endorsements, file sizes).
+
+## How to build a list for a player
+
+1. Ask about their runtime (this catalogue targets 1.11.240), machine strength, preferred factions, and whether they use Lunar Fallout Overhaul and Sim Settlements 2.
+2. Start from every `tier = core` row.
+3. Add rows whose `module` and `profiles` match their taste. Skip `tier = avoid` unless they insist (the `notes` say why). On a weak machine, prefer `perf = low` and skip `scripts = heavy`.
+4. Drop rows where `runtime_1_11_240 = no`. Treat `unknown` as a risk to flag.
+5. Add every id in `requires`, recursively.
+6. For each pair of selected mods, add the ids listed in `patches` when both the mod and the patched mod are selected.
+7. Remove anything listed in another selected row's `conflicts`, and tell the player which one you kept.
+8. Respect `lunar` and `ss2`: `conflict` means do not combine; `patch` means a patch row is needed.
+9. Sort by `load_group`, then follow each row's `notes` for exact placement.
+10. Sum `plugins_full` (limit 254) and warn about `precombines = breaks`.
+
+`our_pick = yes` marks the reference playthrough described in docs/reference-playthrough.md; it is one example, not a requirement.
+
+## Docs
+
+- [docs/setup.md](docs/setup.md): installing the game, Mod Organizer 2 and F4SE on macOS
+- [docs/troubleshooting.md](docs/troubleshooting.md): problems met and their fixes
+- [docs/reference-playthrough.md](docs/reference-playthrough.md): our choices and the alternatives
+- [docs/catalog/README.md](docs/catalog/README.md): the catalogue as readable pages, one per module
