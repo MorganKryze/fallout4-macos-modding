@@ -6,6 +6,8 @@ The mod list we play ourselves, and why. It is one way through the [catalogue](c
 
 **Stable and smooth comes before more features.** The target is a game that runs at a steady 40-45 fps on a base Apple M3 under Wine and does not crash, for a player who has already finished Fallout 4 and wants to rediscover it. A mod gets in when it changes something you will feel while playing. When in doubt it stays out: light mods can be added mid-game, but a heavy scripted mod cannot be removed from a long save.
 
+On the base M3 the target holds with batches 1 and 2 of the [install plan](install-plan.md), not with the full list, which falls to 20-30 fps outdoors: see [performance](performance.md) before installing it on a similar Mac.
+
 ## What the game feels like
 
 | You notice | What does it |

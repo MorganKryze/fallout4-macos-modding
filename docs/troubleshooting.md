@@ -80,7 +80,7 @@ Problems met while building this setup, each with the symptom, the cause and the
 
 **Cause.** The game is GPU-bound. Fallout 4's launcher does not recognise the Apple GPU and writes the Ultra preset: 4096 shadows out to 20,000 units, godrays, ambient occlusion, bokeh. Lowering those settings alone still left 69 ms outside at 3440×1440.
 
-**Fix.** The settings and the half-resolution render with MetalFX upscaling in [setup.md](setup.md#6-mo2-profile). The game fills the screen at 1720×720 upscaled to 3440×1440.
+**Fix.** The settings and the half-resolution render with MetalFX upscaling in [setup.md](setup.md#6-mo2-profile). The game fills the screen at 1720×720 upscaled to 3440×1440. With many mods the GPU limit comes back: [performance.md](performance.md) has the measurements and which Mac suits which list.
 
 ## Keys act as QWERTY
 
