@@ -2,7 +2,7 @@
 
 A tested setup for running a modded Fallout 4 on an Apple Silicon Mac, and a catalogue of about 1,000 mods evaluated for runtime 1.11.240. The macOS Steam client launches the Windows game through Not Proton and CrossOver, Mod Organizer 2 runs inside the game's Wine prefix, and F4SE loads. Every setup step was run on a real machine.
 
-**Status: work in progress.** The base works (game, MO2, F4SE up to the main menu). The catalogue is researched; mods are being installed and tested in batches, and v1.0.0 will mark a full tested playthrough.
+**Status: frozen at v1.0.0.** The setup works and every step is documented. On the reference MacBook Air M3, the game with stability and interface mods holds 40-45 fps; the full reference list (81 mods) runs but falls to 20-30 fps outdoors. For a heavy list, plan on a Mac with a Pro or Max chip or a newer generation: see [performance](docs/performance.md). The repo is no longer developed; the catalogue stays valid for runtime 1.11.240 on any platform.
 
 ## Choose your mods
 
@@ -16,14 +16,15 @@ A tested setup for running a modded Fallout 4 on an Apple Silicon Mac, and a cat
 
 Each mod is rated on what decides whether it belongs in a stable list: support for 1.11.240, F4SE DLLs, effect on precombines (PRP), performance cost, compatibility with Lunar Fallout Overhaul and Sim Settlements 2, faction-ending locks, requirements, patches and conflicts, with sources.
 
-## What works so far
+## What works
 
 | Piece | Version | State |
 | --- | --- | --- |
 | Fallout 4 (Steam, GOTY) | 1.11.240 | Runs, updates locked |
 | CrossOver + Not Proton | 26.3 + 1.2.2 | Runs the game from the macOS Steam client |
 | Mod Organizer 2 | 2.5.2 | Runs in the game's prefix |
-| F4SE | 0.7.9 | Loads, main menu reached |
+| F4SE | 0.7.9 | Loads |
+| Reference list | 81 mods, 84 plugins | Installed and played on an M3 Air: 45 fps median over a 35-minute session, 20-30 fps outdoors after 30 minutes |
 
 Reference machine: Apple M3, 16 GB, macOS 26.5.1.
 
@@ -33,6 +34,7 @@ Reference machine: Apple M3, 16 GB, macOS 26.5.1.
 | --- | --- |
 | [docs/setup.md](docs/setup.md) | Step-by-step setup, paths and launch options |
 | [docs/troubleshooting.md](docs/troubleshooting.md) | Problems met, their causes and fixes |
+| [docs/performance.md](docs/performance.md) | Measured frame times, and which Mac for which list |
 | [scripts/fo4-backup.sh](scripts/fo4-backup.sh) | APFS-clone backups of the game, MO2 and profiles; Steam update lock |
 
 ## Requirements
