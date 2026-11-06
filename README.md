@@ -2,7 +2,7 @@
 
 A tested setup for running a modded Fallout 4 on an Apple Silicon Mac, and a catalogue of about 1,000 mods evaluated for runtime 1.11.240. The macOS Steam client launches the Windows game through Not Proton and CrossOver, Mod Organizer 2 runs inside the game's Wine prefix, and F4SE loads. Every setup step was run on a real machine.
 
-**Status: frozen at v1.0.0.** The setup works and every step is documented. On the reference MacBook Air M3, the game with stability and interface mods holds 40-45 fps; the full reference list (81 mods) runs but falls to 20-30 fps outdoors. For a heavy list, plan on a Mac with a Pro or Max chip or a newer generation: see [performance](docs/performance.md). The repo is no longer developed; the catalogue stays valid for runtime 1.11.240 on any platform.
+**Status: frozen at v1.0.0.** The setup works and every step is documented. On the reference MacBook Air M3, the game with stability and interface mods holds 40-45 fps; the full reference list (81 mods) runs but falls to 20-30 fps outdoors. For a heavy list, plan on a Mac with a Pro or Max chip or a newer generation: see [performance](docs/performance.md). The repo is no longer developed. The catalogue, valid for runtime 1.11.240 on any platform, continues in [Special Mods List](https://github.com/MorganKryze/special-mods-list).
 
 ## Choose your mods
 
