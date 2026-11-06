@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-11-06
+
+Final state of the project on the reference Mac. The repo is frozen from this release.
+
 ### Added
 
 - Setup guide: Not Proton and CrossOver, game install, update lock, Mod Organizer 2 in the game prefix, F4SE, MO2 profile.
@@ -21,11 +25,17 @@ All notable changes to this project are documented here. The format follows [Kee
 - `plugins/hide-menubar`: a Not Proton plugin that removes the macOS menu bar while the game is active, so a click on the top screen edge no longer takes the mouse from the game.
 - Setup: MSync, Microsoft's XAudio2, and the mouse fix (`bBackgroundMouse=0`, `MouseWarpOverride=force`, menu bar plugin).
 - Troubleshooting notes for crackling sound and the game cursor drifting from the macOS cursor.
+- Performance page: frame times measured batch by batch on the M3 MacBook Air, and which Mac suits which list.
 
 ### Changed
 
 - Catalogue site redesigned as an inspection record: a clearer first screen, Lunar, Sim Settlements 2 and "in your list" filters, a section index, cards that say what adding a mod brings, a list form with a hatched gauge for uncounted plugins, undo for presets, a mobile list sheet, sortable table, and keyboard focus kept on every action.
 
+- README status: frozen, with the measured frame rate of the full list.
+
 ### Fixed
 
 - The Pages root now redirects to the catalogue instead of returning 404.
+
+[Unreleased]: https://github.com/MorganKryze/fallout4-macos-modding/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/MorganKryze/fallout4-macos-modding/releases/tag/v1.0.0
